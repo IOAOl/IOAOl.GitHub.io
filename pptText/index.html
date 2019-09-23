@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      TSP 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="IOAOl">
+    
+    
+
+    <meta name="description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短；  每个城市只能访问一次；  从某城市出发，最后回到该城市。    让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好">
+<meta property="og:type" content="website">
+<meta property="og:title" content="TSP">
+<meta property="og:url" content="http://yoursite.com/pptText/index.html">
+<meta property="og:site_name" content="IOAOl的记lu">
+<meta property="og:description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短；  每个城市只能访问一次；  从某城市出发，最后回到该城市。    让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/ivBU6RxodJYnZKr.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/ouY7XfMKmTSia8p.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/iCTeADruUnYm9Ia.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/WFVGmarTHC384hi.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/qcUid3omRzaVG59.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/vxHhVn84XWAS1Pp.png">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/qZefMb7NgIaR1AY.gif">
+<meta property="og:image" content="https://i.loli.net/2019/09/23/H8VtSwGa3Ax42TJ.png">
+<meta property="og:updated_time" content="2019-09-23T13:17:51.164Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="TSP">
+<meta name="twitter:description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短；  每个城市只能访问一次；  从某城市出发，最后回到该城市。    让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好">
+<meta name="twitter:image" content="https://i.loli.net/2019/09/23/ivBU6RxodJYnZKr.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">IOAOl的记lu</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="https://github.com/IOAOl" title class>关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">TSP</h1>
+
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="TSP的几个算法"><a href="#TSP的几个算法" class="headerlink" title="TSP的几个算法"></a>TSP的几个算法</h1><p>这是一个自己做的ppt的记录。</p>
+<h2 id="TSP实例"><a href="#TSP实例" class="headerlink" title="TSP实例"></a>TSP实例</h2><p>有一位商人，他想访问德国的某些城市，要求：</p>
+<ol>
+<li><p>所走路程最短；</p>
+</li>
+<li><p>每个城市只能访问一次；</p>
+</li>
+<li><p>从某城市出发，最后回到该城市。</p>
+</li>
+</ol>
+<p><img src="https://i.loli.net/2019/09/23/ivBU6RxodJYnZKr.png" alt="1568996702133 - 副本.png"></p>
+<p>让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。</p>
+<p><img src="https://i.loli.net/2019/09/23/ouY7XfMKmTSia8p.png" alt="1568997255774 - 副本.png"></p>
+<p>看完了应用，我们来看一下怎么去解决这个问题吧</p>
+<p>首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况</p>
+<p><img src="https://i.loli.net/2019/09/23/iCTeADruUnYm9Ia.png" alt="1569036262994 - 副本.png"></p>
+<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>我们尝试优化一下，目前最好的优化是通过动态规划去解决，复杂度为o（2^n*n^2）</p>
+<p>首先得懂得为什么可以使用动态规划，<strong>动态规划就是在求解一个复杂问题时，将其分解为若干个简单问题。通过求解简单问题的最优解，来找到目标问题的最优解。</strong></p>
+<p><strong>使用动态规划，需要问题本身有最优子结构</strong>，我们需要找到要解决的问题的子问题。</p>
+<p>现在找一下tsp的最优子结构</p>
+<p><img src="https://i.loli.net/2019/09/23/WFVGmarTHC384hi.png" alt="1569036739438 - 副本.png"></p>
+<pre><code>从0出发，经过[1,2,3]这几个城市，然后回到0，使得花费最少。要实现这个要求，需要从下面三个实现方案中选择花费最少的方案。</code></pre><p>　　　　1、 从0出发，到1，然后再从1出发，经过[2,3]这几个城市，然后回到0，使得花费最少。</p>
+<p>　　　　2、 从0出发，到2，然后再从2出发，经过[1,3]这几个城市，然后回到0，使得花费最少。</p>
+<p>　　　　3、 从0出发，到3，然后再从3出发，经过[1,2]这几个城市，然后回到0，使得花费最少。<br>  可以发现，三个小的解决方案的最优解，构成了大的解决方案，所以这个问题具有最优子结构，可以用动态规划来实现。</p>
+<p><img src="https://i.loli.net/2019/09/23/qcUid3omRzaVG59.png" alt="1569036847226.png"></p>
+<h4 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h4><p>这个算法由于空间复杂度有o(n*2^n)，所以做一般的算法题要用到状态压缩，用0代表没有到达该城市，1代表去过该城市。例如：11011代表1-5个城市只有第三个城市没去过。上述的S集合就是通过状压保存。</p>
+<p><img src="https://i.loli.net/2019/09/23/vxHhVn84XWAS1Pp.png" alt="1569036878291.png"></p>
+<p>说了这么多，看一下怎么解决，主要分为4个步骤。</p>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><p>（1）选择G的任意一个顶点r作为根节点(出发/结束点)</p>
+<p>（2）用Prim算法找出G的一棵以r为根的最小生成树T</p>
+<p>（3）前序遍历访问树T，得到遍历顺序组成的顶点表L</p>
+<p>（4）将r加到顶点表L的末尾，按L中顶点的次序组成哈密顿回路H</p>
+<p>简单的解释一下其中的名词，有需要自己了解</p>
+<h4 id="prim算法"><a href="#prim算法" class="headerlink" title="prim算法"></a>prim算法</h4><p>Prim算法如何进行计算？<br>①选定一个起点做为一个集合 a ，剩下的点为另一个集合 b</p>
+<p>②将横跨两个集合且权重在其中最小的边加入最小生成树</p>
+<p>③将刚刚加入最小生成树的边中不在集合 a 中的点加入集合 a，直到所有的点加入集合 a</p>
+<h4 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h4><p>首先访问根节点，然后遍历左子树，最后遍历右子树。</p>
+<p><img src="https://i.loli.net/2019/09/23/qZefMb7NgIaR1AY.gif" alt="GIF.gif"></p>
+<h2 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h2><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>遗传算法（Genetic Algorithm, GA）是模拟达尔文生物进化论的自然选择和遗传学机理的生物进化过程的计算模型，是一种通过模拟自然进化过程搜索最优解的方法。</p>
+<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><p><img src="https://i.loli.net/2019/09/23/H8VtSwGa3Ax42TJ.png" alt="1569037387267.png"></p>
+<p>这里补充一下细节：</p>
+<ol>
+<li>交叉操作：随机挑取在染色体（路径）上的一个序号（2-n-1）交换两条染色体序号后面的（基因），这里需要进行基因冲突处理，即交换后要检查是否交换过来了已有的基因，如果是则和另一条的重复基因交换。</li>
+<li>变异操作，对一条基因选出i，j（0&lt;i&lt;j&lt;=n）将其中的基因交换。</li>
+</ol>
+
+  </section>
+
+  <section class="post-comments">
+ <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2020(超越人类版). | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fb35aaf09049568c48527b31b2660d3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
