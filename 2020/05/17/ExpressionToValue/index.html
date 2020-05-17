@@ -16,24 +16,24 @@
     
     
 
-    <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
+    <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ExpressionToValue | IOAOl的记lu">
 <meta property="og:url" content="http://yoursite.com/2020/05/17/ExpressionToValue/index.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
+<meta property="og:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
 <meta property="og:locale" content="cn">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730585178.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730598531.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730611640.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730620914.png">
-<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730840570.png">
-<meta property="og:updated_time" content="2020-05-17T16:16:43.421Z">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/9yvzgBIKtb4h1Fr.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/wQOiU6col4kmjx2.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/r9RHuIQCJpPechX.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/MzuFHbxXe1aEsKC.png">
+<meta property="og:image" content="https://i.loli.net/2020/05/18/wpmizh45WgBr3GL.png">
+<meta property="og:updated_time" content="2020-05-17T16:24:14.270Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="ExpressionToValue | IOAOl的记lu">
-<meta name="twitter:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
-<meta name="twitter:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png">
+<meta name="twitter:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
+<meta name="twitter:image" content="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png">
     
     
     
@@ -179,20 +179,20 @@ classes that you can use:
 
   <section id="post-content" class="article-content post">
     <h1 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h1><p>主要分成三个部分。Expression，item和factor。</p>
-<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png" alt="1589730555323"></p>
+<p><img src="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png" alt="1589730555323.png"></p>
 <h1 id="Expression（-）"><a href="#Expression（-）" class="headerlink" title="Expression（+/-）"></a>Expression（+/-）</h1><p>由divStringExp类的divexp（）方法分割字符串</p>
 <p>先用栈找出最外层的括号：</p>
-<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730585178.png" alt="1589730585178"></p>
+<p><img src="https://i.loli.net/2020/05/18/9yvzgBIKtb4h1Fr.png" alt="1589730585178.png"></p>
 <p>然后往括号两端扩展</p>
-<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730598531.png" alt="1589730598531"></p>
+<p><img src="https://i.loli.net/2020/05/18/wQOiU6col4kmjx2.png" alt="1589730598531.png"></p>
 <p>切割加号得到两个items</p>
 <h1 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h1><p>把字符串分成被除数和除数</p>
 <p>分两种情况：有括号和无括号</p>
 <h2 id="有括号的情况："><a href="#有括号的情况：" class="headerlink" title="有括号的情况："></a>有括号的情况：</h2><p>同样是用栈判断最外层的括号</p>
-<p>   <img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730611640.png" alt="1589730611640"></p>
+<p><img src="https://i.loli.net/2020/05/18/r9RHuIQCJpPechX.png" alt="1589730611640.png"></p>
 <p>把括号内的乘号和除号省略，分割外面的乘号和除号</p>
 <p>并把除数之间和被除数之间相连</p>
-<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730620914.png" alt="1589730620914"></p>
+<p><img src="https://i.loli.net/2020/05/18/MzuFHbxXe1aEsKC.png" alt="1589730620914.png"></p>
 <h2 id="没括号的情况："><a href="#没括号的情况：" class="headerlink" title="没括号的情况："></a>没括号的情况：</h2><p>遇到除号将后面的除数加到除数字符串   </p>
 <h1 id="Factor"><a href="#Factor" class="headerlink" title="Factor"></a>Factor</h1><p>拆开最外层括号外的乘号</p>
 <p>分成5种情况</p>
@@ -203,9 +203,9 @@ classes that you can use:
 <h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>找coefficient类</p>
 <h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>用table.Compute方法转化</p>
 <h1 id="参数（Coefficient）类"><a href="#参数（Coefficient）类" class="headerlink" title="参数（Coefficient）类"></a>参数（Coefficient）类</h1><p>正则表达式找变量并忽略掉所有的函数名，并初始赋值1</p>
-<h1 id="tool类"><a href="#tool类" class="headerlink" title="tool类"></a>tool类</h1><p>装有静态的函数名</p>
+<h1 id="tool类"><a href="#tool类" class="headerlink" title="tool类"></a>tool类</h1><p>装有静态的函数名对象，方便外界访问</p>
 <h1 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h1><p>Stackpanel中嵌套三个Grid布局</p>
-<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730840570.png" alt="1589730840570"></p>
+<p><img src="https://i.loli.net/2020/05/18/wpmizh45WgBr3GL.png" alt="1589730840570.png"></p>
 <h2 id="Grid布局1"><a href="#Grid布局1" class="headerlink" title="Grid布局1"></a>Grid布局1</h2><p>计算结果用label显示</p>
 <h2 id="Grid布局2"><a href="#Grid布局2" class="headerlink" title="Grid布局2"></a>Grid布局2</h2><p>四个listbox分别显示变量名，范围，滑块，变量值</p>
 <h2 id="Grid布局3"><a href="#Grid布局3" class="headerlink" title="Grid布局3"></a>Grid布局3</h2><p>输入栏和确定按钮</p>
