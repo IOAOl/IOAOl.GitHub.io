@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    
+
+    <title>
+      ExpressionToValue | IOAOl的记lu 
+    </title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    
+      <meta name="author" content="IOAOl">
+    
+    
+
+    <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ExpressionToValue | IOAOl的记lu">
+<meta property="og:url" content="http://yoursite.com/2020/05/17/ExpressionToValue/index.html">
+<meta property="og:site_name" content="IOAOl的记lu">
+<meta property="og:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
+<meta property="og:locale" content="cn">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730585178.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730598531.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730611640.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730620914.png">
+<meta property="og:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730840570.png">
+<meta property="og:updated_time" content="2020-05-17T16:16:43.421Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ExpressionToValue | IOAOl的记lu">
+<meta name="twitter:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号     把括号内的乘号和除号省略，分割外面的乘号">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png">
+    
+    
+    
+      <link rel="icon" type="image/x-icon" href="/favicon.png">
+    
+    <link rel="stylesheet" href="/css/uno.css">
+    <link rel="stylesheet" href="/css/highlight.css">
+    <link rel="stylesheet" href="/css/archive.css">
+    <link rel="stylesheet" href="/css/china-social-icon.css">
+
+</head>
+<body>
+
+    <span class="mobile btn-mobile-menu">
+        <i class="icon icon-list btn-mobile-menu__icon"></i>
+        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
+    </span>
+
+    
+
+<header class="panel-cover panel-cover--collapsed">
+
+
+  <div class="panel-main">
+
+  
+    <div class="panel-main__inner panel-inverted">
+    <div class="panel-main__content">
+
+        
+
+        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">IOAOl的记lu</a></h1>
+        <hr class="panel-cover__divider">
+
+        
+
+        <div class="navigation-wrapper">
+
+          <nav class="cover-navigation cover-navigation--primary">
+            <ul class="navigation">
+
+              
+                
+                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
+              
+                
+                <li class="navigation__item"><a href="https://github.com/IOAOl" title class>关于</a></li>
+              
+                
+                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
+              
+
+            </ul>
+          </nav>
+
+          <!-- ----------------------------
+To add a new social icon simply duplicate one of the list items from below
+and change the class in the <i> tag to match the desired social network
+and then add your link to the <a>. Here is a full list of social network
+classes that you can use:
+
+    icon-social-500px
+    icon-social-behance
+    icon-social-delicious
+    icon-social-designer-news
+    icon-social-deviant-art
+    icon-social-digg
+    icon-social-dribbble
+    icon-social-facebook
+    icon-social-flickr
+    icon-social-forrst
+    icon-social-foursquare
+    icon-social-github
+    icon-social-google-plus
+    icon-social-hi5
+    icon-social-instagram
+    icon-social-lastfm
+    icon-social-linkedin
+    icon-social-medium
+    icon-social-myspace
+    icon-social-path
+    icon-social-pinterest
+    icon-social-rdio
+    icon-social-reddit
+    icon-social-skype
+    icon-social-spotify
+    icon-social-stack-overflow
+    icon-social-steam
+    icon-social-stumbleupon
+    icon-social-treehouse
+    icon-social-tumblr
+    icon-social-twitter
+    icon-social-vimeo
+    icon-social-xbox
+    icon-social-yelp
+    icon-social-youtube
+    icon-social-zerply
+    icon-mail
+
+-------------------------------->
+
+<!-- add social info here -->
+
+
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="panel-cover--overlay"></div>
+  </div>
+</header>
+
+    <div class="content-wrapper">
+        <div class="content-wrapper__inner entry">
+            
+
+<article class="post-container post-container--single">
+
+  <header class="post-header">
+    
+    <h1 class="post-title">ExpressionToValue</h1>
+
+    
+
+    <div class="post-meta">
+      <time datetime="2020-05-17" class="post-meta__date date">2020-05-17</time> 
+
+      <span class="post-meta__tags tags">
+
+          
+
+          
+
+      </span>
+    </div>
+    
+    
+
+  </header>
+
+  <section id="post-content" class="article-content post">
+    <h1 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h1><p>主要分成三个部分。Expression，item和factor。</p>
+<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730555323.png" alt="1589730555323"></p>
+<h1 id="Expression（-）"><a href="#Expression（-）" class="headerlink" title="Expression（+/-）"></a>Expression（+/-）</h1><p>由divStringExp类的divexp（）方法分割字符串</p>
+<p>先用栈找出最外层的括号：</p>
+<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730585178.png" alt="1589730585178"></p>
+<p>然后往括号两端扩展</p>
+<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730598531.png" alt="1589730598531"></p>
+<p>切割加号得到两个items</p>
+<h1 id="Item"><a href="#Item" class="headerlink" title="Item"></a>Item</h1><p>把字符串分成被除数和除数</p>
+<p>分两种情况：有括号和无括号</p>
+<h2 id="有括号的情况："><a href="#有括号的情况：" class="headerlink" title="有括号的情况："></a>有括号的情况：</h2><p>同样是用栈判断最外层的括号</p>
+<p>   <img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730611640.png" alt="1589730611640"></p>
+<p>把括号内的乘号和除号省略，分割外面的乘号和除号</p>
+<p>并把除数之间和被除数之间相连</p>
+<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730620914.png" alt="1589730620914"></p>
+<h2 id="没括号的情况："><a href="#没括号的情况：" class="headerlink" title="没括号的情况："></a>没括号的情况：</h2><p>遇到除号将后面的除数加到除数字符串   </p>
+<h1 id="Factor"><a href="#Factor" class="headerlink" title="Factor"></a>Factor</h1><p>拆开最外层括号外的乘号</p>
+<p>分成5种情况</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>递归求括号内的值，再代入函数</p>
+<h3 id="次方"><a href="#次方" class="headerlink" title="次方"></a>次方</h3><p>求最外层括号外的次方</p>
+<p>最外层是括号：</p>
+<p>拆括号后递归求值</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>找coefficient类</p>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>用table.Compute方法转化</p>
+<h1 id="参数（Coefficient）类"><a href="#参数（Coefficient）类" class="headerlink" title="参数（Coefficient）类"></a>参数（Coefficient）类</h1><p>正则表达式找变量并忽略掉所有的函数名，并初始赋值1</p>
+<h1 id="tool类"><a href="#tool类" class="headerlink" title="tool类"></a>tool类</h1><p>装有静态的函数名</p>
+<h1 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h1><p>Stackpanel中嵌套三个Grid布局</p>
+<p><img src="//yoursite.com/2020/05/17/ExpressionToValue/E:%5Chexo%5Csource_posts%5CExpressionToValue%5C1589730840570.png" alt="1589730840570"></p>
+<h2 id="Grid布局1"><a href="#Grid布局1" class="headerlink" title="Grid布局1"></a>Grid布局1</h2><p>计算结果用label显示</p>
+<h2 id="Grid布局2"><a href="#Grid布局2" class="headerlink" title="Grid布局2"></a>Grid布局2</h2><p>四个listbox分别显示变量名，范围，滑块，变量值</p>
+<h2 id="Grid布局3"><a href="#Grid布局3" class="headerlink" title="Grid布局3"></a>Grid布局3</h2><p>输入栏和确定按钮</p>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h5 id="确定按钮click事件"><a href="#确定按钮click事件" class="headerlink" title="确定按钮click事件"></a>确定按钮click事件</h5><p>初始化动态添加元素到listbox</p>
+<h5 id="变量范围keydown事件"><a href="#变量范围keydown事件" class="headerlink" title="变量范围keydown事件"></a>变量范围keydown事件</h5><p>判断输入是否是数字</p>
+<h5 id="四个listbox滑动条同步事件"><a href="#四个listbox滑动条同步事件" class="headerlink" title="四个listbox滑动条同步事件"></a>四个listbox滑动条同步事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(this.listBox4, 0), 0) as ScrollViewer;//找到scrollviewer对象</span><br><span class="line">		sv4.ScrollChanged += newScrollChangedEventHandler(listBox4_ScrollChanged);</span><br><span class="line">//添加事件</span><br><span class="line">        private void listBox4_ScrollChanged(object sender, ScrollChangedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">        if (sv4 != null)</span><br><span class="line">        &#123;</span><br><span class="line">            sv3.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv2.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv1.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="双击变量名产生滑块动画事件"><a href="#双击变量名产生滑块动画事件" class="headerlink" title="双击变量名产生滑块动画事件"></a>双击变量名产生滑块动画事件</h5><p>System.Windows.Threading.DispatcherTimer类用于动画制作</p>
+<p>该类用Interval方法设置事件的发生间隔</p>
+<p>tmr.Interval = TimeSpan.FromSeconds(0.01);</p>
+<p>给他的tick事件添加委托threads方法</p>
+<p>start方法启用</p>
+<p>判断条件满足后停止</p>
+<p>end方法终止</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">private void animation(object sender, RoutedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Label label = sender as Label;</span><br><span class="line">            int count = 0;</span><br><span class="line">            foreach(Label l1 in listBox1.Items)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                if (l1 == label)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            ProcessToanimation = 0;</span><br><span class="line">            CountToAnimation = count;</span><br><span class="line">            System.Windows.Threading.DispatcherTimer tmr = new System.Windows.Threading.DispatcherTimer();</span><br><span class="line">            tmr.Interval = TimeSpan.FromSeconds(0.01);</span><br><span class="line">            tmr.Tick += new EventHandler(threads);</span><br><span class="line">            tmr.Start();</span><br><span class="line">        &#125;</span><br><span class="line">private void threads(object c,EventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            int count = CountToAnimation;</span><br><span class="line">            slidersList[count-1].Value = ProcessToanimation;</span><br><span class="line">            double td = (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text);</span><br><span class="line">            td = td / 5;</span><br><span class="line">            valuesList[count - 1].Content = td;</span><br><span class="line">            variableCollection.vlist[count - 1].value = td;</span><br><span class="line">            exp.setVariables(variableCollection);</span><br><span class="line">            result.Content = exp.getValue();</span><br><span class="line">            ProcessToanimation += 0.025;</span><br><span class="line">            if (ProcessToanimation &gt;= 10)</span><br><span class="line">            &#123;</span><br><span class="line">                slidersList[count-1].Value = 6;</span><br><span class="line">                double ts = (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text)/5;</span><br><span class="line">                valuesList[count - 1].Content = ts;</span><br><span class="line">                variableCollection.vlist[count - 1].value = ts;</span><br><span class="line">                exp.setVariables(variableCollection);</span><br><span class="line">                result.Content = exp.getValue();</span><br><span class="line">                (c as System.Windows.Threading.DispatcherTimer).Stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e1)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+  </section>
+
+  <section class="post-comments">
+ <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
+	<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+	</script>
+<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+    
+</section>
+
+
+</article>
+
+
+            <footer class="footer">
+
+    <span class="footer__copyright">&copy; 2014-2020(超越人类版). | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
+    
+</footer>
+        </div>
+    </div>
+
+    <!-- js files -->
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/main.js"></script>
+    <script src="/js/scale.fix.js"></script>
+    
+
+    
+
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript"> 
+        $(document).ready(function(){
+            MathJax.Hub.Config({ 
+                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
+            });
+        });
+    </script>
+
+
+    
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/awesome-toc.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $.awesome_toc({
+                overlay: true,
+                contentId: "post-content",
+            });
+        });
+    </script>
+
+
+    <script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?7fb35aaf09049568c48527b31b2660d3";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+    
+    <!--kill ie6 -->
+<!--[if IE 6]>
+  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
+<![endif]-->
+
+</body>
+</html>
