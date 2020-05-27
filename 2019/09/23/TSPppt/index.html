@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="cn">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
 
-    
+  
+  <title>TSPppt | IOAOl的记lu</title>
 
-    <title>
-      TSPppt | IOAOl的记lu 
-    </title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-      <meta name="author" content="IOAOl">
-    
-    
-
-    <meta name="description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短； 每个城市只能访问一次； 从某城市出发，最后回到该城市。   让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好的优化">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="IOAOl的记lu">
+  <meta name="description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短； 每个城市只能访问一次； 从某城市出发，最后回到该城市。   让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好的优化">
 <meta property="og:type" content="article">
-<meta property="og:title" content="TSPppt | IOAOl的记lu">
+<meta property="og:title" content="TSPppt">
 <meta property="og:url" content="http://yoursite.com/2019/09/23/TSPppt/index.html">
 <meta property="og:site_name" content="IOAOl的记lu">
 <meta property="og:description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短； 每个城市只能访问一次； 从某城市出发，最后回到该城市。   让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好的优化">
@@ -31,156 +27,199 @@
 <meta property="og:image" content="https://i.loli.net/2019/09/23/vxHhVn84XWAS1Pp.png">
 <meta property="og:image" content="https://i.loli.net/2019/09/23/qZefMb7NgIaR1AY.gif">
 <meta property="og:image" content="https://i.loli.net/2019/09/23/H8VtSwGa3Ax42TJ.png">
-<meta property="og:updated_time" content="2019-09-23T13:25:30.881Z">
+<meta property="og:updated_time" content="2020-05-27T10:00:20.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TSPppt | IOAOl的记lu">
+<meta name="twitter:title" content="TSPppt">
 <meta name="twitter:description" content="TSP的几个算法这是一个自己做的ppt的记录。 TSP实例有一位商人，他想访问德国的某些城市，要求：  所走路程最短； 每个城市只能访问一次； 从某城市出发，最后回到该城市。   让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。  看完了应用，我们来看一下怎么去解决这个问题吧 首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况  动态规划我们尝试优化一下，目前最好的优化">
 <meta name="twitter:image" content="https://i.loli.net/2019/09/23/ivBU6RxodJYnZKr.png">
-    
-    
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    
-    <link rel="stylesheet" href="/css/uno.css">
-    <link rel="stylesheet" href="/css/highlight.css">
-    <link rel="stylesheet" href="/css/archive.css">
-    <link rel="stylesheet" href="/css/china-social-icon.css">
 
-</head>
-<body>
+  <meta name="keywords" content>
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
 
-    <span class="mobile btn-mobile-menu">
-        <i class="icon icon-list btn-mobile-menu__icon"></i>
-        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
-    </span>
-
-    
-
-<header class="panel-cover panel-cover--collapsed">
-
-
-  <div class="panel-main">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="IOAOl的记lu">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2019/09/23/TSPppt/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="IOAOl的记lu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+    <link rel="canonical" href="http://yoursite.com/2019/09/23/TSPppt/">
+  
 
-        
+  
+  
 
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">IOAOl的记lu</a></h1>
-        <hr class="panel-cover__divider">
+  
+  
+  
 
-        
-
-        <div class="navigation-wrapper">
-
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-
-              
-                
-                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
-              
-                
-                <li class="navigation__item"><a href="https://github.com/IOAOl" title class>关于</a></li>
-              
-                
-                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
-              
-
-            </ul>
-          </nav>
-
-          <!-- ----------------------------
-To add a new social icon simply duplicate one of the list items from below
-and change the class in the <i> tag to match the desired social network
-and then add your link to the <a>. Here is a full list of social network
-classes that you can use:
-
-    icon-social-500px
-    icon-social-behance
-    icon-social-delicious
-    icon-social-designer-news
-    icon-social-deviant-art
-    icon-social-digg
-    icon-social-dribbble
-    icon-social-facebook
-    icon-social-flickr
-    icon-social-forrst
-    icon-social-foursquare
-    icon-social-github
-    icon-social-google-plus
-    icon-social-hi5
-    icon-social-instagram
-    icon-social-lastfm
-    icon-social-linkedin
-    icon-social-medium
-    icon-social-myspace
-    icon-social-path
-    icon-social-pinterest
-    icon-social-rdio
-    icon-social-reddit
-    icon-social-skype
-    icon-social-spotify
-    icon-social-stack-overflow
-    icon-social-steam
-    icon-social-stumbleupon
-    icon-social-treehouse
-    icon-social-tumblr
-    icon-social-twitter
-    icon-social-vimeo
-    icon-social-xbox
-    icon-social-yelp
-    icon-social-youtube
-    icon-social-zerply
-    icon-mail
-
--------------------------------->
-
-<!-- add social info here -->
-
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="panel-cover--overlay"></div>
+  <link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/custom.css">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">IOAOl的记lu</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
   </div>
 </header>
-
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
-            
-
-<article class="post-container post-container--single">
-
-  <header class="post-header">
-    
-    <h1 class="post-title">TSPppt</h1>
-
-    
-
-    <div class="post-meta">
-      <time datetime="2019-09-23" class="post-meta__date date">2019-09-23</time> 
-
-      <span class="post-meta__tags tags">
-
-          
-
-          
-
-      </span>
+<div class="mdui-dialog" id="search">
+  
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="search-result"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">IOAOl</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
     </div>
-    
-    
+  </div>
 
-  </header>
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">标签为空</a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
 
-  <section id="post-content" class="article-content post">
-    <h1 id="TSP的几个算法"><a href="#TSP的几个算法" class="headerlink" title="TSP的几个算法"></a>TSP的几个算法</h1><p>这是一个自己做的ppt的记录。</p>
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">画廊</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">链接为空</a>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-2.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">TSPppt</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-09-23 / <i class="iconfont">&#xe601;</i> IOAOl</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2019/09/23/TSPppt/&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=TSPppt&url=http://yoursite.com/2019/09/23/TSPppt/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=TSPppt&url=http://yoursite.com/2019/09/23/TSPppt/&via=IOAOl" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/09/23/TSPppt/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2019/09/23/TSPppt/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2019/09/23/TSPppt/&title=TSPppt" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=TSPppt&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2019/09/23/TSPppt/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2019/09/23/TSPppt/&text=TSPppt" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h1 id="TSP的几个算法"><a href="#TSP的几个算法" class="headerlink" title="TSP的几个算法"></a>TSP的几个算法</h1><p>这是一个自己做的ppt的记录。</p>
 <h2 id="TSP实例"><a href="#TSP实例" class="headerlink" title="TSP实例"></a>TSP实例</h2><p>有一位商人，他想访问德国的某些城市，要求：</p>
 <ol>
 <li>所走路程最短；</li>
@@ -225,87 +264,67 @@ classes that you can use:
 <li>变异操作，对一条基因选出i，j（0&lt;i&lt;j&lt;=n）将其中的基因交换。</li>
 </ol>
 
-  </section>
-
-  <section class="post-comments">
- <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-    
-</section>
-
-
-</article>
-
-
-            <footer class="footer">
-
-    <span class="footer__copyright">&copy; 2014-2020(超越人类版). | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
-    
-</footer>
-        </div>
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>本文链接：</strong><br><a href="http://yoursite.com/2019/09/23/TSPppt/">http://yoursite.com/2019/09/23/TSPppt/</a>
+      </blockquote>
+      
     </div>
-
-    <!-- js files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/scale.fix.js"></script>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
     
+  </article>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
 
+
+  <nav id="paginator">
     
-
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            MathJax.Hub.Config({ 
-                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-            });
-        });
-    </script>
-
-
+      <a rel="prev" class="extend prev" href="/2020/05/17/ExpressionToValue/">
+        <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
+      </a>
     
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/awesome-toc.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content",
-            });
-        });
-    </script>
-
-
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?7fb35aaf09049568c48527b31b2660d3";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+    <div class="spacer"></div>
     
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
+      <a rel="next" class="extend next" href="/2019/09/09/天国旅立/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
 
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2020 IOAOl<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  <script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+  <script src="/custom.js"></script>
 </body>
 </html>

@@ -1,24 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="cn">
 <head><meta name="generator" content="Hexo 3.9.0">
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
 
-    
+  
+  <title>ExpressionToValue | IOAOl的记lu</title>
 
-    <title>
-      ExpressionToValue | IOAOl的记lu 
-    </title>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    
-      <meta name="author" content="IOAOl">
-    
-    
-
-    <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="IOAOl的记lu">
+  <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ExpressionToValue | IOAOl的记lu">
+<meta property="og:title" content="ExpressionToValue">
 <meta property="og:url" content="http://yoursite.com/2020/05/17/ExpressionToValue/index.html">
 <meta property="og:site_name" content="IOAOl的记lu">
 <meta property="og:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
@@ -29,156 +25,199 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/18/r9RHuIQCJpPechX.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/18/MzuFHbxXe1aEsKC.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/18/wpmizh45WgBr3GL.png">
-<meta property="og:updated_time" content="2020-05-17T16:24:14.270Z">
+<meta property="og:updated_time" content="2020-05-27T10:00:20.733Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ExpressionToValue | IOAOl的记lu">
+<meta name="twitter:title" content="ExpressionToValue">
 <meta name="twitter:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+/-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
 <meta name="twitter:image" content="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png">
-    
-    
-    
-      <link rel="icon" type="image/x-icon" href="/favicon.png">
-    
-    <link rel="stylesheet" href="/css/uno.css">
-    <link rel="stylesheet" href="/css/highlight.css">
-    <link rel="stylesheet" href="/css/archive.css">
-    <link rel="stylesheet" href="/css/china-social-icon.css">
 
-</head>
-<body>
+  <meta name="keywords" content>
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
 
-    <span class="mobile btn-mobile-menu">
-        <i class="icon icon-list btn-mobile-menu__icon"></i>
-        <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
-    </span>
-
-    
-
-<header class="panel-cover panel-cover--collapsed">
-
-
-  <div class="panel-main">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="IOAOl的记lu">
+  <meta name="msapplication-starturl" content="http://yoursite.com/2020/05/17/ExpressionToValue/">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="IOAOl的记lu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <div class="panel-main__inner panel-inverted">
-    <div class="panel-main__content">
+    <link rel="canonical" href="http://yoursite.com/2020/05/17/ExpressionToValue/">
+  
 
-        
+  
+  
 
-        <h1 class="panel-cover__title panel-title"><a href="/" title="link to homepage">IOAOl的记lu</a></h1>
-        <hr class="panel-cover__divider">
+  
+  
+  
 
-        
-
-        <div class="navigation-wrapper">
-
-          <nav class="cover-navigation cover-navigation--primary">
-            <ul class="navigation">
-
-              
-                
-                <li class="navigation__item"><a href="/#blog" title class="blog-button">首页</a></li>
-              
-                
-                <li class="navigation__item"><a href="https://github.com/IOAOl" title class>关于</a></li>
-              
-                
-                <li class="navigation__item"><a href="/archive" title class>归档</a></li>
-              
-
-            </ul>
-          </nav>
-
-          <!-- ----------------------------
-To add a new social icon simply duplicate one of the list items from below
-and change the class in the <i> tag to match the desired social network
-and then add your link to the <a>. Here is a full list of social network
-classes that you can use:
-
-    icon-social-500px
-    icon-social-behance
-    icon-social-delicious
-    icon-social-designer-news
-    icon-social-deviant-art
-    icon-social-digg
-    icon-social-dribbble
-    icon-social-facebook
-    icon-social-flickr
-    icon-social-forrst
-    icon-social-foursquare
-    icon-social-github
-    icon-social-google-plus
-    icon-social-hi5
-    icon-social-instagram
-    icon-social-lastfm
-    icon-social-linkedin
-    icon-social-medium
-    icon-social-myspace
-    icon-social-path
-    icon-social-pinterest
-    icon-social-rdio
-    icon-social-reddit
-    icon-social-skype
-    icon-social-spotify
-    icon-social-stack-overflow
-    icon-social-steam
-    icon-social-stumbleupon
-    icon-social-treehouse
-    icon-social-tumblr
-    icon-social-twitter
-    icon-social-vimeo
-    icon-social-xbox
-    icon-social-yelp
-    icon-social-youtube
-    icon-social-zerply
-    icon-mail
-
--------------------------------->
-
-<!-- add social info here -->
-
-
-
-        </div>
-
-      </div>
-
-    </div>
-
-    <div class="panel-cover--overlay"></div>
+  <link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/custom.css">
+</head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">IOAOl的记lu</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
   </div>
 </header>
-
-    <div class="content-wrapper">
-        <div class="content-wrapper__inner entry">
-            
-
-<article class="post-container post-container--single">
-
-  <header class="post-header">
-    
-    <h1 class="post-title">ExpressionToValue</h1>
-
-    
-
-    <div class="post-meta">
-      <time datetime="2020-05-17" class="post-meta__date date">2020-05-17</time> 
-
-      <span class="post-meta__tags tags">
-
-          
-
-          
-
-      </span>
+<div class="mdui-dialog" id="search">
+  
+    <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="请输入关键字"><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+    <div class="search-result"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">IOAOl</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
     </div>
-    
-    
+  </div>
 
-  </header>
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">主页</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">归档</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">分类</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">分类为空</a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">标签</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">标签为空</a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">关于</div>
+    </a>
+  </div>
 
-  <section id="post-content" class="article-content post">
-    <h1 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h1><p>主要分成三个部分。Expression，item和factor。</p>
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/tagcloud" class="mdui-list-item mdui-ripple">标签云</a>
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">画廊</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">友情链接</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        
+          <a href="javascript:;" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme" style="justify-content: center;">链接为空</a>
+        
+      </div>
+    </div>
+  </div>
+</aside>
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-6.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">ExpressionToValue</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-05-17 / <i class="iconfont">&#xe601;</i> IOAOl</div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://yoursite.com/2020/05/17/ExpressionToValue/&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=ExpressionToValue&url=http://yoursite.com/2020/05/17/ExpressionToValue/&pic=http://yoursite.com/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=ExpressionToValue&url=http://yoursite.com/2020/05/17/ExpressionToValue/&via=IOAOl" target="_blank" class="mdui-ripple">分享到 Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2020/05/17/ExpressionToValue/" target="_blank" class="mdui-ripple">分享到 Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://yoursite.com/2020/05/17/ExpressionToValue/" target="_blank" class="mdui-ripple">分享到 Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://yoursite.com/2020/05/17/ExpressionToValue/&title=ExpressionToValue" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=ExpressionToValue&pics=http://yoursite.com/images/favicon.png&url=http://yoursite.com/2020/05/17/ExpressionToValue/" target="_blank" class="mdui-ripple">分享到 QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://yoursite.com/2020/05/17/ExpressionToValue/&text=ExpressionToValue" target="_blank" class="mdui-ripple">分享到 Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <h1 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h1><p>主要分成三个部分。Expression，item和factor。</p>
 <p><img src="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png" alt="1589730555323.png"></p>
 <h1 id="Expression（-）"><a href="#Expression（-）" class="headerlink" title="Expression（+/-）"></a>Expression（+/-）</h1><p>由divStringExp类的divexp（）方法分割字符串</p>
 <p>先用栈找出最外层的括号：</p>
@@ -223,87 +262,62 @@ classes that you can use:
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line">private void animation(object sender, RoutedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Label label = sender as Label;</span><br><span class="line">            int count = 0;</span><br><span class="line">            foreach(Label l1 in listBox1.Items)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                if (l1 == label)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            ProcessToanimation = 0;</span><br><span class="line">            CountToAnimation = count;</span><br><span class="line">            System.Windows.Threading.DispatcherTimer tmr = new System.Windows.Threading.DispatcherTimer();</span><br><span class="line">            tmr.Interval = TimeSpan.FromSeconds(0.01);</span><br><span class="line">            tmr.Tick += new EventHandler(threads);</span><br><span class="line">            tmr.Start();</span><br><span class="line">        &#125;</span><br><span class="line">private void threads(object c,EventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            int count = CountToAnimation;</span><br><span class="line">            slidersList[count-1].Value = ProcessToanimation;</span><br><span class="line">            double td = (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text);</span><br><span class="line">            td = td / 5;</span><br><span class="line">            valuesList[count - 1].Content = td;</span><br><span class="line">            variableCollection.vlist[count - 1].value = td;</span><br><span class="line">            exp.setVariables(variableCollection);</span><br><span class="line">            result.Content = exp.getValue();</span><br><span class="line">            ProcessToanimation += 0.025;</span><br><span class="line">            if (ProcessToanimation &gt;= 10)</span><br><span class="line">            &#123;</span><br><span class="line">                slidersList[count-1].Value = 6;</span><br><span class="line">                double ts = (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text)/5;</span><br><span class="line">                valuesList[count - 1].Content = ts;</span><br><span class="line">                variableCollection.vlist[count - 1].value = ts;</span><br><span class="line">                exp.setVariables(variableCollection);</span><br><span class="line">                result.Content = exp.getValue();</span><br><span class="line">                (c as System.Windows.Threading.DispatcherTimer).Stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e1)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 
-  </section>
-
-  <section class="post-comments">
- <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
-	<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-	</script>
-<noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-    
-</section>
-
-
-</article>
-
-
-            <footer class="footer">
-
-    <span class="footer__copyright">&copy; 2014-2020(超越人类版). | 由<a href="https://hexo.io/">Hexo</a>强力驱动 | 主题<a href="https://github.com/someus/huno">Huno</a></span>
-    
-</footer>
-        </div>
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>本文链接：</strong><br><a href="http://yoursite.com/2020/05/17/ExpressionToValue/">http://yoursite.com/2020/05/17/ExpressionToValue/</a>
+      </blockquote>
+      
     </div>
-
-    <!-- js files -->
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/scale.fix.js"></script>
+    <footer class="mdui-card-actions">
+      
+      
+    </footer>
     
+  </article>
+  <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
 
+
+  <nav id="paginator">
     
-
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/javascript"> 
-        $(document).ready(function(){
-            MathJax.Hub.Config({ 
-                tex2jax: {inlineMath: [['[latex]','[/latex]'], ['\\(','\\)']]} 
-            });
-        });
-    </script>
-
-
+    <div class="spacer"></div>
     
-
-    <script src="/js/jquery.min.js"></script>
-    <script src="/js/awesome-toc.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $.awesome_toc({
-                overlay: true,
-                contentId: "post-content",
-            });
-        });
-    </script>
-
-
-    <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?7fb35aaf09049568c48527b31b2660d3";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
-</script>
-
+      <a rel="next" class="extend next" href="/2019/09/23/TSPppt/">
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
     
-    <!--kill ie6 -->
-<!--[if IE 6]>
-  <script src="//letskillie6.googlecode.com/svn/trunk/2/zh_CN.js"></script>
-<![endif]-->
+  </nav>
 
+
+
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2020 IOAOl<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    
+  </div>
+</footer>
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  
+  <script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+  <script src="/custom.js"></script>
 </body>
 </html>
