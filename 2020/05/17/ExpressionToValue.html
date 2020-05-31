@@ -12,12 +12,12 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu">
-  <meta name="description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+&#x2F;-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
+  <meta name="description" content="表达式求值  wpf主要思想：表达式递归切割求值。 主要分成三个类。Expression，item和factor。  Expression（+&#x2F;-）由divStringExp类的divexp（）方法分割字符串 将表达式中的加法和减法消除。 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ExpressionToValue">
 <meta property="og:url" content="http://ioaol.github.io/2020/05/17/ExpressionToValue.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="表达式求值主要分成三个部分。Expression，item和factor。  Expression（+&#x2F;-）由divStringExp类的divexp（）方法分割字符串 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是用栈判断最外层的括号  把括号内的乘号和除号省略，分割外面的乘号和除号">
+<meta property="og:description" content="表达式求值  wpf主要思想：表达式递归切割求值。 主要分成三个类。Expression，item和factor。  Expression（+&#x2F;-）由divStringExp类的divexp（）方法分割字符串 将表达式中的加法和减法消除。 先用栈找出最外层的括号：  然后往括号两端扩展  切割加号得到两个items Item把字符串分成被除数和除数 分两种情况：有括号和无括号 有括号的情况：同样是">
 <meta property="og:locale" content="cn">
 <meta property="og:image" content="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/18/9yvzgBIKtb4h1Fr.png">
@@ -26,7 +26,7 @@
 <meta property="og:image" content="https://i.loli.net/2020/05/18/MzuFHbxXe1aEsKC.png">
 <meta property="og:image" content="https://i.loli.net/2020/05/18/wpmizh45WgBr3GL.png">
 <meta property="article:published_time" content="2020-05-17T15:46:39.000Z">
-<meta property="article:modified_time" content="2020-05-27T12:22:19.077Z">
+<meta property="article:modified_time" content="2020-05-28T15:33:43.845Z">
 <meta property="article:author" content="IOAOl">
 <meta property="article:tag" content="WPF">
 <meta property="article:tag" content="表达式求值">
@@ -189,7 +189,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-12.png" style="max-height: 240px;">
+      <img src="/images/random/material-16.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">ExpressionToValue</div>
@@ -239,9 +239,11 @@
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <h1 id="表达式求值"><a href="#表达式求值" class="headerlink" title="表达式求值"></a>表达式求值</h1><p>主要分成三个部分。Expression，item和factor。</p>
+      <h1 id="表达式求值-wpf"><a href="#表达式求值-wpf" class="headerlink" title="表达式求值  wpf"></a>表达式求值  wpf</h1><p>主要思想：表达式递归切割求值。</p>
+<p>主要分成三个类。Expression，item和factor。</p>
 <p><img src="https://i.loli.net/2020/05/18/D36Pi85OzXsHYqI.png" alt="1589730555323.png"></p>
 <h1 id="Expression（-）"><a href="#Expression（-）" class="headerlink" title="Expression（+/-）"></a>Expression（+/-）</h1><p>由divStringExp类的divexp（）方法分割字符串</p>
+<p>将表达式中的加法和减法消除。</p>
 <p>先用栈找出最外层的括号：</p>
 <p><img src="https://i.loli.net/2020/05/18/9yvzgBIKtb4h1Fr.png" alt="1589730585178.png"></p>
 <p>然后往括号两端扩展</p>
@@ -252,25 +254,31 @@
 <h2 id="有括号的情况："><a href="#有括号的情况：" class="headerlink" title="有括号的情况："></a>有括号的情况：</h2><p>同样是用栈判断最外层的括号</p>
 <p><img src="https://i.loli.net/2020/05/18/r9RHuIQCJpPechX.png" alt="1589730611640.png"></p>
 <p>把括号内的乘号和除号省略，分割外面的乘号和除号</p>
-<p>并把除数之间和被除数之间相连</p>
+<p>并把除数之间和被除数之间相连（或者用两个数组将分子和分母保存起来）</p>
 <p><img src="https://i.loli.net/2020/05/18/MzuFHbxXe1aEsKC.png" alt="1589730620914.png"></p>
 <h2 id="没括号的情况："><a href="#没括号的情况：" class="headerlink" title="没括号的情况："></a>没括号的情况：</h2><p>遇到除号将后面的除数加到除数字符串   </p>
 <h1 id="Factor"><a href="#Factor" class="headerlink" title="Factor"></a>Factor</h1><p>拆开最外层括号外的乘号</p>
-<p>分成5种情况</p>
-<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><p>递归求括号内的值，再代入函数</p>
+<p>剩下的元素分成5种情况</p>
+<h3 id="函数"><a href="#函数" class="headerlink" title="函数"></a>函数</h3><h4 id="一元函数"><a href="#一元函数" class="headerlink" title="一元函数"></a>一元函数</h4><p>递归求括号内的值，再代入函数</p>
+<p>例如sin(exp)</p>
+<h4 id="多元函数（目前只有log（a-b）函数）"><a href="#多元函数（目前只有log（a-b）函数）" class="headerlink" title="多元函数（目前只有log（a,b）函数）"></a>多元函数（目前只有log（a,b）函数）</h4><p>例如log(a,log(b,c))，将括号内提出来“a,log(b,c)”</p>
+<p>将没在括号内的，分割</p>
+<p>分成“a“和”log(b,c)”再分别递归求值。</p>
 <h3 id="次方"><a href="#次方" class="headerlink" title="次方"></a>次方</h3><p>求最外层括号外的次方</p>
 <p>最外层是括号：</p>
 <p>拆括号后递归求值</p>
-<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>找coefficient类</p>
-<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>用table.Compute方法转化</p>
+<p><strong>注意：次方内可能也有多个表达式</strong></p>
+<p>例如:2^sin(a)</p>
+<h3 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h3><p>找coefficient类将值返回</p>
+<h3 id="数字"><a href="#数字" class="headerlink" title="数字"></a>数字</h3><p>用table.Compute（）方法转化</p>
 <h1 id="参数（Coefficient）类"><a href="#参数（Coefficient）类" class="headerlink" title="参数（Coefficient）类"></a>参数（Coefficient）类</h1><p>正则表达式找变量并忽略掉所有的函数名，并初始赋值1</p>
 <h1 id="tool类"><a href="#tool类" class="headerlink" title="tool类"></a>tool类</h1><p>装有静态的函数名对象，方便外界访问</p>
-<h1 id="界面"><a href="#界面" class="headerlink" title="界面"></a>界面</h1><p>Stackpanel中嵌套三个Grid布局</p>
+<h1 id="界面设计"><a href="#界面设计" class="headerlink" title="界面设计"></a>界面设计</h1><p>Stackpanel中嵌套三个Grid布局</p>
 <p><img src="https://i.loli.net/2020/05/18/wpmizh45WgBr3GL.png" alt="1589730840570.png"></p>
 <h2 id="Grid布局1"><a href="#Grid布局1" class="headerlink" title="Grid布局1"></a>Grid布局1</h2><p>计算结果用label显示</p>
 <h2 id="Grid布局2"><a href="#Grid布局2" class="headerlink" title="Grid布局2"></a>Grid布局2</h2><p>四个listbox分别显示变量名，范围，滑块，变量值</p>
 <h2 id="Grid布局3"><a href="#Grid布局3" class="headerlink" title="Grid布局3"></a>Grid布局3</h2><p>输入栏和确定按钮</p>
-<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h5 id="确定按钮click事件"><a href="#确定按钮click事件" class="headerlink" title="确定按钮click事件"></a>确定按钮click事件</h5><p>初始化动态添加元素到listbox</p>
+<h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h5 id="确定按钮click事件"><a href="#确定按钮click事件" class="headerlink" title="确定按钮click事件"></a>确定按钮click事件</h5><p>初始化动态添加元素到四个listbox</p>
 <h5 id="变量范围keydown事件"><a href="#变量范围keydown事件" class="headerlink" title="变量范围keydown事件"></a>变量范围keydown事件</h5><p>判断输入是否是数字</p>
 <h5 id="四个listbox滑动条同步事件"><a href="#四个listbox滑动条同步事件" class="headerlink" title="四个listbox滑动条同步事件"></a>四个listbox滑动条同步事件</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(this.listBox4, 0), 0) as ScrollViewer;&#x2F;&#x2F;找到scrollviewer对象</span><br><span class="line">		sv4.ScrollChanged +&#x3D; newScrollChangedEventHandler(listBox4_ScrollChanged);</span><br><span class="line">&#x2F;&#x2F;添加事件</span><br><span class="line">        private void listBox4_ScrollChanged(object sender, ScrollChangedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">        if (sv4 !&#x3D; null)</span><br><span class="line">        &#123;</span><br><span class="line">            sv3.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv2.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv1.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h5 id="双击变量名产生滑块动画事件"><a href="#双击变量名产生滑块动画事件" class="headerlink" title="双击变量名产生滑块动画事件"></a>双击变量名产生滑块动画事件</h5><p>System.Windows.Threading.DispatcherTimer类用于动画制作</p>
