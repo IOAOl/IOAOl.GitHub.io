@@ -172,6 +172,18 @@
       </tags>
   </entry>
   <entry>
+    <title>天国旅立</title>
+    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
+<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
+]]></content>
+      <tags>
+        <tag>Gallery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test_pic</title>
     <url>/2019/09/01/test-pic.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -186,15 +198,30 @@
       </tags>
   </entry>
   <entry>
-    <title>天国旅立</title>
-    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <title>数据结构题目</title>
+    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
 
-<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
-<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
+<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> <span class="built_in">max</span>=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    <span class="built_in">max</span>=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(<span class="built_in">max</span>&lt;nums[i+j])&#123;</span><br><span class="line">                            <span class="built_in">max</span>=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">max</span>&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        <span class="built_in">max</span>=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(<span class="built_in">max</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
+<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
+<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
+<p>改进版本</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
+
+<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
+<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
+<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
+<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
 ]]></content>
       <tags>
-        <tag>Gallery</tag>
+        <tag>队列</tag>
       </tags>
   </entry>
   <entry>
