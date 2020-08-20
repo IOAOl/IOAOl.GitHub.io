@@ -1,90 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>POJ - 1611-day3-F</title>
-    <url>/2019/09/01/POJ-1611-day3-F.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611" target="_blank" rel="noopener">POJ - 1611</a></p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
-<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
-<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
-
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
-<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = <span class="built_in">find</span>(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="built_in">find</span>(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = <span class="built_in">find</span>(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = <span class="built_in">find</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法题</category>
-      </categories>
-      <tags>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Summer Pockets -REFLECTION BLUE- 玩后感</title>
-    <url>/2020/08/20/Summer-Pockets-REFLECTION-BLUE-%E7%8E%A9%E5%90%8E%E6%84%9F.html</url>
-    <content><![CDATA[<me ta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-
-
-<p><img src="https://i.loli.net/2020/08/20/VjBHrkFag4Gn3Um.png" alt="封面图.png"></p>
-<h5 id="先来说点个人感想"><a href="#先来说点个人感想" class="headerlink" title="先来说点个人感想"></a>先来说点个人感想</h5><p>为什么选择玩这个游戏？</p>
-<p>​    近几年的Bangumi高分gal作品，画风不会太老（个人很纠结这点），人设看起来比较舒服，玩了废萌作之后，调节一下口味。也是没玩过长作gal，填补一下感受吧。</p>
-<p>​    刚玩这个游戏，我感觉它很强，很无敌。（本人纯gal萌新）为什么这么说（&lt;-废话），点开游戏立刻就开始了，没有需要任何其他多余的操作，这点小细节，就足以看到制作人的诚意，这点我就很喜欢。点开成就直接吓一跳，250个（后来直接放弃了，只完成了45%）。看看攻略，几千字的攻略直接看傻了眼。序章的乒乓球直接打我个措手不及，手残的锅。总之就这样，渐渐地开始了解。。。</p>
-<p>​    系统ui来说，除了没有章节回顾，其他都挺好，还可以在右侧快速存档，每推完一个人之后，标题页面就少一个，这点细节不错的。（推完一条线之后，想再看看那个人，发现没了，感觉很伤心，很难受，哈哈哈）</p>
-<h5 id="游戏流程"><a href="#游戏流程" class="headerlink" title="游戏流程"></a>游戏流程</h5><h6 id="普通线："><a href="#普通线：" class="headerlink" title="普通线："></a>普通线：</h6><p>这个游戏首先是序章（7月25日-7月28日）（15个选项）-&gt;每天上下午在地图选择一个事件（7月29-8月7日）-&gt;进线</p>
-<h6 id="ALKA线和pockets线"><a href="#ALKA线和pockets线" class="headerlink" title="ALKA线和pockets线"></a>ALKA线和pockets线</h6><p>直接通关8线后，从标题页面进入。</p>
-<p>这里说一下我推的流程顺序以及推荐流程顺序</p>
-<p>我的顺序（纯给自己写的）：羽未-紬-苍-鸥-白-久-美希-识</p>
-<p>年少不懂事，不看攻略花心进了羽未线，后面就开始看攻略了。</p>
-<p>先了解世界观顺序：苍-白-识这几个都介绍了一些世界观之后可以随意选择。</p>
-<h3 id="剧透模式启动-biubiubiu"><a href="#剧透模式启动-biubiubiu" class="headerlink" title="剧透模式启动~biubiubiu"></a>剧透模式启动~biubiubiu</h3><p><img src="https://i.loli.net/2020/08/20/f2Z8yGWTuphE9oM.png" alt="全角色.png"></p>
-<h5 id="序章"><a href="#序章" class="headerlink" title="序章"></a>序章</h5><p>男主来到鸟白岛的船上，看到白羽在瞭望蓝天的落队的一对燕子，然后和老婆婆聊了一波自己，搞了四个形容男主现在的选项（不会唱歌的金丝雀，弄坏拳头的拳击手啥的），这个上来就一头雾水，但是这玩意决定了你以后拿什么系列的奇怪成就。而且这玩意会成为中期男主的中二笑柄。这里就不详细展开了。一个个的角色介绍吧。</p>
-<p>鹰原 羽依里：游泳受挫逃到岛上的美男子。</p>
-<p>鸣濑 白羽：在学校泳池偶遇的超绝内向美少女。</p>
-<p>久岛 鸥：来岛上寻找冒险的人，推着行李箱到处跑。</p>
-<p>空门 苍：随处乱睡的点心店打工的lsp。</p>
-<p>紬 文德斯：在废弃灯塔的寻找自己和要做的事的蠢萌少女。</p>
-<p>野村 美希：岛上青年团的持高能水枪维持治安的小女孩。</p>
-<p>水织 静久：在海滩上的欧派？</p>
-<p>鹰原 羽未：和男主一起来收拾遗物的堂妹。</p>
-<p>（神山）识：饿倒在路边吃野草的自称要成为鬼的小女孩。</p>
-<p>三谷 良一：到处脱衣的变态裸男。</p>
-<p>加纳 天善：沉迷乒乓球的体育白痴。</p>
-<p>岬 镜子：温油的爱好收藏的料理白痴阿姨。</p>
-<h5 id="各线路"><a href="#各线路" class="headerlink" title="各线路"></a>各线路</h5><p><img src="https://i.loli.net/2020/08/20/UkPH4Gl1sQxN5Ew.png" alt="羽未线.png"></p>
-<h6 id="羽未线"><a href="#羽未线" class="headerlink" title="羽未线"></a>羽未线</h6><p>这条线讲了羽未和男主之间生活的小插曲吧，核心是羽未想念父母和男主正视自己。这条线我是最开始就玩了我认为在ALKA线之后游玩会有别一般的感受，可惜这是不可能的。总体上不是一条催泪线，但是也体现了一波亲子教育的哲学。</p>
-<p><img src="https://i.loli.net/2020/08/20/BEqpa8i1D27ylnK.png" alt="ADC_8`_R25YEAIHJ_TRR`ST.png"></p>
-<h6 id="紬线"><a href="#紬线" class="headerlink" title="紬线"></a>紬线</h6><p>这条线讲了紬的身世，在日常上下了很大的功夫。以紬要回去的问题展开。男主与她和静久不断挣扎，最后开花结果。其实我认为这条线虽然甜，但是并不是做的很好，首先就是静久在这条线的存在价值，我认为是有煞风景的。作为一个女强人，她也没有起到给主意的作用，也不能是她起作用。多了一些女生之间的友谊，我觉得用处不是很大。总体来说，这条线恋爱气氛很浓，但是只是依附在这个世界观的一个小支线，结局也是很虚幻的happy end。</p>
-<p><img src="https://i.loli.net/2020/08/20/JcirohVmsepMnNd.png" alt="鸥线.png"></p>
-<h6 id="鸥线"><a href="#鸥线" class="headerlink" title="鸥线"></a>鸥线</h6><p>这条线我是比较有惊喜的，首先是开篇找回四把钥匙，打开藏宝图宝箱，准备好野营，兴奋得睡不着，大家齐心协力去寻找海盗船的冒险。这里就很有童年夏日的浪漫。找到船后发现只是普通的帆船，也是很有过山车的感觉。而且确实如其他人所说，我也被蒙骗在男主是冒险团的一员的氛围里，最后解释不是的时候令我大跌眼镜。这个结局我是看不懂的，鸥最后给男主印有万国印章的情信，说明鸥还是在带领着各个胡子猫团来到了这里，男主是要去见她的留下的幻影？还是暗喻了鸥已经醒来？</p>
-<h6 id="苍线"><a href="#苍线" class="headerlink" title="苍线"></a>苍线</h6><p><img src="https://i.loli.net/2020/08/20/H2jwg56ZrqUpAxz.png" alt="苍线.png"></p>
-<p>这条线很多人都说是工具线，确实这条线交代了很多的世界观设定，但是也展现了苍的人物魅力，前面到处睡觉的伏笔也得以回收。苍在寻找七影碟的过程中也展现了担当，没有像共通线一样单纯是个lsp。单纯的性格虽然没有什么代入感，但是很有亲切感。虽然白给了男主，男主也最后展现了他的行动力，找回她的蝴蝶。整条线感觉很完满。</p>
-<h6 id="白线"><a href="#白线" class="headerlink" title="白线"></a>白线</h6><p><img src="https://i.loli.net/2020/08/20/H3sQO5RlIzoPYga.png" alt="白线.png"></p>
-<p>这条线感觉大多都是日常，为了切合最后的两线做的铺垫。羽白这种高冷女神确实给人一种难以接近的感觉。话说她也应该是公认最漂亮的女生吧（引战），其他线都是男主夸，这个还有侧面烘托。她的cg也是非常的好看。这条线解释了为什么她要离大家这么远，男主把她从预知的危机中拯救出来，说她的预知是为了避免危机的发生，虽说有点牵强，但是也是可以接受，也算是一种救赎吧。最后青涩的恋爱告白很甜。作为一条铺垫线的话是相当可以的了。</p>
-<h6 id="美希线"><a href="#美希线" class="headerlink" title="美希线"></a>美希线</h6><p><img src="https://i.loli.net/2020/08/20/9PKnzUt5wvSkV4x.png" alt="美希线.png"></p>
-<p>我认为观感最差的线，也应该是做得最不用心的线了吧，cg数量是最少的，衣服也就加多了一件很土的黄色家居装。优点嘛，更体现了岛民的善良，把她抚养到了这么大，解释了为什么她这么尽心尽力的为岛民服务。剧情梳理起来，感觉就比较矫情。明明都有这么多美好，却困在双亲丢弃的牢笼里不愿出来，解决问题和爱上男主的转折太快了，几乎都是同时解决。最后在空中时停说了一大堆话，我觉得很尬，但是cg却是最好看的几张&lt;(￣-￣！)&gt;。可能也是有点男人婆的感觉，导致好感不怎么高，不过是辛苦裸男了，提供了不少笑点。 </p>
-<h6 id="静久线"><a href="#静久线" class="headerlink" title="静久线"></a>静久线</h6><p><img src="https://i.loli.net/2020/08/20/5Fendy9pNMT3gHh.png" alt="静久线.png"></p>
-<p>这条线里紬放弃了灯塔来海之家搞百合，虽然还是那句话不怎么需要紬来推动剧情，但是最后的静久和紬的告别确实是比较感人，声优十分地卖力，在这条线男女主都解决了自己的心理问题，这样看倒是觉得男主和静久都很优秀啊，都有自己特长之处，重新在这个夏天找回真正的自己剧情看起来也比较浪漫，最后的分别（分手）也是气氛渲染得很好。整体感情过渡还算自然。虽然静久妈妈只对自己女儿发大火确实有点扯。</p>
-<h6 id="识线"><a href="#识线" class="headerlink" title="识线"></a>识线</h6><p><img src="https://i.loli.net/2020/08/20/AjskMIzby68Oae1.png" alt="识线.png"></p>
-<p>这个我也比较意外的线，思路比较创新，虽然把所有人赶到上山避难的方法是化身恶鬼海盗确实是比较蠢，前期白开水，中期往鬼的方向前行，最后回到过去救下了这个岛。结局也是十分悲壮，不过男主居然能回到过去，并把识救了上来，而且识还可以说话。这种情况下还把识写死。我觉得有点强行了。最后也没有写神山一族的留存，和识的转生啥的。总之还是搞了个be。但是气氛渲染得很好，最后的捉迷藏离别很能体现。但是14岁女孩肩负这重任着实离谱。</p>
-<h6 id="ALKA线"><a href="#ALKA线" class="headerlink" title="ALKA线"></a>ALKA线</h6><p><img src="https://i.loli.net/2020/08/20/25rdQGFtYWiClV6.png" alt="三人照.png"></p>
-<p>这个无疑是写得最好的一线了，点开一看是羽未线，我惊呆了。前期羽未突然变幼，我相当迷惑，但是在蝴蝶的画本出来后我就明白了事情的不对劲。这个轮回的故事，说惊艳也说不上，算是比较老套了，但是日常写父母和孩子的快乐时光确实是令人感到幸福，幸福中也埋藏这预知天气这条线的危机。很能抓住玩家的心情。最后慢慢忘却了羽未，感觉心情确实是闷闷的，最后绝望的无限轮回。更添一笔。</p>
-<h6 id="Pocket线"><a href="#Pocket线" class="headerlink" title="Pocket线"></a>Pocket线</h6><p><img src="https://i.loli.net/2020/08/20/pHZIjhN4RrBqWnz.png" alt="消失之际.png"></p>
-<p>这条线明显用来救局的，我玩的时候没注意影法师什么的，还以为这是男主转成七海拯救白羽，但是男主并没有这个能力，羽未也是的强，最后让白羽放弃自己的能力往前走，消除了拥有羽未的未来，母女抱在一起痛哭，场面也是很唯美凄凉。从根本上拯救了鸣濑一族，虽然没有男主的登场（去收拾仓库吧你），但是最后合家团圆令人感慨万千。（这么懂事的女儿那里领？？？？）</p>
-<h6 id="乒乓球线"><a href="#乒乓球线" class="headerlink" title="乒乓球线"></a>乒乓球线</h6><p>好家伙，打得我热血沸腾，不到残血不会玩，每一局都是要残血反杀，没到残血就刮痧。离谱，打了一个半小时终于通关了，为了这个还把窗口都缩小了，方便打。打的时候台词也是热血得很。（天善，天善，天善！！。 takahala haili！！！）</p>
-<h6 id="宝可梦"><a href="#宝可梦" class="headerlink" title="宝可梦"></a>宝可梦</h6><p>非洲人不玩的，别搞我。</p>
-<h4 id="整点碎碎念总结"><a href="#整点碎碎念总结" class="headerlink" title="整点碎碎念总结"></a>整点碎碎念总结</h4><p>​    嘛，男主也是特别的牛，进那个线都有着极大的作用，虽然有点杠，但是还是想说，没了男主，这个岛恐怕人都没得了。</p>
-<p>​    summer pockets嘛夏日的口袋，特别适合夏天玩。口袋里收藏不少好玩的故事，我也想在这个暑假体验一波夏日风情。那就玩呗。这个我也是玩了差不多有10天，大概有60小时。有人说，玩gal就是浪费时间，但是玩其他游戏就不浪费了？刷首页视频就不浪费了？在哪里能学到多少东西呢，娱乐嘛，能收获到自己想要的欢乐就很不错了，不需要强行搞什么性价比的。总之这个游戏也算是我暑假的一段小插曲吧。</p>
-</me>]]></content>
-  </entry>
-  <entry>
     <title>ExpressionToValue</title>
     <url>/2020/05/17/ExpressionToValue.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -150,9 +66,56 @@
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/2019/08/30/hello-world.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>POJ - 1611-day3-F</title>
+    <url>/2019/09/01/POJ-1611-day3-F.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611" target="_blank" rel="noopener">POJ - 1611</a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
+<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = <span class="built_in">find</span>(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="built_in">find</span>(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = <span class="built_in">find</span>(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = <span class="built_in">find</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法题</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>TSPppt</title>
     <url>/2019/09/23/TSPppt.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <content><![CDATA[<me ta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
 
 <h1 id="TSP的几个算法"><a href="#TSP的几个算法" class="headerlink" title="TSP的几个算法"></a>TSP的几个算法</h1><p>这是一个自己做的ppt的记录。</p>
 <h2 id="TSP实例"><a href="#TSP实例" class="headerlink" title="TSP实例"></a>TSP实例</h2><p>有一位商人，他想访问德国的某些城市，要求：</p>
@@ -163,7 +126,7 @@
 </ol>
 <p><img src="https://i.loli.net/2019/09/23/ivBU6RxodJYnZKr.png" alt="1568996702133 - 副本.png"></p>
 <p>让我们看一下为什么要学这个问题，主要来看一下tsp到底有什么用。</p>
-<p><img src="https://i.loli.net/2019/09/23/ouY7XfMKmTSia8p.png" alt="1568997255774 - 副本.png"></p>
+<p><img src="https://i.loli.net/2020/08/21/FcSKANeDQJy5Zdo.png" alt="tspzuoyong.png"></p>
 <p>看完了应用，我们来看一下怎么去解决这个问题吧</p>
 <p>首先先任意选一个点作为起点，然后开始连接就可以看到有n！种情况</p>
 <p><img src="https://i.loli.net/2019/09/23/iCTeADruUnYm9Ia.png" alt="1569036262994 - 副本.png"></p>
@@ -198,7 +161,7 @@
 <li>交叉操作：随机挑取在染色体（路径）上的一个序号（2-n-1）交换两条染色体序号后面的（基因），这里需要进行基因冲突处理，即交换后要检查是否交换过来了已有的基因，如果是则和另一条的重复基因交换。</li>
 <li>变异操作，对一条基因选出i，j（0&lt;i&lt;j&lt;=n）将其中的基因交换。</li>
 </ol>
-]]></content>
+</me>]]></content>
       <categories>
         <category>算法</category>
       </categories>
@@ -210,24 +173,62 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/08/30/hello-world.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <title>Summer Pockets -REFLECTION BLUE- 玩后感</title>
+    <url>/2020/08/20/Summer-Pockets-REFLECTION-BLUE-%E7%8E%A9%E5%90%8E%E6%84%9F.html</url>
+    <content><![CDATA[<me ta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
-]]></content>
+<p><img src="https://i.loli.net/2020/08/20/VjBHrkFag4Gn3Um.png" alt="封面图.png"></p>
+<h5 id="先来说点个人感想"><a href="#先来说点个人感想" class="headerlink" title="先来说点个人感想"></a>先来说点个人感想</h5><p>为什么选择玩这个游戏？</p>
+<p>​    近几年的Bangumi高分gal作品，画风不会太老（个人很纠结这点），人设看起来比较舒服，玩了废萌作之后，调节一下口味。也是没玩过长作gal，填补一下感受吧。</p>
+<p>​    刚玩这个游戏，我感觉它很强，很无敌。（本人纯gal萌新）为什么这么说（&lt;-废话），点开游戏立刻就开始了，没有需要任何其他多余的操作，这点小细节，就足以看到制作人的诚意，这点我就很喜欢。点开成就直接吓一跳，250个（后来直接放弃了，只完成了45%）。看看攻略，几千字的攻略直接看傻了眼。序章的乒乓球直接打我个措手不及，手残的锅。总之就这样，渐渐地开始了解。。。</p>
+<p>​    系统ui来说，除了没有章节回顾，其他都挺好，还可以在右侧快速存档，每推完一个人之后，标题页面就少一个，这点细节不错的。（推完一条线之后，想再看看那个人，发现没了，感觉很伤心，很难受，哈哈哈）</p>
+<h5 id="游戏流程"><a href="#游戏流程" class="headerlink" title="游戏流程"></a>游戏流程</h5><h6 id="普通线："><a href="#普通线：" class="headerlink" title="普通线："></a>普通线：</h6><p>这个游戏首先是序章（7月25日-7月28日）（15个选项）-&gt;每天上下午在地图选择一个事件（7月29-8月7日）-&gt;进线</p>
+<h6 id="ALKA线和pockets线"><a href="#ALKA线和pockets线" class="headerlink" title="ALKA线和pockets线"></a>ALKA线和pockets线</h6><p>直接通关8线后，从标题页面进入。</p>
+<p>这里说一下我推的流程顺序以及推荐流程顺序</p>
+<p>我的顺序（纯给自己写的）：羽未-紬-苍-鸥-白-久-美希-识</p>
+<p>年少不懂事，不看攻略花心进了羽未线，后面就开始看攻略了。</p>
+<p>先了解世界观顺序：苍-白-识这几个都介绍了一些世界观之后可以随意选择。</p>
+<h3 id="剧透模式启动-biubiubiu"><a href="#剧透模式启动-biubiubiu" class="headerlink" title="剧透模式启动~biubiubiu"></a>剧透模式启动~biubiubiu</h3><p><img src="https://i.loli.net/2020/08/20/f2Z8yGWTuphE9oM.png" alt="全角色.png"></p>
+<h5 id="序章"><a href="#序章" class="headerlink" title="序章"></a>序章</h5><p>男主来到鸟白岛的船上，看到白羽在瞭望蓝天的落队的一对燕子，然后和老婆婆聊了一波自己，搞了四个形容男主现在的选项（不会唱歌的金丝雀，弄坏拳头的拳击手啥的），这个上来就一头雾水，但是这玩意决定了你以后拿什么系列的奇怪成就。而且这玩意会成为中期男主的中二笑柄。这里就不详细展开了。一个个的角色介绍吧。</p>
+<p>鹰原 羽依里：游泳受挫逃到岛上的美男子。</p>
+<p>鸣濑 白羽：在学校泳池偶遇的超绝内向美少女。</p>
+<p>久岛 鸥：来岛上寻找冒险的人，推着行李箱到处跑。</p>
+<p>空门 苍：随处乱睡的点心店打工的lsp。</p>
+<p>紬 文德斯：在废弃灯塔的寻找自己和要做的事的蠢萌少女。</p>
+<p>野村 美希：岛上青年团的持高能水枪维持治安的小女孩。</p>
+<p>水织 静久：在海滩上的欧派？</p>
+<p>鹰原 羽未：和男主一起来收拾遗物的堂妹。</p>
+<p>（神山）识：饿倒在路边吃野草的自称要成为鬼的小女孩。</p>
+<p>三谷 良一：到处脱衣的变态裸男。</p>
+<p>加纳 天善：沉迷乒乓球的体育白痴。</p>
+<p>岬 镜子：温油的爱好收藏的料理白痴阿姨。</p>
+<h5 id="各线路"><a href="#各线路" class="headerlink" title="各线路"></a>各线路</h5><p><img src="https://i.loli.net/2020/08/20/UkPH4Gl1sQxN5Ew.png" alt="羽未线.png"></p>
+<h6 id="羽未线"><a href="#羽未线" class="headerlink" title="羽未线"></a>羽未线</h6><p>这条线讲了羽未和男主之间生活的小插曲吧，核心是羽未想念父母和男主正视自己。这条线我是最开始就玩了我认为在ALKA线之后游玩会有别一般的感受，可惜这是不可能的。总体上不是一条催泪线，但是也体现了一波亲子教育的哲学。</p>
+<p><img src="https://i.loli.net/2020/08/20/BEqpa8i1D27ylnK.png" alt="ADC_8`_R25YEAIHJ_TRR`ST.png"></p>
+<h6 id="紬线"><a href="#紬线" class="headerlink" title="紬线"></a>紬线</h6><p>这条线讲了紬的身世，在日常上下了很大的功夫。以紬要回去的问题展开。男主与她和静久不断挣扎，最后开花结果。其实我认为这条线虽然甜，但是并不是做的很好，首先就是静久在这条线的存在价值，我认为是有煞风景的。作为一个女强人，她也没有起到给主意的作用，也不能是她起作用。多了一些女生之间的友谊，我觉得用处不是很大。总体来说，这条线恋爱气氛很浓，但是只是依附在这个世界观的一个小支线，结局也是很虚幻的happy end。</p>
+<p><img src="https://i.loli.net/2020/08/20/JcirohVmsepMnNd.png" alt="鸥线.png"></p>
+<h6 id="鸥线"><a href="#鸥线" class="headerlink" title="鸥线"></a>鸥线</h6><p>这条线我是比较有惊喜的，首先是开篇找回四把钥匙，打开藏宝图宝箱，准备好野营，兴奋得睡不着，大家齐心协力去寻找海盗船的冒险。这里就很有童年夏日的浪漫。找到船后发现只是普通的帆船，也是很有过山车的感觉。而且确实如其他人所说，我也被蒙骗在男主是冒险团的一员的氛围里，最后解释不是的时候令我大跌眼镜。这个结局我是看不懂的，鸥最后给男主印有万国印章的情信，说明鸥还是在带领着各个胡子猫团来到了这里，男主是要去见她的留下的幻影？还是暗喻了鸥已经醒来？</p>
+<h6 id="苍线"><a href="#苍线" class="headerlink" title="苍线"></a>苍线</h6><p><img src="https://i.loli.net/2020/08/20/H2jwg56ZrqUpAxz.png" alt="苍线.png"></p>
+<p>这条线很多人都说是工具线，确实这条线交代了很多的世界观设定，但是也展现了苍的人物魅力，前面到处睡觉的伏笔也得以回收。苍在寻找七影碟的过程中也展现了担当，没有像共通线一样单纯是个lsp。单纯的性格虽然没有什么代入感，但是很有亲切感。虽然白给了男主，男主也最后展现了他的行动力，找回她的蝴蝶。整条线感觉很完满。</p>
+<h6 id="白线"><a href="#白线" class="headerlink" title="白线"></a>白线</h6><p><img src="https://i.loli.net/2020/08/20/H3sQO5RlIzoPYga.png" alt="白线.png"></p>
+<p>这条线感觉大多都是日常，为了切合最后的两线做的铺垫。羽白这种高冷女神确实给人一种难以接近的感觉。话说她也应该是公认最漂亮的女生吧（引战），其他线都是男主夸，这个还有侧面烘托。她的cg也是非常的好看。这条线解释了为什么她要离大家这么远，男主把她从预知的危机中拯救出来，说她的预知是为了避免危机的发生，虽说有点牵强，但是也是可以接受，也算是一种救赎吧。最后青涩的恋爱告白很甜。作为一条铺垫线的话是相当可以的了。</p>
+<h6 id="美希线"><a href="#美希线" class="headerlink" title="美希线"></a>美希线</h6><p><img src="https://i.loli.net/2020/08/20/9PKnzUt5wvSkV4x.png" alt="美希线.png"></p>
+<p>我认为观感最差的线，也应该是做得最不用心的线了吧，cg数量是最少的，衣服也就加多了一件很土的黄色家居装。优点嘛，更体现了岛民的善良，把她抚养到了这么大，解释了为什么她这么尽心尽力的为岛民服务。剧情梳理起来，感觉就比较矫情。明明都有这么多美好，却困在双亲丢弃的牢笼里不愿出来，解决问题和爱上男主的转折太快了，几乎都是同时解决。最后在空中时停说了一大堆话，我觉得很尬，但是cg却是最好看的几张&lt;(￣-￣！)&gt;。可能也是有点男人婆的感觉，导致好感不怎么高，不过是辛苦裸男了，提供了不少笑点。 </p>
+<h6 id="静久线"><a href="#静久线" class="headerlink" title="静久线"></a>静久线</h6><p><img src="https://i.loli.net/2020/08/20/5Fendy9pNMT3gHh.png" alt="静久线.png"></p>
+<p>这条线里紬放弃了灯塔来海之家搞百合，虽然还是那句话不怎么需要紬来推动剧情，但是最后的静久和紬的告别确实是比较感人，声优十分地卖力，在这条线男女主都解决了自己的心理问题，这样看倒是觉得男主和静久都很优秀啊，都有自己特长之处，重新在这个夏天找回真正的自己剧情看起来也比较浪漫，最后的分别（分手）也是气氛渲染得很好。整体感情过渡还算自然。虽然静久妈妈只对自己女儿发大火确实有点扯。</p>
+<h6 id="识线"><a href="#识线" class="headerlink" title="识线"></a>识线</h6><p><img src="https://i.loli.net/2020/08/20/AjskMIzby68Oae1.png" alt="识线.png"></p>
+<p>这个我也比较意外的线，思路比较创新，虽然把所有人赶到上山避难的方法是化身恶鬼海盗确实是比较蠢，前期白开水，中期往鬼的方向前行，最后回到过去救下了这个岛。结局也是十分悲壮，不过男主居然能回到过去，并把识救了上来，而且识还可以说话。这种情况下还把识写死。我觉得有点强行了。最后也没有写神山一族的留存，和识的转生啥的。总之还是搞了个be。但是气氛渲染得很好，最后的捉迷藏离别很能体现。但是14岁女孩肩负这重任着实离谱。</p>
+<h6 id="ALKA线"><a href="#ALKA线" class="headerlink" title="ALKA线"></a>ALKA线</h6><p><img src="https://i.loli.net/2020/08/20/25rdQGFtYWiClV6.png" alt="三人照.png"></p>
+<p>这个无疑是写得最好的一线了，点开一看是羽未线，我惊呆了。前期羽未突然变幼，我相当迷惑，但是在蝴蝶的画本出来后我就明白了事情的不对劲。这个轮回的故事，说惊艳也说不上，算是比较老套了，但是日常写父母和孩子的快乐时光确实是令人感到幸福，幸福中也埋藏这预知天气这条线的危机。很能抓住玩家的心情。最后慢慢忘却了羽未，感觉心情确实是闷闷的，最后绝望的无限轮回。更添一笔。</p>
+<h6 id="Pocket线"><a href="#Pocket线" class="headerlink" title="Pocket线"></a>Pocket线</h6><p><img src="https://i.loli.net/2020/08/20/pHZIjhN4RrBqWnz.png" alt="消失之际.png"></p>
+<p>这条线明显用来救局的，我玩的时候没注意影法师什么的，还以为这是男主转成七海拯救白羽，但是男主并没有这个能力，羽未也是的强，最后让白羽放弃自己的能力往前走，消除了拥有羽未的未来，母女抱在一起痛哭，场面也是很唯美凄凉。从根本上拯救了鸣濑一族，虽然没有男主的登场（去收拾仓库吧你），但是最后合家团圆令人感慨万千。（这么懂事的女儿那里领？？？？）</p>
+<h6 id="乒乓球线"><a href="#乒乓球线" class="headerlink" title="乒乓球线"></a>乒乓球线</h6><p>好家伙，打得我热血沸腾，不到残血不会玩，每一局都是要残血反杀，没到残血就刮痧。离谱，打了一个半小时终于通关了，为了这个还把窗口都缩小了，方便打。打的时候台词也是热血得很。（天善，天善，天善！！。 takahala haili！！！）</p>
+<h6 id="宝可梦"><a href="#宝可梦" class="headerlink" title="宝可梦"></a>宝可梦</h6><p>非洲人不玩的，别搞我。</p>
+<h4 id="整点碎碎念总结"><a href="#整点碎碎念总结" class="headerlink" title="整点碎碎念总结"></a>整点碎碎念总结</h4><p>​    嘛，男主也是特别的牛，进那个线都有着极大的作用，虽然有点杠，但是还是想说，没了男主，这个岛恐怕人都没得了。</p>
+<p>​    summer pockets嘛夏日的口袋，特别适合夏天玩。口袋里收藏不少好玩的故事，我也想在这个暑假体验一波夏日风情。那就玩呗。这个我也是玩了差不多有10天，大概有60小时。有人说，玩gal就是浪费时间，但是玩其他游戏就不浪费了？刷首页视频就不浪费了？在哪里能学到多少东西呢，娱乐嘛，能收获到自己想要的欢乐就很不错了，不需要强行搞什么性价比的。总之这个游戏也算是我暑假的一段小插曲吧。</p>
+</me>]]></content>
   </entry>
   <entry>
     <title>test_pic</title>
