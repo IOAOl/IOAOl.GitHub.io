@@ -1,6 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>POJ - 1611-day3-F</title>
+    <url>/2019/09/01/POJ-1611-day3-F.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611">POJ - 1611</a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
+<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = find(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = find(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = find(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = find(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法题</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>ExpressionToValue</title>
     <url>/2020/05/17/ExpressionToValue.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -46,7 +72,7 @@
 <h2 id="Grid布局3"><a href="#Grid布局3" class="headerlink" title="Grid布局3"></a>Grid布局3</h2><p>输入栏和确定按钮</p>
 <h1 id="事件"><a href="#事件" class="headerlink" title="事件"></a>事件</h1><h5 id="确定按钮click事件"><a href="#确定按钮click事件" class="headerlink" title="确定按钮click事件"></a>确定按钮click事件</h5><p>初始化动态添加元素到四个listbox</p>
 <h5 id="变量范围keydown事件"><a href="#变量范围keydown事件" class="headerlink" title="变量范围keydown事件"></a>变量范围keydown事件</h5><p>判断输入是否是数字</p>
-<h5 id="四个listbox滑动条同步事件"><a href="#四个listbox滑动条同步事件" class="headerlink" title="四个listbox滑动条同步事件"></a>四个listbox滑动条同步事件</h5><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(this.listBox4, 0), 0) as ScrollViewer;&#x2F;&#x2F;找到scrollviewer对象</span><br><span class="line">		sv4.ScrollChanged +&#x3D; newScrollChangedEventHandler(listBox4_ScrollChanged);</span><br><span class="line">&#x2F;&#x2F;添加事件</span><br><span class="line">        private void listBox4_ScrollChanged(object sender, ScrollChangedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">        if (sv4 !&#x3D; null)</span><br><span class="line">        &#123;</span><br><span class="line">            sv3.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv2.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv1.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="四个listbox滑动条同步事件"><a href="#四个listbox滑动条同步事件" class="headerlink" title="四个listbox滑动条同步事件"></a>四个listbox滑动条同步事件</h5><figure class="highlight c#"><table><tr><td class="code"><pre><span class="line">VisualTreeHelper.GetChild(VisualTreeHelper.GetChild(<span class="keyword">this</span>.listBox4, <span class="number">0</span>), <span class="number">0</span>) <span class="keyword">as</span> ScrollViewer;<span class="comment">//找到scrollviewer对象</span></span><br><span class="line">		sv4.ScrollChanged += newScrollChangedEventHandler(listBox4_ScrollChanged);</span><br><span class="line"><span class="comment">//添加事件</span></span><br><span class="line">        <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">listBox4_ScrollChanged</span>(<span class="params"><span class="built_in">object</span> sender, ScrollChangedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">        <span class="keyword">if</span> (sv4 != <span class="literal">null</span>)</span><br><span class="line">        &#123;</span><br><span class="line">            sv3.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv2.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">            sv1.ScrollToVerticalOffset(sv4.VerticalOffset);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h5 id="双击变量名产生滑块动画事件"><a href="#双击变量名产生滑块动画事件" class="headerlink" title="双击变量名产生滑块动画事件"></a>双击变量名产生滑块动画事件</h5><p>System.Windows.Threading.DispatcherTimer类用于动画制作</p>
 <p>该类用Interval方法设置事件的发生间隔</p>
 <p>tmr.Interval = TimeSpan.FromSeconds(0.01);</p>
@@ -54,7 +80,7 @@
 <p>start方法启用</p>
 <p>判断条件满足后停止</p>
 <p>end方法终止</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">private void animation(object sender, RoutedEventArgs e)</span><br><span class="line">        &#123;</span><br><span class="line">            Label label &#x3D; sender as Label;</span><br><span class="line">            int count &#x3D; 0;</span><br><span class="line">            foreach(Label l1 in listBox1.Items)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                if (l1 &#x3D;&#x3D; label)</span><br><span class="line">                    break;</span><br><span class="line">            &#125;</span><br><span class="line">            ProcessToanimation &#x3D; 0;</span><br><span class="line">            CountToAnimation &#x3D; count;</span><br><span class="line">            System.Windows.Threading.DispatcherTimer tmr &#x3D; new System.Windows.Threading.DispatcherTimer();</span><br><span class="line">            tmr.Interval &#x3D; TimeSpan.FromSeconds(0.01);</span><br><span class="line">            tmr.Tick +&#x3D; new EventHandler(threads);</span><br><span class="line">            tmr.Start();</span><br><span class="line">        &#125;</span><br><span class="line">private void threads(object c,EventArgs e)</span><br><span class="line">    &#123;</span><br><span class="line">        try</span><br><span class="line">        &#123;</span><br><span class="line">            int count &#x3D; CountToAnimation;</span><br><span class="line">            slidersList[count-1].Value &#x3D; ProcessToanimation;</span><br><span class="line">            double td &#x3D; (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text);</span><br><span class="line">            td &#x3D; td &#x2F; 5;</span><br><span class="line">            valuesList[count - 1].Content &#x3D; td;</span><br><span class="line">            variableCollection.vlist[count - 1].value &#x3D; td;</span><br><span class="line">            exp.setVariables(variableCollection);</span><br><span class="line">            result.Content &#x3D; exp.getValue();</span><br><span class="line">            ProcessToanimation +&#x3D; 0.025;</span><br><span class="line">            if (ProcessToanimation &gt;&#x3D; 10)</span><br><span class="line">            &#123;</span><br><span class="line">                slidersList[count-1].Value &#x3D; 6;</span><br><span class="line">                double ts &#x3D; (slidersList[count - 1].Value - 5) * Convert.ToDouble(rangesList[count - 1].Text)&#x2F;5;</span><br><span class="line">                valuesList[count - 1].Content &#x3D; ts;</span><br><span class="line">                variableCollection.vlist[count - 1].value &#x3D; ts;</span><br><span class="line">                exp.setVariables(variableCollection);</span><br><span class="line">                result.Content &#x3D; exp.getValue();</span><br><span class="line">                (c as System.Windows.Threading.DispatcherTimer).Stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e1)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c#"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">animation</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Label label = sender <span class="keyword">as</span> Label;</span><br><span class="line">            <span class="built_in">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">foreach</span>(Label l1 <span class="keyword">in</span> listBox1.Items)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (l1 == label)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ProcessToanimation = <span class="number">0</span>;</span><br><span class="line">            CountToAnimation = count;</span><br><span class="line">            System.Windows.Threading.DispatcherTimer tmr = <span class="keyword">new</span> System.Windows.Threading.DispatcherTimer();</span><br><span class="line">            tmr.Interval = TimeSpan.FromSeconds(<span class="number">0.01</span>);</span><br><span class="line">            tmr.Tick += <span class="keyword">new</span> EventHandler(threads);</span><br><span class="line">            tmr.Start();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">threads</span>(<span class="params"><span class="built_in">object</span> c,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> count = CountToAnimation;</span><br><span class="line">            slidersList[count<span class="number">-1</span>].Value = ProcessToanimation;</span><br><span class="line">            <span class="built_in">double</span> td = (slidersList[count - <span class="number">1</span>].Value - <span class="number">5</span>) * Convert.ToDouble(rangesList[count - <span class="number">1</span>].Text);</span><br><span class="line">            td = td / <span class="number">5</span>;</span><br><span class="line">            valuesList[count - <span class="number">1</span>].Content = td;</span><br><span class="line">            variableCollection.vlist[count - <span class="number">1</span>].<span class="keyword">value</span> = td;</span><br><span class="line">            exp.setVariables(variableCollection);</span><br><span class="line">            result.Content = exp.getValue();</span><br><span class="line">            ProcessToanimation += <span class="number">0.025</span>;</span><br><span class="line">            <span class="keyword">if</span> (ProcessToanimation &gt;= <span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                slidersList[count<span class="number">-1</span>].Value = <span class="number">6</span>;</span><br><span class="line">                <span class="built_in">double</span> ts = (slidersList[count - <span class="number">1</span>].Value - <span class="number">5</span>) * Convert.ToDouble(rangesList[count - <span class="number">1</span>].Text)/<span class="number">5</span>;</span><br><span class="line">                valuesList[count - <span class="number">1</span>].Content = ts;</span><br><span class="line">                variableCollection.vlist[count - <span class="number">1</span>].<span class="keyword">value</span> = ts;</span><br><span class="line">                exp.setVariables(variableCollection);</span><br><span class="line">                result.Content = exp.getValue();</span><br><span class="line">                (c <span class="keyword">as</span> System.Windows.Threading.DispatcherTimer).Stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e1)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
 ]]></content>
       <categories>
@@ -63,32 +89,6 @@
       <tags>
         <tag>WPF</tag>
         <tag>表达式求值</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>POJ - 1611-day3-F</title>
-    <url>/2019/09/01/POJ-1611-day3-F.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611" target="_blank" rel="noopener">POJ - 1611</a></p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
-<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
-<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
-
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
-<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = <span class="built_in">find</span>(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = <span class="built_in">find</span>(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = <span class="built_in">find</span>(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = <span class="built_in">find</span>(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法题</category>
-      </categories>
-      <tags>
-        <tag>并查集</tag>
       </tags>
   </entry>
   <entry>
@@ -215,19 +215,19 @@
     <url>/2019/08/30/hello-world.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
 <h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
 <h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
 ]]></content>
   </entry>
   <entry>
@@ -235,14 +235,171 @@
     <url>/2019/09/01/test-pic.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
-<p>微博的图床：<a href="https://pic.lizenghai.com/#" target="_blank" rel="noopener">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
+<p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
 <p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
-<p>sm.ms图床：官网地址：<a href="https://sm.ms" target="_blank" rel="noopener">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
-<p>聚合图床：官网地址： <a href="https://www.superbed.cn/" target="_blank" rel="noopener">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
+<p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
+<p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
 ]]></content>
       <tags>
         <tag>test</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>rj感想</title>
+    <url>/2020/12/11/rj%E6%84%9F%E6%83%B3.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# riddle joker感想
+
+<p>柚子社的个人推的第二作，这作不知道风格是啥，不过大概也是传统校园加特工加点超能力糅杂。主题大概还是校园。一条条线推，边推边总结，以防忘了些细节。</p>
+<h4 id="共通线"><a href="#共通线" class="headerlink" title="共通线"></a>共通线</h4><p>男主和他妹是黑警察对警察难以制裁的用星幽（魔法）能力犯案的罪犯进行打击后交给警察。</p>
+<p>然后喜闻乐见的进入关于星幽能力的校园，邂逅一波美少女，并顺便查看校园的星幽数据库。</p>
+<p>设定男主有通过大脑激活自己能力的技能（主战斗），妹妹是治疗加嘿客。</p>
+<p>这里列一下共通线主要的关于几个大女主的事件。</p>
+<p>在原七海：妹妹是特务，不用说，介绍了无血缘关系（懂的都懂），兄妹都是由上司捡来的。</p>
+<p>三司绫濑：男主执行任务过程中，发现她被偷袭，救下后，触发了色狼事件，发现她的熊是垫出来的，为了隐瞒身份，男主做了她的护卫，解救她于痴汉事件。喜欢看猫片。表面作为学生会长对他人十分友善，但其实很腹黑。</p>
+<p>式部茉优：男主和她以前是一个孤儿院，男主因为能力被排挤，她隐藏了能力，所以对男主羞愧。（感觉这个学姐很热情，对男主有明显好感）</p>
+<p>壬生千咲：妹妹的同学，现充？共通线介绍得不多，属于配角。</p>
+<p>二条院羽月：宿舍长，为人十分正义，善良加闷烧。非常喜欢古装剧。男主在小时候装逼的时候顺便救了她，她就崇拜男主了。</p>
+<p>主要事件：假钞案件，买泳衣，校园祭。（这样看起来好短）</p>
+<h4 id="二条院羽月线"><a href="#二条院羽月线" class="headerlink" title="二条院羽月线"></a>二条院羽月线</h4><p><img src="https://i.loli.net/2020/12/12/y9Znip3fXgRMGwk.png" alt="羽月1.png"></p>
+<p><img src="https://i.loli.net/2020/12/12/gDX8cRQdY3WJ1kf.png" alt="羽月2.png"></p>
+<p>​    推的第一条线。哎呀，洒家对这种纯情村（春）姑没啥抵抗力的啊。加上一看就知道不是主力线。猛冲就完事了。（美味留最后）这条线的甜度很足，女友感爆棚，很适合那些强占有欲的人，我对此一般，不过看她动不动就羞涩大叫确实有点过瘾。有自己的原则，但是也很温油。而且埋的伏笔很好，以女主小时候对原谅古装剧中的“恶人“不解-&gt;对男主干黑警察后来的谅解。这条线逻辑还是可以的，发展进度也不会太快，一步步累积好感。男主也慢慢喜欢上古装剧。有共同的爱好，而且还有共同的理想：帮助别人。结局也是女主当了警察，男主还在当特工。很符合他们的人设。确实感觉完整度还挺高。</p>
+<p>​    说完优点，就说一下缺点，首先有一个hs很违和，在男女主解决完愉快犯的犯人，居然当场h，我佛了，妹妹不是还在吗，就算妹妹离开了，也没必要非得在这个时候穿插泳池场景hs，后面后日谈又为了避免重复加了个浴场hs。。。逻辑上还有就是女主的原谅有些许问题，在女主的不原谅犯规的原则上，居然是对男主的忠诚的契约。这波啊，这波还是你比较懂死宅。可以说这波原谅有点问题，老实地接受男主也是在帮助别人不就好了，非得价值观碰撞。最后说男主比原则更重要，然后男主又是一直喜欢女主得率直，纯真，那不是打自己脸。</p>
+<p>​    总体来说，糖已经满上了，吃还是得吃，香也是香，黑长发yyds。</p>
+<h4 id="式部茉优线"><a href="#式部茉优线" class="headerlink" title="式部茉优线"></a>式部茉优线</h4><p><img src="https://i.loli.net/2020/12/12/JIetCorib1YMHfN.png" alt="茉优1.png"></p>
+<p><img src="https://i.loli.net/2020/12/12/VwmlbSJgPRWfypD.png" alt="茉优2.png"></p>
+<p>​    第二天来写，感觉就是忘了很多东西。。。这条线开始有那种甜但是安心不下来的感觉，一直到中后期才解决，感觉好像吊着胆子吃糖，有点难顶。女主疯狂强调自己是年长的姐姐。但是老是给玩家展示笨拙的一面，有点过于强调人设。才大两岁就搁着说老了？？？30岁不用活？</p>
+<p>​    玩到这里我感觉这男主看来除了妹线，都要被发现特工身份。（这特工不大行啊，瞒不过这学院聪慧的妹子们）说回主线，这条线加了很多东西，比如拯救新角色琴里，又把男主能力拓展，又介绍一堆设定，圆的回来，还算可以吧。还搞了个扯淡的能力憋精推主线。很骚。还是想说这女的有点大胆的，面对间谍居然能当场判断这么多，又男主暴露了怕影响自己，又发现纤维的利用价值，我看是迷上男主才是关键吧，搞这么多借口，到后面才说。又当机立断又蠢萌，说实话有点人设冲突。我认为不如直接设定成完全的知性大姐姐更香（暴露xp），说到男主凭啥当助手，👴都感觉羞愧了起来，后面强行男主发挥作用，有点拿设定填坑的味道了。</p>
+<p>​    不过，这琴里的声优是配老婆婆声线吗，说话又慢，我麻了，这是为了配角不要抢戏吗？说到结局就只是女主毕业有些平淡了，我以为后日谈会有追加，结果并没有。</p>
+<p>总的来说，可圈可点的一条线，设定有点多，看看其他线是不是也是揭露这些，我看三司线也有一点眉目。甜度没上一条甜但是也没差多少。</p>
+<p>（图1无了很正常）</p>
+<h4 id="壬生千咲线"><a href="#壬生千咲线" class="headerlink" title="壬生千咲线"></a>壬生千咲线</h4><p><img src="https://i.loli.net/2020/12/12/fFp4SQdBl6yuHZO.png" alt="千咲.png"></p>
+<p>这条线不用想都知道是配角线，但是没想到这么敷衍。从校园祭就开始迷惑，首先训练一个阳角做服务员，这还有必要训练？男主解决事件看了看女主立刻对之前阳角行为心动了。这痴汉事件解决得很平淡，甚至连女主都没被侵害到，全凭一腔热血。一直结局都没什么波澜。流程短，两个半小时个人线吧。感觉没有千恋万花的配角做得的用心了。反倒后日谈有点新鲜的玩法，可惜也只有一个。不过打了我之前的脸。这直接忍了男主的间谍工作，我是没想到的。个人对阳角loli无感，感觉确实对一个配角有些苛刻，不过这条线我觉得可以不用加，封面也没有她，喜欢loli的可以当我没说。</p>
+<h4 id="在原七海线"><a href="#在原七海线" class="headerlink" title="在原七海线"></a>在原七海线</h4><p><img src="https://i.loli.net/2020/12/12/31SOTiYPDGhdbJs.png" alt="七海1.png"></p>
+<p><img src="https://i.loli.net/2020/12/12/D83x65qzuZHL1ij.png" alt="七海2.png"></p>
+<p>异常的平淡的一条线，本来期待值是比较高的，可能是分开三次推的原因，花了差不多十天才结束。但是流程很短，有点敷衍的感觉。总共也就两个事件，一个是男主面临危险时，七海发现自己的感情瞒不住了，引进感情，还有就是特班被嫁祸，面临解散。说实话都很老套。最后解决也是有运气成分的样子，要是没上司就可能就没了。大半夜的推，还不断说饺子好吃，快顶不住了，结局也是平稳落地，没有介绍任何未来，直接永远在一起，没有那种高潮感。甜度一般（个人看法）。上面的cg居然在千咲线有，如果攻略顺序反过来，说不定还有点心疼这个妹妹。总之，主打妹妹属性，外加大派派，加家务人妻属性，不爽不要玩。最喜欢的cg是后日谈2的hs。</p>
+<h4 id="三司綾濑线"><a href="#三司綾濑线" class="headerlink" title="三司綾濑线"></a>三司綾濑线</h4><p><img src="https://i.loli.net/2020/12/12/eo87RqnMKXLd4Dc.png" alt="绫濑1.png"></p>
+<p><img src="https://i.loli.net/2020/12/12/I7hbRQHSPxopUyN.png" alt="绫濑2.png"></p>
+<p><img src="https://i.loli.net/2020/12/12/YX7xhfDgNTaVWQr.png" alt="绫濑3.png"></p>
+<p>玩了前面的茉优线，我就感觉到这条线才是真正的主力线，结果不出所料，本线可以说是解决了本篇的问题，其他的线现在看起来都比较肤浅。剧情还是可以的，解释了共通线的事件的由来（为什么三司被袭击），而且也解救了琴里。虽然到最后世界也没有真正认同星幽能力，但是男女主都是向这个方向发展，虽然靠这两个也干不什么大事（ 。比较有意思的是老师和基友都是卧底，确实有点操作的。貌似这条线是二周目线，不过我都已经放到最后推了。接下来说点别的。</p>
+<p>​    首先是这h来得太突然，我一度怀疑出了什么查错，反复看流程图，其他的女主都没这么快，结果居然是看到之后就被吓到，就没了。这让那些脱了裤子的咋办？？？还有就是初夜还搁那放里面不动等半小时，差点没把我笑死。hs里我还喜欢后日谈第二个（油熊操）。</p>
+<p>​    本线女主给我的感觉跟我预想的差得有点多，我以为是那种傲娇系的，但是却完全打脸，打得是可爱嘴臭系，插画画得还有点幼，加上声线，有点年幼感，本来感觉是比较成熟的。撸猫属性也没完全发挥，没有单独的hs，只有一个摸头杀。不过结局还是很甜。这条线的甜度还是很高的，两个人都无时无刻强调自己多爱对方，强调得有点腻了，总是搞点什么理由，然后马上和好，看起来什么安稳。最后两个场景都特别甜，一个是上天台表白，还有是一年后的誓言。</p>
+<h3 id="总结（11-16-12-10日）"><a href="#总结（11-16-12-10日）" class="headerlink" title="总结（11.16-12.10日）"></a>总结（11.16-12.10日）</h3><p>25天通关，剧情断层确实有点严重，平均每条个人线都分开两，三次推。不过也没什么特别需要记忆前面的剧情。</p>
+<h6 id="好用度等级"><a href="#好用度等级" class="headerlink" title="好用度等级"></a>好用度等级</h6><p>茉优&gt;羽月&gt;七海&gt;绫濑&gt;千咲</p>
+<h6 id="剧情等级"><a href="#剧情等级" class="headerlink" title="剧情等级"></a>剧情等级</h6><p>绫濑&gt;茉优&gt;羽月&gt;七海&gt;千咲</p>
+<h6 id="个人好感度"><a href="#个人好感度" class="headerlink" title="个人好感度"></a>个人好感度</h6><p>羽月&gt;茉优=绫濑&gt;七海&gt;千咲</p>
+<p>总体讲讲感受。推完更加空虚了，一开始对这部作品没报什么期待，最后也是感觉是这样。下一步要推点有剧情的了。废萌先不碰了。本来是冲着七海去的但是实际上没有我想象得这么好。</p>
+<p>下面练练流程图</p>
+<pre class="mermaid">graph TD
+    subgraph 第一章
+    介绍男主背景:特班和星幽-->潜入学校执行任务
+    潜入学校执行任务-->身体检查
+    身体检查-->茉优发现男主小时候和自己同一孤儿院
+    茉优发现男主小时候和自己同一孤儿院-->抓捕假钞犯人
+    抓捕假钞犯人-->途中发现绫濑平胸
+    途中发现绫濑平胸-->恐吓使用迷惑他人能力的假钞犯人
+    恐吓使用迷惑他人能力的假钞犯人-->第一章结束
+    end
+    subgraph 第二章
+    第一章结束-->为了游泳课全体去买泳衣
+    为了游泳课全体去买泳衣-->选择看谁的泳衣
+    选择看谁的泳衣-->羽月的泳装
+    选择看谁的泳衣-->七海的泳装
+    七海的泳装-->接千咲的话题
+    接千咲的话题-->不接
+    接千咲的话题-->接
+    接-->购物结束
+    不接-->购物结束
+    羽月的泳装-->购物结束
+    购物结束-->游泳课
+    游泳课-->七海泳装合适否?
+    七海泳装合适否?-->一般般
+    七海泳装合适否?-->非常合适
+    非常合适-->羽月能力掌控事件
+    一般般-->羽月能力掌控事件
+    羽月能力掌控事件-->去哪征求意见
+    去哪征求意见-->学生会室//绫濑
+    去哪征求意见-->研究室//茉优
+    学生会室//绫濑-->羽月特训
+    研究室//茉优-->羽月特训
+    羽月特训-->第二章结束
+    end
+    subgraph 第三章
+    第二章结束-->吃饭去哪
+    吃饭去哪-->老地方//绫濑
+    吃饭去哪-->新地方//七海
+    新地方//七海-->绫濑诱拐和校园祭
+    老地方//绫濑-->绫濑诱拐和校园祭
+    绫濑诱拐和校园祭-->校园祭和谁练习
+    校园祭和谁练习-->与羽月练习
+    校园祭和谁练习-->与茉优练习
+    校园祭和谁练习-->与千咲练习
+    与羽月练习-->男主睡觉前难受
+    与茉优练习-->男主睡觉前难受
+    与千咲练习-->男主睡觉前难受
+    男主睡觉前难受-->auto1{根据前面自动与相应女主会话得到缓解}
+    auto1{根据前面自动与相应女主会话得到缓解}-->抓捕现场
+    抓捕现场-->auto2{自动选观望或者猛冲}
+    auto2{自动选观望或者猛冲}-->观望
+    观望-->茉优线
+    观望-->结束//单身
+    auto2{自动选观望或者猛冲}-->猛冲
+       结束//单身-->校园祭完结
+       猛冲-->校园祭完结
+    校园祭完结-->单身
+    校园祭完结-->绫濑线
+    校园祭完结-->七海线
+    校园祭完结-->羽月线
+    校园祭完结-->千咲线
+    end</pre>
+
+<pre class="mermaid">graph TB;
+    classDef c1 fill:#FFC0CB,stroke:#FFB6C1,stroke-width:3px
+    subgraph 第三章
+    p0(冲出去导致受伤) --> p1(第三章结束)
+    end
+    subgraph 第四章 
+    p1(第三章结束) --> p2(受伤贫血)
+    p2(受伤贫血) --> p3(绫濑害怕孤独电话求救)
+    p3(绫濑害怕孤独电话求救) --> p4(绫濑渐渐发现离不开男主)
+    p4(绫濑渐渐发现离不开男主) --> p5(夜里恐怖游戏)
+    p5(夜里恐怖游戏) --> p6(双方告白)
+    end
+    subgraph 第五章
+    p6(双方告白) --> p7(看jj后恐惧)
+    p7(看jj后恐惧) --> p8(约会吃饼)
+    p8(约会吃饼) --> p9(初体验 hs1)
+    p9(初体验 hs1) --> p10(班上同学发病)
+    p10(班上同学发病) --> p11(泳池取材 hs2)
+    end
+    subgraph 第六章
+    p11(泳池取材 hs2) --> p12(班上同学消失)
+    p12(班上同学消失) --> p13(1)
+    p13(潜入实验楼调查星幽能力生长性) --> p14(1)
+    p14(发现能力暴走的同学) --> p15(1)
+    p15(被理事长当场抓获) --> p16(1)
+    p16(理事长坦白学院秘密) --> p17(1)
+    end
+    subgraph 第七章
+    p17(询问的老师竟然是反星幽派卧底) --> p18(1)
+    p18(男主和女主共同作战) --> p19(1)
+    p19(抓获老师) --> p20(1)
+    p20(男主背下来的资料协助研究) --> p21(1)
+    p21(能力被激发暴走猛射 hs3) --> p22(1)
+    p22(一年后解药被开发) --> p23(1)
+    end
+    subgraph 终章
+       p23(上天台男主表明自己身份和能力) --> p24(1)
+    p24(双人散步) --> p25(1)
+    end
+    subgraph 后日谈
+    p25(后日谈) --> p26(学生会室play hs4)
+    p25(后日谈) --> p27(按摩play hs5)
+    end
+
+    class p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49 c1</pre>
+
+]]></content>
   </entry>
   <entry>
     <title>各种感想合集</title>
@@ -250,11 +407,11 @@
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
 
-<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462" target="_blank" rel="noopener">スキとスキとでサンカク恋愛</a></p>
-<p><a href="http://bangumi.tv/blog/298330" target="_blank" rel="noopener">Summer Pockets -REFLECTION BLUE</a></p>
-<p><a href="http://bangumi.tv/blog/298143" target="_blank" rel="noopener">恋愛、借りちゃいました</a></p>
-<p><a href="http://bangumi.tv/blog/297902" target="_blank" rel="noopener">千恋＊万花</a></p>
-<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746" target="_blank" rel="noopener">かくしごと</a></p>
+<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
+<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
+<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
+<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
+<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
 ]]></content>
   </entry>
   <entry>
@@ -267,6 +424,33 @@
 ]]></content>
       <tags>
         <tag>Gallery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构题目</title>
+    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
+
+<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
+<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
+<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
+<p>改进版本</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
+
+<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
+<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
+<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
+<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+]]></content>
+      <tags>
+        <tag>队列</tag>
       </tags>
   </entry>
   <entry>
@@ -500,33 +684,6 @@
       <tags>
         <tag>计网笔记</tag>
         <tag>运输层</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构题目</title>
-    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
-
-<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> <span class="built_in">max</span>=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.<span class="built_in">size</span>();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    <span class="built_in">max</span>=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(<span class="built_in">max</span>&lt;nums[i+j])&#123;</span><br><span class="line">                            <span class="built_in">max</span>=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(<span class="built_in">max</span>&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        <span class="built_in">max</span>=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(<span class="built_in">max</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
-<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
-<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
-<p>改进版本</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.<span class="built_in">size</span>();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
-
-<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
-<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
-<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
-<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-]]></content>
-      <tags>
-        <tag>队列</tag>
       </tags>
   </entry>
 </search>
