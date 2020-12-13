@@ -150,26 +150,6 @@
 </me>]]></content>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/2019/08/30/hello-world.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>TSPppt</title>
     <url>/2019/09/23/TSPppt.html</url>
     <content><![CDATA[<me ta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -229,6 +209,26 @@
         <tag>动态规划</tag>
         <tag>Prim</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/2019/08/30/hello-world.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
+]]></content>
   </entry>
   <entry>
     <title>hexo+github博客域名配置</title>
@@ -319,6 +319,72 @@
 <p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:<a href="mailto:admin@dns-example.com">admin@dns-example.com</a>”<br>CAA 1<br>CAA2</p>
 <h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>各种感想合集</title>
+    <url>/2020/08/28/%E5%90%84%E7%A7%8D%E6%84%9F%E6%83%B3%E5%90%88%E9%9B%86.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
+
+<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
+<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
+<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
+<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
+<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test_pic</title>
+    <url>/2019/09/01/test-pic.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
+<p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
+<p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
+<p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>天国旅立</title>
+    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
+<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
+]]></content>
+      <tags>
+        <tag>Gallery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构题目</title>
+    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
+
+<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
+<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
+<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
+<p>改进版本</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
+
+<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
+<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
+<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
+<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+]]></content>
+      <tags>
+        <tag>队列</tag>
+      </tags>
   </entry>
   <entry>
     <title>rj感想</title>
@@ -476,72 +542,6 @@
     class p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49 c1</pre>
 
 ]]></content>
-  </entry>
-  <entry>
-    <title>test_pic</title>
-    <url>/2019/09/01/test-pic.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
-<p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
-<p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
-<p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>各种感想合集</title>
-    <url>/2020/08/28/%E5%90%84%E7%A7%8D%E6%84%9F%E6%83%B3%E5%90%88%E9%9B%86.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
-
-<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
-<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
-<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
-<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
-<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>天国旅立</title>
-    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
-<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
-]]></content>
-      <tags>
-        <tag>Gallery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构题目</title>
-    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
-
-<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
-<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
-<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
-<p>改进版本</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
-
-<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
-<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
-<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
-<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-]]></content>
-      <tags>
-        <tag>队列</tag>
-      </tags>
   </entry>
   <entry>
     <title>计算机网络运输层笔记</title>
