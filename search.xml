@@ -231,162 +231,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hexo+github博客域名配置</title>
-    <url>/2020/12/12/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-### hexo+github博客域名配置
-
-<p>搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。</p>
-<p>首先需要一个域名。</p>
-<h4 id="买域名"><a href="#买域名" class="headerlink" title="买域名"></a>买域名</h4><p>买就完事了，上阿里云买个域名</p>
-<h4 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h4><p><strong>也就是在阿里云网站上填写主机记录和记录类型与记录值</strong></p>
-<p><img src="https://i.loli.net/2020/12/12/a6gcoHEbkG4Fj5C.png" alt="1.png"></p>
-<h5 id="具体步骤：记录值的填写"><a href="#具体步骤：记录值的填写" class="headerlink" title="具体步骤：记录值的填写"></a>具体步骤：记录值的填写</h5><p>这里用到了A记录和CNAME记录</p>
-<p>a记录的主机记录是       @</p>
-<p>CNAME的主机记录是   www</p>
-<p><strong>A记录值:</strong></p>
-<p>在cmd中</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping githubname.github.io</span><br></pre></td></tr></table></figure>
-
-<p>这里的githubname是你的github名字。</p>
-<p><img src="https://i.loli.net/2020/12/12/IcM1uxQSUaovC5p.png" alt="2.png"></p>
-<p>把这个ip地址记录到a记录中</p>
-<p><strong>CNAME记录值：</strong></p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">githubname.github.io</span><br></pre></td></tr></table></figure>
-
-<p>githubname是你的github名字。</p>
-<h4 id="github上的设置"><a href="#github上的设置" class="headerlink" title="github上的设置"></a>github上的设置</h4><p>打开github上的hexo项目的setting，下拉可以看到GitHub Pages。接着</p>
-<p><img src="https://i.loli.net/2020/12/12/ANT947R2yS5iGU1.png" alt="3.png"></p>
-<h4 id="hexo的配置"><a href="#hexo的配置" class="headerlink" title="hexo的配置"></a>hexo的配置</h4><p>本地文件的hexo文件夹找到source文件夹</p>
-<p>添加一个<strong>文件</strong>（没有后缀）名字叫CNAME。</p>
-<p>里面填写你的域名</p>
-<p><img src="https://i.loli.net/2020/12/12/sC2VK1hagybBtvH.png" alt="4.png"></p>
-<p>接着cmd里cd到hexo文件夹，重新生成文件并上传。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</span><br></pre></td></tr></table></figure>
-
-<h4 id="任务完成"><a href="#任务完成" class="headerlink" title="任务完成"></a>任务完成</h4><p>浏览器地址栏输入域名即可访问博客。</p>
-<p>github pages可以看到这样的信息。</p>
-<p><img src="https://i.loli.net/2020/12/12/vfGZctIKhraxQCd.png" alt="5.png"></p>
-<h3 id="科普知识"><a href="#科普知识" class="headerlink" title="科普知识"></a>科普知识</h3><h5 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h5><p>主机记录就是域名前缀，常见用法有:www:解析后的域名为<a href="http://www.aliyun.com。">www.aliyun.com。</a></p>
-<p>@:直接解析主域名aliyun.com。<br><em>*:泛解析，匹配其他所有域名</em>.aliyun.com。<br>mail:将域名解析为mail.aliyun.com，通常用于解析邮箱服务器。</p>
-<p>二级域名:如: abc.aliyun.com，填写abc。<br>手机网站:如: m.aliyun.com，填写m。<br>显性URL:不支持泛解析（泛解析:将所有子域名解析到同—地址)</p>
-<p>解析线路：选择 默认 （默认为必选项，如未设置会导致部分用户无法访问 )。</p>
-<p>记录值：记录值为 IP 地址，填写 IPv4 地址。</p>
-<p>TTL：为缓存时间，数值越小，修改记录各地生效时间越快。</p>
-<h5 id="记录类型"><a href="#记录类型" class="headerlink" title="记录类型"></a>记录类型</h5><p>记录类型包含：</p>
-<p>A记录，CNAME记录，MX记录，AAAA记录，TXT记录，URL显性/隐性转发，NS记录，SRV记录，CAA记录，PTR记录</p>
-<h6 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h6><p>使用场景<br>添加 A 记录可实现将域名指向 IP 地址。</p>
-<h6 id="CNAME-记录"><a href="#CNAME-记录" class="headerlink" title="CNAME 记录"></a>CNAME 记录</h6><p>使用场景<br>当需要将域名指向另一个域名，再由另一个域名提供 IP 地址，就需要添加 CNAME 记录，最常用到 CNAME 的场景包括做 CDN、企业邮箱、全局流量管理等。</p>
-<h6 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h6><p>使用场景<br>设置邮箱时，让邮箱能收到邮件，就需要添加 MX 记录。MX全称为mail exchanger，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。例如，当有人发邮件给“<a href="mailto:vincen@example.com">vincen@example.com</a>”时，系统将对“example.com”进行DNS中的MX记录解析。如果MX记录存在，系统就根据MX记录的优先级，将邮件转发到与该MX相应的邮件服务器上。</p>
-<p>主机记录：一般是指子域名的前缀，（要做<a href="mailto:xxx@dns-example.com">xxx@dns-example.com</a>的邮箱，所以主机记录输入“ @ ”；要做<a href="mailto:xxx@mail.dns-example.com">xxx@mail.dns-example.com</a>，如果主机记录填 mail）。</p>
-<p>记录值：输入内容通过联系邮箱注册商提供。例如阿里云邮提供的需要配置的解析记录值是 mx1.qiye.aliyun.com；</p>
-<p>MX优先级：输入内容通过联系邮箱注册商提供，MX 优先级的数值越低，优先级别就越高（如下图，邮件会先尝试发送到 MX 优先级为 5 的mx1.qiye.aliyun.com，如果尝试失败，才会发送到 MX 优先级为10 的mx2.qiye.aliyun.com）。</p>
-<p>MX1<br>MX2</p>
-<p>注意：以上仅是对MX记录的设置为例，完整的创建邮箱，还需要同时设置CNAME、TXT记录，具体需要配置的解析记录请联系您的邮箱厂商获取，如果您的邮箱提供是阿里云邮箱，您可以参阅 添加邮箱解析 的操作文档</p>
-<h6 id="AAAA-记录"><a href="#AAAA-记录" class="headerlink" title="AAAA 记录"></a>AAAA 记录</h6><p>使用场景<br>当预期是实现访问者通过 IPv6 地址访问网站，可以使用 AAAA 记录实现。</p>
-<h6 id="TXT-记录"><a href="#TXT-记录" class="headerlink" title="TXT 记录"></a>TXT 记录</h6><p>使用场景<br>如果希望对域名进行标识和说明，可以使用 TXT 记录， TXT 记录多用来做 SPF 记录（反垃圾邮件）。</p>
-<p>主机记录：一般是指子域名的前缀（如需为子域名为 <a href="http://www.dns-example.com">www.dns-example.com</a> 添加 TXT 记录， 主机记录输入 www；如需为dns-example.com添加TXT记录，主机记录输入 @）</p>
-<p>TXT记录</p>
-<h6 id="URL显性-隐性转发"><a href="#URL显性-隐性转发" class="headerlink" title="URL显性/隐性转发"></a>URL显性/隐性转发</h6><p>使用场景<br>将一个域名指向另外一个已经存在的站点时，需要添加 URL 记录。</p>
-<p>使用前提<br>添加 URL 转发记录时，转发前的域名需完成备案。</p>
-<p>设置方法<br>示例：以 <a href="http://dns-example.com">http://dns-example.com</a> 跳转到 <a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 为例。</p>
-<p>1 . URL隐性转发</p>
-<p>用的是iframe框架技术，非重定向技术；</p>
-<p>隐性URL</p>
-<p>实现效果</p>
-<p>为浏览器地址栏输入<a href="http://dns-example.com">http://dns-example.com</a> 回车，打开网站内容是目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 的网站内容，但地址栏显示当前地<a href="http://dns-example.com">http://dns-example.com</a></p>
-<p>2 . URL显性转发</p>
-<p>支持URL转发301永久重定向、302暂时性定向</p>
-<p>URL显性转发</p>
-<p>实现效果</p>
-<p>为浏览器地址栏输入<a href="http://dnswork.top">http://dnswork.top</a> 回车，打开网站内容是目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 的网站内容，且地址栏显示目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a></p>
-<p>使用规则<br>添加 URL 转发记录时，转发前的域名都需完成备案且备案接入商为阿里云。</p>
-<p>URL转发时记录值不能为IP地址<br>URL转发不支持泛解析设置。<br>URL转发的目标域名不支持中文域名。<br>URL转发前域名支持HTTP，不支持HTTPS，转发后的目标地址支持HTTP、HTTPS。<br>URL转发属于特殊商品，云解析不提供攻击防护服务，如遇攻击黑洞时无法使用URL转发，请将需要转发的主机记录配置为A或CNAME记录。</p>
-<h6 id="NS-记录"><a href="#NS-记录" class="headerlink" title="NS 记录"></a>NS 记录</h6><p>使用场景<br>如果需要把子域名交给其他 DNS 服务商解析，就需要添加 NS 记录。</p>
-<p>设置方法<br>示例：域名 dns-example.com 使用阿里云解析，将子域名<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析管理权从阿里云解析授权给腾讯云解析做管理。</p>
-<p>主机记录：一般是指子域名的前缀（如需将子域名为<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析授权给腾讯云解析的DNS服务器进行解析管理，只需要在主机记录处填写 www 即可）。</p>
-<p>记录值：记录值为要授权的 DNS 服务器域名，例如腾讯云解析的DNS服务器域名f1g1ns1.dnspod.net。</p>
-<h6 id="SRV记录"><a href="#SRV记录" class="headerlink" title="SRV记录"></a>SRV记录</h6><p>使用场景<br>SRV 记录用来标识某台服务器使用了某个服务，常见于微软系统的目录管理。</p>
-<p>主机记录： 格式为 服务的名字.协议的类型。</p>
-<p>例如：_sip._tcp</p>
-<p>解析线路：默认 为必选项，未设置默认线路会导致部分用户无法解析<br>记录值：格式为 优先级 权重 端口 目标地址 ，每项中间需以空格分隔。</p>
-<p>例如：0 5 5060 sipserver.example.com</p>
-<h6 id="CAA记录"><a href="#CAA记录" class="headerlink" title="CAA记录"></a>CAA记录</h6><p>使用场景<br>CAA(Certificate Authority Authorization)，即证书颁发机构授权。是一项新的可以添加到DNS记录中的额外字段,通过DNS机制创建CAA资源记录，可以限定域名颁发的证书和CA（证书颁发机构）之间的联系。未经授权的第三方尝试通过其他CA注册获取用于该域名的SSL/TLS证书将被拒绝。</p>
-<p>域名设置 CAA 记录，使网站所有者，可授权指定CA机构为自己的域名颁发证书，以防止HTTPS证书错误签发，从而提高网站安全性。</p>
-<p>CAA记录的记录格式<br>CAA记录的格式为：[flag] [tag] [value]，是由一个标志字节的[flag]和一个被称为属性的[tag]-[value]（标签-值）对组成。您可以将多个CAA字段添加到域名的DNS记录中。</p>
-<p>放大查看<br>字段    说明<br>flag    无符号整数（目前仅支持0和128），用于标志认证机构。通常情况下填0，表示如果颁发证书机构无法识别本条信息，就忽略。<br>tag    支持 issue、issuewild 和 iodef。<br>issue：CA授权单个证书颁发机构发布的 任何类型 域名证书。<br>issuewild：CA授权单个证书颁发机构发布主机名的 通配符 证书。<br>iodef：CA可以将违规的颁发记录URL发送给某个电子邮箱。<br>value    CA的域名或用于违规通知的电子邮箱。</p>
-<p>设置方法<br>添加如下两条解析记录。</p>
-<p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:<a href="mailto:admin@dns-example.com">admin@dns-example.com</a>”<br>CAA 1<br>CAA2</p>
-<h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>各种感想合集</title>
-    <url>/2020/08/28/%E5%90%84%E7%A7%8D%E6%84%9F%E6%83%B3%E5%90%88%E9%9B%86.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
-
-<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
-<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
-<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
-<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
-<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>test_pic</title>
-    <url>/2019/09/01/test-pic.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
-<p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
-<p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
-<p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
-]]></content>
-      <tags>
-        <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>天国旅立</title>
-    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
-<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
-]]></content>
-      <tags>
-        <tag>Gallery</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>数据结构题目</title>
-    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
-
-<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
-<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
-<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
-<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
-<p>改进版本</p>
-<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
-
-<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
-<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
-<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
-<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-]]></content>
-      <tags>
-        <tag>队列</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>rj感想</title>
     <url>/2020/12/11/rj%E6%84%9F%E6%83%B3.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -542,6 +386,162 @@
     class p0,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21,p22,p23,p24,p25,p26,p27,p28,p29,p30,p31,p32,p33,p34,p35,p36,p37,p38,p39,p40,p41,p42,p43,p44,p45,p46,p47,p48,p49 c1</pre>
 
 ]]></content>
+  </entry>
+  <entry>
+    <title>hexo+github博客域名配置</title>
+    <url>/2020/12/12/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+### hexo+github博客域名配置
+
+<p>搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。</p>
+<p>首先需要一个域名。</p>
+<h4 id="买域名"><a href="#买域名" class="headerlink" title="买域名"></a>买域名</h4><p>买就完事了，上阿里云买个域名</p>
+<h4 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h4><p><strong>也就是在阿里云网站上填写主机记录和记录类型与记录值</strong></p>
+<p><img src="https://i.loli.net/2020/12/12/a6gcoHEbkG4Fj5C.png" alt="1.png"></p>
+<h5 id="具体步骤：记录值的填写"><a href="#具体步骤：记录值的填写" class="headerlink" title="具体步骤：记录值的填写"></a>具体步骤：记录值的填写</h5><p>这里用到了A记录和CNAME记录</p>
+<p>a记录的主机记录是       @</p>
+<p>CNAME的主机记录是   www</p>
+<p><strong>A记录值:</strong></p>
+<p>在cmd中</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ping githubname.github.io</span><br></pre></td></tr></table></figure>
+
+<p>这里的githubname是你的github名字。</p>
+<p><img src="https://i.loli.net/2020/12/12/IcM1uxQSUaovC5p.png" alt="2.png"></p>
+<p>把这个ip地址记录到a记录中</p>
+<p><strong>CNAME记录值：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">githubname.github.io</span><br></pre></td></tr></table></figure>
+
+<p>githubname是你的github名字。</p>
+<h4 id="github上的设置"><a href="#github上的设置" class="headerlink" title="github上的设置"></a>github上的设置</h4><p>打开github上的hexo项目的setting，下拉可以看到GitHub Pages。接着</p>
+<p><img src="https://i.loli.net/2020/12/12/ANT947R2yS5iGU1.png" alt="3.png"></p>
+<h4 id="hexo的配置"><a href="#hexo的配置" class="headerlink" title="hexo的配置"></a>hexo的配置</h4><p>本地文件的hexo文件夹找到source文件夹</p>
+<p>添加一个<strong>文件</strong>（没有后缀）名字叫CNAME。</p>
+<p>里面填写你的域名</p>
+<p><img src="https://i.loli.net/2020/12/12/sC2VK1hagybBtvH.png" alt="4.png"></p>
+<p>接着cmd里cd到hexo文件夹，重新生成文件并上传。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</span><br></pre></td></tr></table></figure>
+
+<h4 id="任务完成"><a href="#任务完成" class="headerlink" title="任务完成"></a>任务完成</h4><p>浏览器地址栏输入域名即可访问博客。</p>
+<p>github pages可以看到这样的信息。</p>
+<p><img src="https://i.loli.net/2020/12/12/vfGZctIKhraxQCd.png" alt="5.png"></p>
+<h3 id="科普知识"><a href="#科普知识" class="headerlink" title="科普知识"></a>科普知识</h3><h5 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h5><p>主机记录就是域名前缀，常见用法有:www:解析后的域名为<a href="http://www.aliyun.com。">www.aliyun.com。</a></p>
+<p>@:直接解析主域名aliyun.com。<br><em>*:泛解析，匹配其他所有域名</em>.aliyun.com。<br>mail:将域名解析为mail.aliyun.com，通常用于解析邮箱服务器。</p>
+<p>二级域名:如: abc.aliyun.com，填写abc。<br>手机网站:如: m.aliyun.com，填写m。<br>显性URL:不支持泛解析（泛解析:将所有子域名解析到同—地址)</p>
+<p>解析线路：选择 默认 （默认为必选项，如未设置会导致部分用户无法访问 )。</p>
+<p>记录值：记录值为 IP 地址，填写 IPv4 地址。</p>
+<p>TTL：为缓存时间，数值越小，修改记录各地生效时间越快。</p>
+<h5 id="记录类型"><a href="#记录类型" class="headerlink" title="记录类型"></a>记录类型</h5><p>记录类型包含：</p>
+<p>A记录，CNAME记录，MX记录，AAAA记录，TXT记录，URL显性/隐性转发，NS记录，SRV记录，CAA记录，PTR记录</p>
+<h6 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h6><p>使用场景<br>添加 A 记录可实现将域名指向 IP 地址。</p>
+<h6 id="CNAME-记录"><a href="#CNAME-记录" class="headerlink" title="CNAME 记录"></a>CNAME 记录</h6><p>使用场景<br>当需要将域名指向另一个域名，再由另一个域名提供 IP 地址，就需要添加 CNAME 记录，最常用到 CNAME 的场景包括做 CDN、企业邮箱、全局流量管理等。</p>
+<h6 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h6><p>使用场景<br>设置邮箱时，让邮箱能收到邮件，就需要添加 MX 记录。MX全称为mail exchanger，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。例如，当有人发邮件给“<a href="mailto:vincen@example.com">vincen@example.com</a>”时，系统将对“example.com”进行DNS中的MX记录解析。如果MX记录存在，系统就根据MX记录的优先级，将邮件转发到与该MX相应的邮件服务器上。</p>
+<p>主机记录：一般是指子域名的前缀，（要做<a href="mailto:xxx@dns-example.com">xxx@dns-example.com</a>的邮箱，所以主机记录输入“ @ ”；要做<a href="mailto:xxx@mail.dns-example.com">xxx@mail.dns-example.com</a>，如果主机记录填 mail）。</p>
+<p>记录值：输入内容通过联系邮箱注册商提供。例如阿里云邮提供的需要配置的解析记录值是 mx1.qiye.aliyun.com；</p>
+<p>MX优先级：输入内容通过联系邮箱注册商提供，MX 优先级的数值越低，优先级别就越高（如下图，邮件会先尝试发送到 MX 优先级为 5 的mx1.qiye.aliyun.com，如果尝试失败，才会发送到 MX 优先级为10 的mx2.qiye.aliyun.com）。</p>
+<p>MX1<br>MX2</p>
+<p>注意：以上仅是对MX记录的设置为例，完整的创建邮箱，还需要同时设置CNAME、TXT记录，具体需要配置的解析记录请联系您的邮箱厂商获取，如果您的邮箱提供是阿里云邮箱，您可以参阅 添加邮箱解析 的操作文档</p>
+<h6 id="AAAA-记录"><a href="#AAAA-记录" class="headerlink" title="AAAA 记录"></a>AAAA 记录</h6><p>使用场景<br>当预期是实现访问者通过 IPv6 地址访问网站，可以使用 AAAA 记录实现。</p>
+<h6 id="TXT-记录"><a href="#TXT-记录" class="headerlink" title="TXT 记录"></a>TXT 记录</h6><p>使用场景<br>如果希望对域名进行标识和说明，可以使用 TXT 记录， TXT 记录多用来做 SPF 记录（反垃圾邮件）。</p>
+<p>主机记录：一般是指子域名的前缀（如需为子域名为 <a href="http://www.dns-example.com">www.dns-example.com</a> 添加 TXT 记录， 主机记录输入 www；如需为dns-example.com添加TXT记录，主机记录输入 @）</p>
+<p>TXT记录</p>
+<h6 id="URL显性-隐性转发"><a href="#URL显性-隐性转发" class="headerlink" title="URL显性/隐性转发"></a>URL显性/隐性转发</h6><p>使用场景<br>将一个域名指向另外一个已经存在的站点时，需要添加 URL 记录。</p>
+<p>使用前提<br>添加 URL 转发记录时，转发前的域名需完成备案。</p>
+<p>设置方法<br>示例：以 <a href="http://dns-example.com">http://dns-example.com</a> 跳转到 <a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 为例。</p>
+<p>1 . URL隐性转发</p>
+<p>用的是iframe框架技术，非重定向技术；</p>
+<p>隐性URL</p>
+<p>实现效果</p>
+<p>为浏览器地址栏输入<a href="http://dns-example.com">http://dns-example.com</a> 回车，打开网站内容是目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 的网站内容，但地址栏显示当前地<a href="http://dns-example.com">http://dns-example.com</a></p>
+<p>2 . URL显性转发</p>
+<p>支持URL转发301永久重定向、302暂时性定向</p>
+<p>URL显性转发</p>
+<p>实现效果</p>
+<p>为浏览器地址栏输入<a href="http://dnswork.top">http://dnswork.top</a> 回车，打开网站内容是目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a> 的网站内容，且地址栏显示目标地址<a href="http://www.aliyun.com:80/">http://www.aliyun.com:80/</a></p>
+<p>使用规则<br>添加 URL 转发记录时，转发前的域名都需完成备案且备案接入商为阿里云。</p>
+<p>URL转发时记录值不能为IP地址<br>URL转发不支持泛解析设置。<br>URL转发的目标域名不支持中文域名。<br>URL转发前域名支持HTTP，不支持HTTPS，转发后的目标地址支持HTTP、HTTPS。<br>URL转发属于特殊商品，云解析不提供攻击防护服务，如遇攻击黑洞时无法使用URL转发，请将需要转发的主机记录配置为A或CNAME记录。</p>
+<h6 id="NS-记录"><a href="#NS-记录" class="headerlink" title="NS 记录"></a>NS 记录</h6><p>使用场景<br>如果需要把子域名交给其他 DNS 服务商解析，就需要添加 NS 记录。</p>
+<p>设置方法<br>示例：域名 dns-example.com 使用阿里云解析，将子域名<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析管理权从阿里云解析授权给腾讯云解析做管理。</p>
+<p>主机记录：一般是指子域名的前缀（如需将子域名为<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析授权给腾讯云解析的DNS服务器进行解析管理，只需要在主机记录处填写 www 即可）。</p>
+<p>记录值：记录值为要授权的 DNS 服务器域名，例如腾讯云解析的DNS服务器域名f1g1ns1.dnspod.net。</p>
+<h6 id="SRV记录"><a href="#SRV记录" class="headerlink" title="SRV记录"></a>SRV记录</h6><p>使用场景<br>SRV 记录用来标识某台服务器使用了某个服务，常见于微软系统的目录管理。</p>
+<p>主机记录： 格式为 服务的名字.协议的类型。</p>
+<p>例如：_sip._tcp</p>
+<p>解析线路：默认 为必选项，未设置默认线路会导致部分用户无法解析<br>记录值：格式为 优先级 权重 端口 目标地址 ，每项中间需以空格分隔。</p>
+<p>例如：0 5 5060 sipserver.example.com</p>
+<h6 id="CAA记录"><a href="#CAA记录" class="headerlink" title="CAA记录"></a>CAA记录</h6><p>使用场景<br>CAA(Certificate Authority Authorization)，即证书颁发机构授权。是一项新的可以添加到DNS记录中的额外字段,通过DNS机制创建CAA资源记录，可以限定域名颁发的证书和CA（证书颁发机构）之间的联系。未经授权的第三方尝试通过其他CA注册获取用于该域名的SSL/TLS证书将被拒绝。</p>
+<p>域名设置 CAA 记录，使网站所有者，可授权指定CA机构为自己的域名颁发证书，以防止HTTPS证书错误签发，从而提高网站安全性。</p>
+<p>CAA记录的记录格式<br>CAA记录的格式为：[flag] [tag] [value]，是由一个标志字节的[flag]和一个被称为属性的[tag]-[value]（标签-值）对组成。您可以将多个CAA字段添加到域名的DNS记录中。</p>
+<p>放大查看<br>字段    说明<br>flag    无符号整数（目前仅支持0和128），用于标志认证机构。通常情况下填0，表示如果颁发证书机构无法识别本条信息，就忽略。<br>tag    支持 issue、issuewild 和 iodef。<br>issue：CA授权单个证书颁发机构发布的 任何类型 域名证书。<br>issuewild：CA授权单个证书颁发机构发布主机名的 通配符 证书。<br>iodef：CA可以将违规的颁发记录URL发送给某个电子邮箱。<br>value    CA的域名或用于违规通知的电子邮箱。</p>
+<p>设置方法<br>添加如下两条解析记录。</p>
+<p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:<a href="mailto:admin@dns-example.com">admin@dns-example.com</a>”<br>CAA 1<br>CAA2</p>
+<h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test_pic</title>
+    <url>/2019/09/01/test-pic.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
+<p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
+<p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
+<p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
+]]></content>
+      <tags>
+        <tag>test</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>各种感想合集</title>
+    <url>/2020/08/28/%E5%90%84%E7%A7%8D%E6%84%9F%E6%83%B3%E5%90%88%E9%9B%86.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
+
+<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
+<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
+<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
+<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
+<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>天国旅立</title>
+    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
+<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
+]]></content>
+      <tags>
+        <tag>Gallery</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>数据结构题目</title>
+    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
+
+<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
+<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
+<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
+<p>改进版本</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
+
+<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
+<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
+<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
+<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
+]]></content>
+      <tags>
+        <tag>队列</tag>
+      </tags>
   </entry>
   <entry>
     <title>计算机网络运输层笔记</title>
