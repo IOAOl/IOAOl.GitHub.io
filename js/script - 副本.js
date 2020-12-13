@@ -1,4 +1,4 @@
-var $$ = mdui.$;
+var $$ = mdui.JQ;
 
 /* Gotop */
 $$(function () {
@@ -60,53 +60,13 @@ $$(function () {
   });
 });
 
-/* Drawer State */
-$$(function () {
-  $$('#sidebar').on('open.mdui.drawer', function (e) {
-    localStorage.removeItem('mdui-drawer-close');
-  });
-  $$('#sidebar').on('close.mdui.drawer', function (e) {
-    localStorage.setItem('mdui-drawer-close', true);
-  });
-});
-
-/* Sidebar Collapse Item State */
-$$(function () {
-  $$('.mdui-collapse-item').eq(0).on('close.mdui.collapse', function (e) {
-    localStorage.removeItem('mdui-collapse-item-0');
-  });
-  $$('.mdui-collapse-item').eq(0).on('open.mdui.collapse', function (e) {
-    localStorage.setItem('mdui-collapse-item-0', true);
-  });
-  $$('.mdui-collapse-item').eq(1).on('close.mdui.collapse', function (e) {
-    localStorage.removeItem('mdui-collapse-item-1');
-  });
-  $$('.mdui-collapse-item').eq(1).on('open.mdui.collapse', function (e) {
-    localStorage.setItem('mdui-collapse-item-1', true);
-  });
-  $$('.mdui-collapse-item').eq(2).on('close.mdui.collapse', function (e) {
-    localStorage.removeItem('mdui-collapse-item-2');
-  });
-  $$('.mdui-collapse-item').eq(2).on('open.mdui.collapse', function (e) {
-    localStorage.setItem('mdui-collapse-item-2', true);
-  });
-  $$('.mdui-collapse-item').eq(3).on('close.mdui.collapse', function (e) {
-    localStorage.removeItem('mdui-collapse-item-3');
-  });
-  $$('.mdui-collapse-item').eq(3).on('open.mdui.collapse', function (e) {
-    localStorage.setItem('mdui-collapse-item-3', true);
-  });
-});
-
 /* Search */
 var searchFunc = function (path, search_id, content_id) {
   $$.ajax({
     url: path,
     dataType: 'xml',
     success: function (xmlResponse) {
-      var datas = $$(xmlResponse).map(function () {
-        return this.tagName === 'SEARCH' ? this : null;
-      }).find('entry').map(function () {
+      var datas = $$(xmlResponse).find('entry').map(function () {
         return {
           title: $$(this).find('title').text(),
           content: $$(this).find('content').text(),
