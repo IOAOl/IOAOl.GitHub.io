@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>ExpressionToValue</title>
-    <url>/2020/05/17/ExpressionToValue.html</url>
+    <url>/ExpressionToValue.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <h1 id="表达式求值-wpf"><a href="#表达式求值-wpf" class="headerlink" title="表达式求值  wpf"></a>表达式求值  wpf</h1><p>主要思想：表达式递归切割求值。</p>
@@ -66,8 +66,34 @@
       </tags>
   </entry>
   <entry>
+    <title>POJ - 1611-day3-F</title>
+    <url>/POJ-1611-day3-F.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611">POJ - 1611</a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
+
+<p>output</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
+
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
+<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = find(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = find(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = find(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = find(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+]]></content>
+      <categories>
+        <category>算法题</category>
+      </categories>
+      <tags>
+        <tag>并查集</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Summer Pockets -REFLECTION BLUE- 玩后感</title>
-    <url>/2020/08/20/Summer-Pockets-REFLECTION-BLUE-%E7%8E%A9%E5%90%8E%E6%84%9F.html</url>
+    <url>/Summer-Pockets-REFLECTION-BLUE-%E7%8E%A9%E5%90%8E%E6%84%9F.html</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <div class="hbe-input-container">
   <input type="password" id="hbePass" placeholder="" />
@@ -80,7 +106,7 @@
   </entry>
   <entry>
     <title>TSPppt</title>
-    <url>/2019/09/23/TSPppt.html</url>
+    <url>/TSPppt.html</url>
     <content><![CDATA[<me ta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 
@@ -140,34 +166,8 @@
       </tags>
   </entry>
   <entry>
-    <title>POJ - 1611-day3-F</title>
-    <url>/2019/09/01/POJ-1611-day3-F.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611">POJ - 1611</a></p>
-<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
-<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
-<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
-<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
-
-<p>output</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-
-<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
-<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = find(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = find(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = find(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = find(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-]]></content>
-      <categories>
-        <category>算法题</category>
-      </categories>
-      <tags>
-        <tag>并查集</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hello World</title>
-    <url>/2019/08/30/hello-world.html</url>
+    <url>/hello-world.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
@@ -182,12 +182,12 @@
 <p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
 <h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/2019/08/30/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/QQ%E6%88%AA%E5%9B%BE20190815084633.png" alt="QQ截图20190815084633"></a></p>
 ]]></content>
   </entry>
   <entry>
     <title>hexo+github博客域名配置</title>
-    <url>/2020/12/12/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
+    <url>/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 ### hexo+github博客域名配置
 
@@ -276,8 +276,68 @@
 ]]></content>
   </entry>
   <entry>
+    <title>jsp学习笔记</title>
+    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+#### Jsp学习笔记
+
+<h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
+<p>javaBean可以分为两种：</p>
+<p>（1）封装数据的类。相当于数据库的表</p>
+<p>（2）封装逻辑的类。用于操作封装数据的类</p>
+<p>用于简化代码。提高代码复用率。</p>
+<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
+<p>V:view            视图</p>
+<p>C:controller 控制器</p>
+<table>
+<thead>
+<tr>
+<th>M(model)</th>
+<th>V(view)</th>
+<th>C(controller)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>模型</td>
+<td>视图</td>
+<td>控制器</td>
+</tr>
+<tr>
+<td>模型表示企业数据和业务规则</td>
+<td>视图是用户看到并与之交互的界面</td>
+<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
+</tr>
+</tbody></table>
+<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
+<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
+<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
+<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
+    加载 --> 初始化
+    初始化--> 服务
+    服务 --> 销毁
+    销毁 --> 卸载
+subgraph   
+    服务-.-服务是最关键的,包含了doGet和doPost方法.
+end</pre>
+
+<p>通过a href=”servlet的类名”访问.</p>
+<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
+<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
+<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
+<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
+    interface/servlet-->GenericServlet
+    GenericServlet-->HttpServlet
+    interface/ServletConfig-->GenericServlet
+    HttpServlet-->servlet类</pre>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
+
+<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
+]]></content>
+  </entry>
+  <entry>
     <title>rj感想</title>
-    <url>/2020/12/11/rj%E6%84%9F%E6%83%B3.html</url>
+    <url>/rj%E6%84%9F%E6%83%B3.html</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
   <div class="hbe-input-container">
   <input type="password" id="hbePass" placeholder="" />
@@ -289,25 +349,12 @@
 <script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
-    <title>各种感想合集</title>
-    <url>/2020/08/28/%E5%90%84%E7%A7%8D%E6%84%9F%E6%83%B3%E5%90%88%E9%9B%86.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-***这里是我纯以个人兴趣的玩过的游戏，看过的动漫的发表的感想***
-
-<h1 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h1><p><a href="http://bangumi.tv/blog/298462">スキとスキとでサンカク恋愛</a></p>
-<p><a href="http://bangumi.tv/blog/298330">Summer Pockets -REFLECTION BLUE</a></p>
-<p><a href="http://bangumi.tv/blog/298143">恋愛、借りちゃいました</a></p>
-<p><a href="http://bangumi.tv/blog/297902">千恋＊万花</a></p>
-<h1 id="动漫"><a href="#动漫" class="headerlink" title="动漫"></a>动漫</h1><p><a href="http://bangumi.tv/blog/297746">かくしごと</a></p>
-]]></content>
-  </entry>
-  <entry>
     <title>test_pic</title>
-    <url>/2019/09/01/test-pic.html</url>
+    <url>/test-pic.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <p>微博的图床：<a href="https://pic.lizenghai.com/#">https://pic.lizenghai.com/#</a><br>每日最多上传100张。还可能会失败？<br><img src="http://wx3.sinaimg.cn/large/9cd3e769gy1g6kg8jv0uwj20gi0jyh1c.jpg" alt="aaa"></p>
-<p>github图：<br>可能dns污染上不去。<br><img src="/2019/09/01/test-pic%5Caaa.jpg" alt="testgithub图"></p>
+<p>github图：<br>可能dns污染上不去。<br><img src="/test-pic%5Caaa.jpg" alt="testgithub图"></p>
 <p>sm.ms图床：官网地址：<a href="https://sm.ms">https://sm.ms</a><br>特点：永久存储免注册，图片链接支持https，可以删除上传的图片，提供多种图片链接格式<br>图片上传限制：每个图片最大5M，每次最多上传10张<br><img src="https://i.loli.net/2019/09/01/himBgnrRaPVld1T.png" alt="20190815084633.png"></p>
 <p>聚合图床：官网地址： <a href="https://www.superbed.cn/">https://www.superbed.cn/</a><br>特点：将图片分发到多处备份，借助其本身的CDN加速功能，节省服务器流量，不用担心图片被删除。<br><img src="https://ae01.alicdn.com/kf/H95cba61bf4a14818b70ccb89894b900ci.png" alt="aaa"></p>
 ]]></content>
@@ -317,7 +364,7 @@
   </entry>
   <entry>
     <title>天国旅立</title>
-    <url>/2019/09/09/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <url>/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
@@ -329,7 +376,7 @@
   </entry>
   <entry>
     <title>数据结构题目</title>
-    <url>/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
+    <url>/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 # [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
 
@@ -355,8 +402,31 @@
       </tags>
   </entry>
   <entry>
+    <title>路人女主感想</title>
+    <url>/%E8%B7%AF%E4%BA%BA%E5%A5%B3%E4%B8%BB%E6%84%9F%E6%83%B3.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+# 路人女主的养成方法
+
+<p>本来一直都想找个时间补最后的剧场版。在第二季完结的时候就已经二刷了，当时也是完结地迫不及防，一直都想知道后面的故事，但是又是纯动漫党，剧场版也是等到花谢。终于等到出了bd，又没时间没去看。这次，一口气一二季一天全看完了。感觉感触很大。</p>
+<p>​    一刷的时候到底是什么时候啊，15年1月出的第一季。17年4月的第二季，19年10月的剧场版，大概第一季的时候算一刷吧，然后是二刷:一二季一起看了，然后是今天全系列。说起来也有点离谱，一，二刷第一季第0话也是放到最后看的。二刷第二季第0话是第一看的，最后一次却拉了跨，第一季第0话当第一话看，第二季第0话当最后一集看。（简单的说就是一二刷都是按照正常顺序看，三刷却都给整反了）//不过嘛，无伤大雅（ </p>
+<p>​    想当初一刷的时候，感觉根本剧情完全入不了眼。满脑子都是人设，二刷时渐渐去意识剧情，可惜结果也是有点残念。三刷之后，感觉再也不会看再多一次了，所以就跑过来写一下感想。</p>
+<p>​    首先人设也是非常的好，这是不用说的，特别是惠，人气程度都可以看，作画也是很强，女主们衣品就更不用说，一流！完美符合死宅们的梦中情人。最高兴的是到最后风格都很一致。看起来十分的连贯。学姐的腹黑成熟，一到关键时候就害羞的不行，英梨梨的典型傲娇，到关键时候就闹别扭…惠的人妻属性也是爆棚，特别是在剧场版。普通的完美。设定上又没有贴合宅，但却在讲宅的故事。我想世界上也没有伦理君这个人吧。首先他根本一点都不普通，可以说身世设定都被发挥起来了，表妹，青梅学妹，青梅同级，学姐，天降。感觉身世已经再也塞不下了。加上这种行动力极强的性格，毫不羞耻的表现宅的自己（松岗可以说是特别的卖力），已经脱离死宅范畴了，再加上对梦想的执著，可以说是很鲜明的人设了。虽然途中似乎会做傻事，但是感觉很合理，最正如最后如果伦理君不去帮他们，那他还是伦理君？不去帮学妹买本子？那他还是男主？可能确实不和大众的思路。但感觉确实符合他的人设。</p>
+<p>​    说道路人女主，那肯定是脱离不开女主（惠）的。这个角色可谓是塑造地十分成功。开场也是很生硬的倒贴。完全不在意男主的异常行动。单独去男主的家也是十分的生硬，就算加了吐槽也是很生硬。但倒贴确实喜闻乐见的之后也是展现了完全以前没有的路人属性。渐渐对男主的感情变化，也是有目共睹。前期的对男主完全没有兴趣（但是倒贴到社团），到第二季以男主没有及时联系她作为开端，真正意义上的开始攻略。对男主的无时无刻支援，人妻属性的表现。渐渐在第二部gal游戏的制作中塑造起完美女友的形象。当男主辜负的时候就深刻突出她的好。十分理智的分析情况，情商高，外加可爱的jk表现，可以说是宅男杀手。可以说跟其他人上来就火力全开不同，是循规渐进的，更能加深恋爱的味道。</p>
+<p>​    galgame内容：galgame的工作虽然看起来人人分工没啥大问题，但也看的出趣味化的表现。第一部作品，感觉根本是随意的作品。其实是什么都不重要，明显用来过渡，自然也完全感受不到里面的感动，只有主角一群人在狂发感动的感想，实在是没有代入感。后宫人也是均天才gal制作者的设定。很难不让人不感到理想与现实的温差（酸）。</p>
+<p>​    说实话看起来有点樱花庄的味，不过那个更有努力温馨的味。不过有点喜欢在严肃的时候搞点笑话，也许是防止过度胃疼。不过确实有劲，有趣。neta的数量很多，不过我很少玩或者看很久之前的作品，大多也是一知半解。至于听说了很久的if线，如果不出动画，大概率也是不会看的。毕竟纯动画党，况且惠确实完美。这次就老实当一回单线战士吧。</p>
+<p>​    说一说卖肉的问题，确实卖肉是很重要的，不过感觉第一季还是有点过了，特别是表妹的出场那一段，感觉各种姿势都用了个遍，镜头也是喜欢卖肉的时候猛烈地倾斜，确实有点不习惯。本质后宫媚宅番，感觉确实档次低了一筹，但是也是人气火爆的一部分原因。涩果然还是特别能抓住阿宅的心理。</p>
+<p>​    感觉特别败犬的地方：是对于伦也来说，英梨梨和霞之丘诗羽都过于高不可攀了。加藤惠自己也说过，“的确伦也同学可能并不普通，但他也没有英梨梨和霞之丘学姐那么特别。所以，两个赶不上的人，刚刚好。”感觉都把英梨梨以前所有为了男主所做的努力，变成伦也心目中第一的插话师的所有都给否定了。同时也是否定了学姐。这招太毒了，真有你的。</p>
+<p>​    每次看完都是感想颇多，特别这次，虽然是这种看起来没什么营养的媚宅向的商业作，但好久没有燃起以前看番的感觉了，今天又感觉来了点。以前是不信，不同的年龄回去看有不同的感触的观点，但这次真的完结了。也许是完结的冲击，也许是对她们感情更深一步的体会,但带给我的冲击是确实的。以前无脑，无虑地看番确实是回不去了。</p>
+<p><img src="https://i.loli.net/2021/01/03/NU7eJLQ9qZ8dHSj.jpg" alt="9460ce2437fd4acef9fe79a81807754f.jpg"></p>
+<p><img src="https://i.loli.net/2021/01/03/i6P3FtbeVYmyOz1.jpg" alt="1609562946138.png"></p>
+<p><img src="https://i.loli.net/2021/01/03/Y27mB1qHoZ5gta6.png" alt="1609563211769.png"></p>
+<p><img src="https://i.loli.net/2021/01/03/7GTavj3OK6xlEyt.jpg" alt="1609566359204.png"></p>
+<p><img src="https://i.loli.net/2021/01/03/6jnOAgV9ZIPiWkB.jpg" alt="Konachan.com - 247568 blush breasts collar flowers gloves headband headdress long_hair necklace panties petals pink_eyes ribbons scan twintails underwear wristwear.png"></p>
+]]></content>
+  </entry>
+  <entry>
     <title>计算机网络运输层笔记</title>
-    <url>/2020/06/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%BF%90%E8%BE%93%E5%B1%82%E7%AC%94%E8%AE%B0.html</url>
+    <url>/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%BF%90%E8%BE%93%E5%B1%82%E7%AC%94%E8%AE%B0.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 
 <p>`<strong>运输层</strong></p>

@@ -8,30 +8,30 @@
   <meta name="renderer" content="webkit">
   <meta name="google-site-verification" content="Rt8zZ_wqH4uNXpajaE5Csa7QuNYnzA94RZuWB7SfQ6Q" />
   
-  <title>数据结构题目 | IOAOl的记lu</title>
+  <title>POJ - 1611-day3-F | IOAOl的记lu</title>
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
-  <meta name="description" content="# [面试题59 - I. 滑动窗口的最大值](https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;hua-dong-chuang-kou-de-zui-da-zhi-lcof&#x2F;)（LeetCode）（单调队列）  给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &amp;">
+  <meta name="description" content="问题来源POJ - 1611 问题描述Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the">
 <meta property="og:type" content="article">
-<meta property="og:title" content="数据结构题目">
-<meta property="og:url" content="http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html">
+<meta property="og:title" content="POJ - 1611-day3-F">
+<meta property="og:url" content="http://ioaol.top/POJ-1611-day3-F.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="# [面试题59 - I. 滑动窗口的最大值](https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;hua-dong-chuang-kou-de-zui-da-zhi-lcof&#x2F;)（LeetCode）（单调队列）  给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &amp;">
+<meta property="og:description" content="问题来源POJ - 1611 问题描述Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the">
 <meta property="og:locale">
-<meta property="article:published_time" content="2020-06-15T12:28:23.000Z">
-<meta property="article:modified_time" content="2020-06-15T17:45:35.436Z">
+<meta property="article:published_time" content="2019-09-01T14:06:06.000Z">
+<meta property="article:modified_time" content="2020-05-31T08:19:55.425Z">
 <meta property="article:author" content="IOAOl">
-<meta property="article:tag" content="队列">
+<meta property="article:tag" content="并查集">
 <meta name="twitter:card" content="summary">
 
-  <meta name="keywords" content=",队列">
+  <meta name="keywords" content=",并查集">
   <meta name="format-detection" content="telephone=no,email=no">
   <meta name="theme-color" content="#9C27B0">
 
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="application-name" content="IOAOl的记lu">
-  <meta name="msapplication-starturl" content="http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html">
+  <meta name="msapplication-starturl" content="http://ioaol.top/POJ-1611-day3-F.html">
   <meta name="msapplication-navbutton-color" content="#9C27B0">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-title" content="IOAOl的记lu">
@@ -39,7 +39,7 @@
   <link rel="apple-touch-icon" href="/images/favicon.png">
 
   
-    <link rel="canonical" href="http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html">
+    <link rel="canonical" href="http://ioaol.top/POJ-1611-day3-F.html">
   
 
   
@@ -106,7 +106,7 @@
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
         
-        <a class="mdui-ripple sidebar_archives-link" href="/archives/2020/12/">December 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/08/">August 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">June 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2021/01/">January 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/12/">December 2020<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/08/">August 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">June 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
         
       </div>
     </div>
@@ -146,6 +146,8 @@
     
       <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
     
+      <a href="/Impressions" class="mdui-list-item mdui-ripple">Impressions</a>
+    
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <div class="mdui-list-item-content">Links</div>
@@ -181,11 +183,11 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-4.png" style="max-height: 240px;">
+      <img src="/images/random/material-2.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
-          <div class="mdui-card-primary-title">数据结构题目</div>
-          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2020-06-15 / <i class="iconfont">&#xe601;</i> IOAOl &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
+          <div class="mdui-card-primary-title">POJ - 1611-day3-F</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2019-09-01 / <i class="iconfont">&#xe601;</i> IOAOl &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
         </div>
       </div>
       <div class="mdui-card-menu">
@@ -197,7 +199,7 @@
             
             <li class="mdui-menu-item" disabled>
               
-                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html&chld=M|2">
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://ioaol.top/POJ-1611-day3-F.html&chld=M|2">
               
             </li>
           </ul>
@@ -206,25 +208,25 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=数据结构题目&url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html&pic=http://ioaol.top/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=POJ - 1611-day3-F&url=http://ioaol.top/POJ-1611-day3-F.html&pic=http://ioaol.top/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=数据结构题目&url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html&via=IOAOl" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=POJ - 1611-day3-F&url=http://ioaol.top/POJ-1611-day3-F.html&via=IOAOl" target="_blank" class="mdui-ripple">Share to Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ioaol.top/POJ-1611-day3-F.html" target="_blank" class="mdui-ripple">Share to Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=http://ioaol.top/POJ-1611-day3-F.html" target="_blank" class="mdui-ripple">Share to Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html&title=数据结构题目" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ioaol.top/POJ-1611-day3-F.html&title=POJ - 1611-day3-F" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=数据结构题目&pics=http://ioaol.top/images/favicon.png&url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=POJ - 1611-day3-F&pics=http://ioaol.top/images/favicon.png&url=http://ioaol.top/POJ-1611-day3-F.html" target="_blank" class="mdui-ripple">Share to QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html&text=数据结构题目" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://ioaol.top/POJ-1611-day3-F.html&text=POJ - 1611-day3-F" target="_blank" class="mdui-ripple">Share to Telegram</a>
             </li>
           </ul>
         
@@ -232,35 +234,33 @@
     </header>
     <div class="mdui-card-content mdui-typo">
       <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
 
-<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
+<h1 id="问题来源"><a href="#问题来源" class="headerlink" title="问题来源"></a>问题来源</h1><p><a href="http://poj.org/problem?id=1611">POJ - 1611</a></p>
+<h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h1><p>Severe acute respiratory syndrome (SARS), an atypical pneumonia of unknown aetiology, was recognized as a global threat in mid-March 2003. To minimize transmission to others, the best strategy is to separate the suspects from others.<br>In the Not-Spreading-Your-Sickness University (NSYSU), there are many student groups. Students in the same group intercommunicate with each other frequently, and a student may join several groups. To prevent the possible transmissions of SARS, the NSYSU collects the member lists of all student groups, and makes the following rule in their standard operation procedure (SOP).<br>Once a member in a group is a suspect, all members in the group are suspects.<br>However, they find that it is not easy to identify all the suspects when a student is recognized as a suspect. Your job is to write a program which finds all the suspects.</p>
+<h1 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h1><p>The input file contains several cases. Each test case begins with two integers n and m in a line, where n is the number of students, and m is the number of groups. You may assume that 0 &lt; n &lt;= 30000 and 0 &lt;= m &lt;= 500. Every student is numbered by a unique integer between 0 and n−1, and initially student 0 is recognized as a suspect in all the cases. This line is followed by m member lists of the groups, one line per group. Each line begins with an integer k by itself representing the number of members in the group. Following the number of members, there are k integers representing the students in this group. All the integers in a line are separated by at least one space.<br>A case with n = 0 and m = 0 indicates the end of the input, and need not be processed.</p>
+<h1 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h1><p>For each case, output the number of suspects in one line.</p>
+<h1 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h1><p>input</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">100 4</span><br><span class="line">2 1 2</span><br><span class="line">5 10 13 11 12 14</span><br><span class="line">2 0 1</span><br><span class="line">2 99 2</span><br><span class="line">200 2</span><br><span class="line">1 5</span><br><span class="line">5 1 2 3 4 5</span><br><span class="line">1 0</span><br><span class="line">0 0</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>output</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">4</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
 
-<p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
-<p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
-<p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
-<p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
-<p>改进版本</p>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
+<h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>并查集，找与0有关的所有人，用bb数组来存放头目有关的人数，最后找0的头目，就能在数组里找到所有与他有关的人。</p>
+<h1 id="AC的代码"><a href="#AC的代码" class="headerlink" title="AC的代码"></a>AC的代码</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="keyword">int</span> gro,s,aa[<span class="number">30005</span>],bb[<span class="number">30005</span>],cc[<span class="number">30005</span>];    <span class="comment">//</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">(<span class="keyword">int</span> x)</span>                 <span class="comment">//寻找根节点的函数</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (aa[x] == x)</span><br><span class="line">		<span class="keyword">return</span> x;</span><br><span class="line">	<span class="keyword">else</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x] = find(aa[x]);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">join</span><span class="params">(<span class="keyword">int</span> x, <span class="keyword">int</span> y)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x1 = find(x);</span><br><span class="line">	<span class="keyword">int</span> y1 = find(y);</span><br><span class="line">	<span class="keyword">if</span> (x1 != y1)            <span class="comment">//根节点不同连接</span></span><br><span class="line">	&#123;</span><br><span class="line">		aa[x1] = y1;</span><br><span class="line">		bb[y1] = bb[x1] + bb[y1];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span> (<span class="built_in">cin</span> &gt;&gt; s &gt;&gt; gro)</span><br><span class="line">	&#123;</span><br><span class="line">		<span class="keyword">if</span> (s == <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> r = <span class="number">0</span>; r &lt; <span class="number">30005</span>; r++)</span><br><span class="line">		&#123;</span><br><span class="line">			aa[r] = r;</span><br><span class="line">			bb[r] = <span class="number">1</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span> (<span class="keyword">int</span> f = <span class="number">0</span>; f &lt; gro; f++)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="keyword">int</span> p;</span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;p);</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> q = <span class="number">0</span>; q &lt; p; q++)</span><br><span class="line">			&#123;</span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">&quot;%d&quot;</span>,&amp;cc[q]);</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="keyword">for</span> (<span class="keyword">int</span> x = <span class="number">0</span>; x &lt; p - <span class="number">1</span>; x++)</span><br><span class="line">			&#123;</span><br><span class="line">				join(cc[x], cc[x + <span class="number">1</span>]);</span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> k = find(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">cout</span> &lt;&lt; bb[k] &lt;&lt; <span class="built_in">endl</span>;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
-<p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
-<p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
-<p>内存消耗 :16.3 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><br><a href="http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html">http://ioaol.top/2020/06/15/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html</a>
+        <strong>PermaLink: </strong><br><a href="http://ioaol.top/POJ-1611-day3-F.html">http://ioaol.top/POJ-1611-day3-F.html</a>
       </blockquote>
       
     </div>
     <footer class="mdui-card-actions">
       
+        <a class="mdui-ripple article_categories-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题</a>
       
-        <a class="mdui-ripple article_tags-none-link" href="/tags/%E9%98%9F%E5%88%97/" rel="tag">队列</a>
+      
+        <a class="mdui-ripple article_tags-none-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集</a>
       
     </footer>
     
@@ -274,14 +274,14 @@
 
   <nav id="paginator">
     
-      <a rel="prev" class="extend prev" href="/2020/08/20/Summer-Pockets-REFLECTION-BLUE-%E7%8E%A9%E5%90%8E%E6%84%9F.html">
+      <a rel="prev" class="extend prev" href="/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html">
         <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
       </a>
     
     <div class="spacer"></div>
     
-      <a rel="next" class="extend next" href="/2020/06/11/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E8%BF%90%E8%BE%93%E5%B1%82%E7%AC%94%E8%AE%B0.html">
+      <a rel="next" class="extend next" href="/test-pic.html">
         Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
       </a>
@@ -331,7 +331,7 @@
 
   </div>
   <div class="mdui-p-y-1 mdui-text-center">
-    Copyright &copy; 2020 IOAOl<br>
+    Copyright &copy; 2021 IOAOl<br>
     Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
     <br>
       <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
