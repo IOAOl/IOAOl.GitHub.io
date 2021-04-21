@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+  <meta name="renderer" content="webkit">
+  <meta name="google-site-verification" content="Rt8zZ_wqH4uNXpajaE5Csa7QuNYnzA94RZuWB7SfQ6Q" />
+  
+  <title>leetcode笔记 | IOAOl的记lu</title>
+
+  <link rel="shortcut icon" href="/images/favicon.png">
+  <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
+  <meta name="description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。 栈Easy删除最外层的括号有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。 如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode笔记">
+<meta property="og:url" content="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">
+<meta property="og:site_name" content="IOAOl的记lu">
+<meta property="og:description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。 栈Easy删除最外层的括号有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。 如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-04-21T09:01:13.000Z">
+<meta property="article:modified_time" content="2021-04-21T09:11:11.300Z">
+<meta property="article:author" content="IOAOl">
+<meta property="article:tag" content="动态规划">
+<meta property="article:tag" content="栈">
+<meta property="article:tag" content="滑动窗口">
+<meta name="twitter:card" content="summary">
+
+  <meta name="keywords" content=",动态规划,栈,滑动窗口">
+  <meta name="format-detection" content="telephone=no,email=no">
+  <meta name="theme-color" content="#9C27B0">
+
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="IOAOl的记lu">
+  <meta name="msapplication-starturl" content="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">
+  <meta name="msapplication-navbutton-color" content="#9C27B0">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="IOAOl的记lu">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="/images/favicon.png">
+
+  
+    <link rel="canonical" href="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">
+  
+
+  
+  
+
+  
+  
+  
+
+  
+<link rel="stylesheet" href="/css/mdui.css">
+<link rel="stylesheet" href="/css/style.css">
+
+  
+<link rel="stylesheet" href="/custom.css">
+
+<meta name="generator" content="Hexo 5.2.0"></head>
+<body class="mdui-appbar-with-toolbar mdui-drawer-body-left mdui-theme-primary-indigo mdui-theme-accent-pink">
+  <script>var a=localStorage.getItem("mdui-theme-layout-dark");if(a){document.getElementsByTagName("body")[0].className+=" mdui-theme-layout-dark"};</script>
+  <header id="header" class="mdui-appbar mdui-appbar-fixed mdui-appbar-scroll-hide mdui-appbar-inset">
+  <div class="mdui-toolbar mdui-color-theme">
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
+    <a href="/" class="mdui-typo-headline">IOAOl的记lu</a>
+    <div class="mdui-toolbar-spacer"></div>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
+  </div>
+</header>
+<div class="mdui-dialog" id="search">
+  
+    <div class="search-form">
+      <input type="search" class="search-form-input" placeholder="请输入关键字">
+    </div>
+    <div class="search-result" data-resource="/search.xml"></div>
+  
+</div>
+  <aside id="sidebar" class="mdui-drawer mdui-drawer-full-height">
+  <div class="mdui-grid-tile">
+    <img src="/images/banner.png" style="height: 160px;">
+    <img src="/images/avatar1.png" class="avatar-animation" style="position: absolute; top: 10%; left: 24px; width: 64px; height: 64px; border: 2px solid #fff; border-radius: 50%;">
+    <div class="mdui-grid-tile-actions">
+      <div class="mdui-grid-tile-text">
+        <div class="mdui-grid-tile-title">IOAOl</div>
+        <div class="mdui-grid-tile-subtitle"><i class="mdui-icon material-icons">art_track</i></div>
+      </div>
+      
+        <div class="mdui-grid-tile-buttons">
+          <a href="mailto:1449821178@qq.com" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: '1449821178@qq.com'}"><i class="mdui-icon material-icons">email</i></a>
+        </div>
+      
+    </div>
+  </div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    <a href="/" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
+      <div class="mdui-list-item-content">Home</div>
+    </a>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
+        <div class="mdui-list-item-content">Archive</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/archives/2021/04/">April 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/03/">March 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/02/">February 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2021/01/">January 2021<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/12/">December 2020<span class="mdui-ripple sidebar_archives-count">3</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/08/">August 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/06/">June 2020<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2020/05/">May 2020<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/09/">September 2019<span class="mdui-ripple sidebar_archives-count">4</span></a><a class="mdui-ripple sidebar_archives-link" href="/archives/2019/08/">August 2019<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
+        <div class="mdui-list-item-content">Category</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%A8%8B%E5%BA%8F/">程序<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%AC%94%E8%AE%B0/">笔记<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95/">算法<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/categories/%E7%AE%97%E6%B3%95%E9%A2%98/">算法题<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
+        <div class="mdui-list-item-content">Tag</div>
+        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+        <a class="mdui-ripple sidebar_archives-link" href="/tags/Gallery/" rel="tag">Gallery<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/Prim/" rel="tag">Prim<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/TSP/" rel="tag">TSP<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/WPF/" rel="tag">WPF<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/test/" rel="tag">test<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划<span class="mdui-ripple sidebar_archives-count">2</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" rel="tag">并查集<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%A0%88/" rel="tag">栈<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">滑动窗口<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" rel="tag">表达式求值<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" rel="tag">计网笔记<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E8%BF%90%E8%BE%93%E5%B1%82/" rel="tag">运输层<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" rel="tag">遗传算法<span class="mdui-ripple sidebar_archives-count">1</span></a><a class="mdui-ripple sidebar_archives-link" href="/tags/%E9%98%9F%E5%88%97/" rel="tag">队列<span class="mdui-ripple sidebar_archives-count">1</span></a>
+        
+      </div>
+    </div>
+    <a href="/about" class="mdui-list-item mdui-ripple">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
+      <div class="mdui-list-item-content">About</div>
+    </a>
+  </div>
+
+  <div class="mdui-divider"></div>
+
+  <div class="mdui-list" mdui-collapse="{accordion: true}">
+    
+      <a href="/gallery" class="mdui-list-item mdui-ripple">Gallery</a>
+    
+      <a href="/Impressions" class="mdui-list-item mdui-ripple">Impressions</a>
+    
+    <div class="mdui-collapse-item">
+      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
+        <div class="mdui-list-item-content">Links</div>
+        <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
+      </div>
+      <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
+        
+          <a href="https://github.com/ioaol" target="_blank" class="mdui-list-item mdui-ripple mdui-p-l-2 mdui-text-color-theme-accent" style="justify-content: center;">github主页</a>
+        
+        
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript" charset="utf-8" src="/js/tagcloud.js"></script>
+    <script type="text/javascript" charset="utf-8" src="/js/tagcanvas.js"></script>
+    <div class="widget-wrap">
+        <h3 class="widget-title">Tag Cloud</h3>
+        <div id="myCanvasContainer" class="widget tagcloud">
+            <canvas width="250" height="250" id="resCanvas" style="width=100%">
+                <a href="/tags/Gallery/" style="font-size: 10px;">Gallery</a> <a href="/tags/Prim/" style="font-size: 10px;">Prim</a> <a href="/tags/TSP/" style="font-size: 10px;">TSP</a> <a href="/tags/WPF/" style="font-size: 10px;">WPF</a> <a href="/tags/test/" style="font-size: 10px;">test</a> <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" style="font-size: 20px;">动态规划</a> <a href="/tags/%E5%B9%B6%E6%9F%A5%E9%9B%86/" style="font-size: 10px;">并查集</a> <a href="/tags/%E6%A0%88/" style="font-size: 10px;">栈</a> <a href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" style="font-size: 10px;">滑动窗口</a> <a href="/tags/%E8%A1%A8%E8%BE%BE%E5%BC%8F%E6%B1%82%E5%80%BC/" style="font-size: 10px;">表达式求值</a> <a href="/tags/%E8%AE%A1%E7%BD%91%E7%AC%94%E8%AE%B0/" style="font-size: 10px;">计网笔记</a> <a href="/tags/%E8%BF%90%E8%BE%93%E5%B1%82/" style="font-size: 10px;">运输层</a> <a href="/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/" style="font-size: 10px;">遗传算法</a> <a href="/tags/%E9%98%9F%E5%88%97/" style="font-size: 10px;">队列</a>
+            </canvas>
+        </div>
+    </div>
+
+</aside>
+
+
+  <main id="main" class="mdui-m-t-5 fadeIn animated">
+  
+<link rel="stylesheet" href="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.css">
+
+  <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
+  <article class="mdui-card mdui-m-b-5">
+    <header class="mdui-card-media">
+      <img src="/images/random/material-11.png" style="max-height: 240px;">
+      <div class="mdui-card-media-covered">
+        <div class="mdui-card-primary">
+          <div class="mdui-card-primary-title">leetcode笔记</div>
+          <div class="mdui-card-primary-subtitle"><i class="iconfont">&#xe697;</i> 2021-04-21 / <i class="iconfont">&#xe601;</i> IOAOl &nbsp;&nbsp; <span id="busuanzi_container_page_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_page_pv"></span></span></div>
+        </div>
+      </div>
+      <div class="mdui-card-menu">
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#qrcode', align: 'right'}"><i class="mdui-icon material-icons">devices</i></button>
+          <ul class="mdui-menu" id="qrcode">
+            
+              <li class="mdui-menu-item"><a class="mdui-text-center mdui-ripple">发送到手机</a></li>
+            
+            <li class="mdui-menu-item" disabled>
+              
+                <img src="https://chart.googleapis.com/chart?cht=qr&chs=246x246&chl=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&chld=M|2">
+              
+            </li>
+          </ul>
+        
+        
+          <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
+          <ul class="mdui-menu" id="share_menu">
+            <li class="mdui-menu-item">
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&pic=http://ioaol.top/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://twitter.com/intent/tweet?text=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&via=IOAOl" target="_blank" class="mdui-ripple">Share to Twitter</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to Facebook</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://plus.google.com/share?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to Google+</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&title=leetcode笔记" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=leetcode笔记&pics=http://ioaol.top/images/favicon.png&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to QQ</a>
+            </li>
+            <li class="mdui-menu-item">
+              <a href="https://telegram.me/share/url?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&text=leetcode笔记" target="_blank" class="mdui-ripple">Share to Telegram</a>
+            </li>
+          </ul>
+        
+      </div>
+    </header>
+    <div class="mdui-card-content mdui-typo">
+      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+
+<p><strong>以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。</strong></p>
+<h1 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h1><h2 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h2><h3 id="删除最外层的括号"><a href="#删除最外层的括号" class="headerlink" title="删除最外层的括号"></a><a href="https://leetcode-cn.com/problems/remove-outermost-parentheses">删除最外层的括号</a></h3><p>有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。</p>
+<p>如果有效字符串 S 非空，且不存在将其拆分为 S = A+B 的方法，我们称其为原语（primitive），其中 A 和 B 都是非空有效括号字符串。</p>
+<p>给出一个非空有效字符串 S，考虑将其进行原语化分解，使得：S = P_1 + P_2 + … + P_k，其中 P_i 是有效括号字符串原语。</p>
+<p>对 S 进行原语化分解，删除分解中每个原语字符串的最外层括号，返回 S 。</p>
+<p><strong>思路：栈判断是否组成完整的原语，直接substr消除最外层的符号。</strong></p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">removeOuterParentheses</span><span class="params">(<span class="built_in">string</span> S)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> stackint=<span class="number">0</span>;</span><br><span class="line">        <span class="keyword">int</span> left=<span class="number">0</span>;</span><br><span class="line">        <span class="built_in">string</span> res;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;S.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(S[i]==<span class="string">&#x27;(&#x27;</span>)&#123;</span><br><span class="line">                stackint++;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                stackint--;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(stackint==<span class="number">0</span>)&#123;</span><br><span class="line">               res=res+S.substr(left+<span class="number">1</span>,i-left<span class="number">-1</span>);</span><br><span class="line">               left=i+<span class="number">1</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> res;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="最小栈"><a href="#最小栈" class="headerlink" title="最小栈"></a><a href="https://leetcode-cn.com/problems/min-stack">最小栈</a></h3><p>设计一个支持 push ，pop ，top 操作，并能在常数时间内检索到最小元素的栈。</p>
+<p>push(x) —— 将元素 x 推入栈中。<br>pop() —— 删除栈顶的元素。<br>top() —— 获取栈顶元素。<br>getMin() —— 检索栈中的最小元素。</p>
+<p><strong>思路：设计一个辅助栈，给每个元素都配上一个当前最小值，跟随原来栈来增减.</strong></p>
+<p>$\textcolor{red}{注意点:辅助栈要先放入一个最大值，在第一个元素放入的时候方便更新。}$</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> &#123;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    Deque&lt;Integer&gt; MainStack;</span><br><span class="line">    Deque&lt;Integer&gt; assistStack;	</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        MainStack=<span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        assistStack=<span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">        assistStack.push(Integer.MAX_VALUE);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        MainStack.push(x);</span><br><span class="line">        <span class="keyword">if</span>(x&lt;assistStack.peek())</span><br><span class="line">            assistStack.push(x);</span><br><span class="line">        <span class="keyword">else</span>&#123;</span><br><span class="line">            assistStack.push(assistStack.peek());</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        MainStack.pop();</span><br><span class="line">        assistStack.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> MainStack.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> assistStack.peek();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="比较含退格的字符串"><a href="#比较含退格的字符串" class="headerlink" title="比较含退格的字符串"></a><a href="https://leetcode-cn.com/problems/backspace-string-compare">比较含退格的字符串</a></h3><p>给定 S 和 T 两个字符串，当它们分别被输入到空白的文本编辑器后，判断二者是否相等，并返回结果。 # 代表退格字符。</p>
+<p>注意：如果对空文本输入退格字符，文本继续为空。</p>
+<p>示例 1：</p>
+<p>输入：S = “ab#c”, T = “ad#c”<br>输出：true<br>解释：S 和 T 都会变成 “ac”。</p>
+<p>思路：模拟，遇到‘#’就判断栈是否为空，不空则弹出，遇到其他符号就入栈。</p>
+<p>时间复杂度O(n+m)</p>
+<p>空间复杂度O(n+m)</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">bool</span> <span class="title">backspaceCompare</span><span class="params">(<span class="built_in">string</span> s, <span class="built_in">string</span> t)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; s1;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; s2;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(s[i]==<span class="string">&#x27;#&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!s1.empty())</span><br><span class="line">                    s1.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> s1.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> k=<span class="number">0</span>;k&lt;t.size();k++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(t[k]==<span class="string">&#x27;#&#x27;</span>)&#123;</span><br><span class="line">                <span class="keyword">if</span>(!s2.empty())</span><br><span class="line">                    s2.pop();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span> s2.push(t[k]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> s1==s2;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>思路2：从后往前遍历，每次都先jump到有效位置，进行比较。</p>
+<p>注意：①跳过的时候要看跳的时候是否有‘#’。</p>
+<p>​            ②要两个字符串分析完才能结束。</p>
+<p>时间复杂度O(n+m)</p>
+<p>空间复杂度O(1)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    int jump(string &amp; str ,int i)&#123;</span><br><span class="line">        int count&#x3D;0;</span><br><span class="line">        while(i&gt;&#x3D;0)&#123;</span><br><span class="line">            if(str[i]&#x3D;&#x3D;&#39;#&#39;)</span><br><span class="line">                count++;</span><br><span class="line">            else if(count)</span><br><span class="line">                --count;</span><br><span class="line">            else break;</span><br><span class="line">            i--;</span><br><span class="line">        &#125;</span><br><span class="line">        return i;</span><br><span class="line">    &#125;</span><br><span class="line">    bool backspaceCompare(string s, string t) &#123;</span><br><span class="line">        int i&#x3D;s.size()-1;</span><br><span class="line">        int j&#x3D;t.size()-1;</span><br><span class="line">        while(i&gt;&#x3D;0||j&gt;&#x3D;0)&#123;</span><br><span class="line">            i&#x3D;jump(s,i);</span><br><span class="line">            j&#x3D;jump(t,j);</span><br><span class="line">            if(i&lt;0||j&lt;0) break;</span><br><span class="line">            if(s[i--]!&#x3D;t[j--])return false;</span><br><span class="line">        &#125;</span><br><span class="line">        return i&lt;0&amp;&amp;j&lt;0;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="整理字符串"><a href="#整理字符串" class="headerlink" title="整理字符串"></a><a href="https://leetcode-cn.com/problems/make-the-string-great/">整理字符串</a></h3><p>一个整理好的字符串中，两个相邻字符 s[i] 和 s[i+1]，其中 0&lt;= i &lt;= s.length-2 ，要满足如下条件:</p>
+<p>若 s[i] 是小写字符，则 s[i+1] 不可以是相同的大写字符。<br>若 s[i] 是大写字符，则 s[i+1] 不可以是相同的小写字符。</p>
+<p>思路用栈保存要保留的字符，遇到相同的（不同大小写的）就弹出，否则加入。</p>
+<p>时间复杂度O(n)</p>
+<p>空间复杂度O(n)</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">makeGood</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(s.size()&lt;<span class="number">2</span>)</span><br><span class="line">            <span class="keyword">return</span> s;</span><br><span class="line">        <span class="built_in">stack</span>&lt;<span class="keyword">char</span>&gt; st;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=s.size()<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(st.empty())</span><br><span class="line">                st.push(s[i]);</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">if</span>(s[i]-<span class="string">&#x27;a&#x27;</span>==st.top()-<span class="string">&#x27;A&#x27;</span>||s[i]-<span class="string">&#x27;A&#x27;</span>==st.top()-<span class="string">&#x27;a&#x27;</span>)</span><br><span class="line">                st.pop();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                st.push(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">while</span>(!st.empty())&#123;</span><br><span class="line">            ans+=st.top();</span><br><span class="line">            st.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<p>优化后的 string当st用</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">makeGood</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">string</span> ans;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;s.size();i++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(!ans.empty()&amp;&amp;((<span class="keyword">char</span>)(ans.back()) ^ s[i]) == <span class="number">32</span>)</span><br><span class="line">                ans.pop_back();</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">                ans.push_back(s[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二叉树的后序遍历"><a href="#二叉树的后序遍历" class="headerlink" title="二叉树的后序遍历"></a><a href="https://leetcode-cn.com/problems/binary-tree-postorder-traversal">二叉树的后序遍历</a></h3><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">postorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(root==<span class="literal">nullptr</span>)</span><br><span class="line">            <span class="keyword">return</span> &#123;&#125;;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; st;</span><br><span class="line">        TreeNode* prev=<span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">nullptr</span>||!st.empty())&#123;	<span class="comment">//栈中还有节点或者根节点不为空可以继续遍历</span></span><br><span class="line">            <span class="keyword">while</span>(root)&#123;</span><br><span class="line">                st.emplace(root);	<span class="comment">//先存所有左孩子</span></span><br><span class="line">                root=root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root=st.top();	<span class="comment">//取出最后的左孩子或者是root本身</span></span><br><span class="line">            st.pop();</span><br><span class="line">            <span class="keyword">if</span>(root-&gt;right==<span class="literal">nullptr</span>||root-&gt;right==prev)&#123;	<span class="comment">//右孩子为空或者右树已经访问完毕</span></span><br><span class="line">                ans.emplace_back(root-&gt;val);<span class="comment">//访问根节点</span></span><br><span class="line">                prev=root;</span><br><span class="line">                root=<span class="literal">nullptr</span>;	<span class="comment">//取下一个栈中的节点</span></span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                st.emplace(root);	<span class="comment">//存放根节点</span></span><br><span class="line">                root=root-&gt;right;	<span class="comment">//访问右树</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h3 id="二叉树的中序遍历"><a href="#二叉树的中序遍历" class="headerlink" title="二叉树的中序遍历"></a><a href="https://leetcode-cn.com/problems/binary-tree-inorder-traversal/">二叉树的中序遍历</a></h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">inorderTraversal</span><span class="params">(TreeNode* root)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">stack</span>&lt;TreeNode*&gt; st;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">        <span class="keyword">while</span>(root!=<span class="literal">nullptr</span>||!st.empty())&#123;		<span class="comment">//栈中还有节点或者根节点不为空可以继续遍历</span></span><br><span class="line">            <span class="keyword">while</span>(root)&#123;</span><br><span class="line">                st.emplace(root);		<span class="comment">//先存所有左孩子</span></span><br><span class="line">                root=root-&gt;left;</span><br><span class="line">            &#125;</span><br><span class="line">            root=st.top();	<span class="comment">//取出最后的左孩子或者是root本身</span></span><br><span class="line">            st.pop();</span><br><span class="line">            ans.emplace_back(root-&gt;val);	<span class="comment">//访问根节点</span></span><br><span class="line">            root=root-&gt;right;    <span class="comment">//访问右树</span></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="滑动窗口"><a href="#滑动窗口" class="headerlink" title="滑动窗口"></a>滑动窗口</h1><h2 id="hard"><a href="#hard" class="headerlink" title="hard"></a>hard</h2><h3 id="最小覆盖子串"><a href="#最小覆盖子串" class="headerlink" title="最小覆盖子串"></a><a href="https://leetcode-cn.com/problems/minimum-window-substring/">最小覆盖子串</a></h3><p>给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 “” 。</p>
+<p>注意：如果 s 中存在这样的子串，我们保证它是唯一的答案。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">输入：s = <span class="string">&quot;ADOBECODEBANC&quot;</span>, t = <span class="string">&quot;ABC&quot;</span></span><br><span class="line">输出：<span class="string">&quot;BANC&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>思路：当没有覆盖t全部字母时，right右移，覆盖完了，left左移，记录区间长度最小值。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">class Solution &#123;</span><br><span class="line">public:</span><br><span class="line">    bool check(map&lt;char,int&gt;&amp; Scount,map&lt;char,int&gt;&amp; Tcount)&#123;</span><br><span class="line">        auto it&#x3D;Scount.begin();</span><br><span class="line">        while(it!&#x3D;Scount.end())&#123;</span><br><span class="line">            if((it-&gt;second)&gt;(Tcount[it-&gt;first]))</span><br><span class="line">                return false;</span><br><span class="line">            it++;</span><br><span class="line">        &#125;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line">    string minWindow(string s, string t) &#123;</span><br><span class="line">        map&lt;char,int&gt; Scount;</span><br><span class="line">        map&lt;char,int&gt; Tcount;</span><br><span class="line">        for(int i&#x3D;0;i&lt;t.size();i++)&#123;</span><br><span class="line">            if(Scount.find(t[i])&#x3D;&#x3D;Scount.end())&#123;</span><br><span class="line">                Scount[t[i]]&#x3D;0;</span><br><span class="line">                Tcount[t[i]]&#x3D;0;</span><br><span class="line">            &#125;</span><br><span class="line">            Scount[t[i]]++;</span><br><span class="line">        &#125;</span><br><span class="line">        int left&#x3D;0,right&#x3D;0;</span><br><span class="line">        int ans&#x3D;s.size()+22;</span><br><span class="line">        int index&#x3D;0;</span><br><span class="line">        while(!(right&gt;&#x3D;s.size()&amp;&amp;!check(Scount,Tcount)))&#123;</span><br><span class="line">            if(!check(Scount,Tcount))&#123;</span><br><span class="line">                if(Scount.find(s[right])!&#x3D;Scount.end())&#123;</span><br><span class="line">                   Tcount[s[right]]++;</span><br><span class="line">                &#125;</span><br><span class="line">                right++;</span><br><span class="line">            &#125;else&#123;</span><br><span class="line">                if(right-left&lt;ans)&#123;</span><br><span class="line">                    index&#x3D;left;</span><br><span class="line">                    ans&#x3D;right-left;</span><br><span class="line">                &#125;</span><br><span class="line">                if(Scount.find(s[left])!&#x3D;Scount.end())&#123;</span><br><span class="line">                    Tcount[s[left]]--;</span><br><span class="line">                &#125;</span><br><span class="line">                left++;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        if(ans&#x3D;&#x3D;s.size()+22)</span><br><span class="line">            return &quot;&quot;;</span><br><span class="line">        else&#123;</span><br><span class="line">            return s.substr(index,ans);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h1 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h1><h2 id="medium"><a href="#medium" class="headerlink" title="medium"></a>medium</h2><h3 id="解码方法"><a href="#解码方法" class="headerlink" title="解码方法"></a><a href="https://leetcode-cn.com/problems/decode-ways/">解码方法</a></h3><p>一条包含字母 <code>A-Z</code> 的消息通过以下映射进行了 <strong>编码</strong> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#39;A&#39; -&gt; 1</span><br><span class="line">&#39;B&#39; -&gt; 2</span><br><span class="line">...</span><br><span class="line">&#39;Z&#39; -&gt; 26</span><br></pre></td></tr></table></figure>
+
+<p>要 <strong>解码</strong> 已编码的消息，所有数字必须基于上述映射的方法，反向映射回字母（可能有多种方法）。例如，<code>&quot;11106&quot;</code> 可以映射为：</p>
+<ul>
+<li><code>&quot;AAJF&quot;</code> ，将消息分组为 <code>(1 1 10 6)</code></li>
+<li><code>&quot;KJF&quot;</code> ，将消息分组为 <code>(11 10 6)</code></li>
+</ul>
+<p>注意，消息不能分组为 <code>(1 11 06)</code> ，因为 <code>&quot;06&quot;</code> 不能映射为 <code>&quot;F&quot;</code> ，这是由于 <code>&quot;6&quot;</code> 和 <code>&quot;06&quot;</code> 在映射中并不等价。</p>
+<p>给你一个只含数字的 <strong>非空</strong> 字符串 <code>s</code> ，请计算并返回 <strong>解码</strong> 方法的 <strong>总数</strong> 。</p>
+<p>题目数据保证答案肯定是一个 <strong>32 位</strong> 的整数。</p>
+<p>思路：动态规划，dp[i]表示0-(i-1)为之间的解码可能总数。第i个字符它可以跟i-1个字符合并为一个数也可以自己作为一个数。</p>
+<p>注意：以上两种情况可以同时满足。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">numDecodings</span><span class="params">(<span class="built_in">string</span> s)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">dp</span><span class="params">(s.size()+<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line">        dp[<span class="number">0</span>]=<span class="number">1</span>;	<span class="comment">//空串</span></span><br><span class="line">        <span class="keyword">if</span>(s.size()&gt;=<span class="number">1</span>)</span><br><span class="line">            dp[<span class="number">1</span>]=(s[<span class="number">0</span>]==<span class="string">&#x27;0&#x27;</span>?<span class="number">0</span>:<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">2</span>;i&lt;=s.size();i++)&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=stoi(s.substr(i<span class="number">-2</span>,<span class="number">2</span>));</span><br><span class="line">            <span class="keyword">if</span>(tmp&gt;=<span class="number">10</span>&amp;&amp;tmp&lt;=<span class="number">26</span>)	<span class="comment">//说明是两位数</span></span><br><span class="line">                dp[i]+=dp[i<span class="number">-2</span>];</span><br><span class="line">            <span class="keyword">if</span>(s[i<span class="number">-1</span>]!=<span class="string">&#x27;0&#x27;</span>)			<span class="comment">//除了自己是0以外，都可以自己作为一个数解码</span></span><br><span class="line">                dp[i]+=dp[i<span class="number">-1</span>];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> dp[s.size()];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+      <blockquote class="mdui-m-t-5">
+        
+        <strong>PermaLink: </strong><br><a href="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html</a>
+      </blockquote>
+      
+    </div>
+    <footer class="mdui-card-actions">
+      
+        <a class="mdui-ripple article_categories-link" href="/categories/%E7%AE%97%E6%B3%95/">算法</a>
+      
+      
+        <a class="mdui-ripple article_tags-none-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a><a class="mdui-ripple article_tags-none-link" href="/tags/%E6%A0%88/" rel="tag">栈</a><a class="mdui-ripple article_tags-none-link" href="/tags/%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3/" rel="tag">滑动窗口</a>
+      
+    </footer>
+    
+  </article>
+  
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+
+  <script>$("#main article .mdui-card-content img.fancybox").on("click",function(e){$.fancybox.open({src:$(this).attr("src")});});</script>
+
+
+  <nav id="paginator">
+    
+    <div class="spacer"></div>
+    
+      <a rel="next" class="extend next" href="/%E6%A8%B1%E4%B9%8B%E8%AF%97%E6%84%9F%E6%83%B3.html">
+        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
+      </a>
+    
+  </nav>
+
+
+
+
+  <div style="position: fixed !important; right: 16px; top: 30%;">
+    <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A0%88"><span class="toc-text">栈</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Easy"><span class="toc-text">Easy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%A0%E9%99%A4%E6%9C%80%E5%A4%96%E5%B1%82%E7%9A%84%E6%8B%AC%E5%8F%B7"><span class="toc-text">删除最外层的括号</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E6%A0%88"><span class="toc-text">最小栈</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AF%94%E8%BE%83%E5%90%AB%E9%80%80%E6%A0%BC%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">比较含退格的字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B4%E7%90%86%E5%AD%97%E7%AC%A6%E4%B8%B2"><span class="toc-text">整理字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E5%90%8E%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树的后序遍历</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E4%B8%AD%E5%BA%8F%E9%81%8D%E5%8E%86"><span class="toc-text">二叉树的中序遍历</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3"><span class="toc-text">滑动窗口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hard"><span class="toc-text">hard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%B0%8F%E8%A6%86%E7%9B%96%E5%AD%90%E4%B8%B2"><span class="toc-text">最小覆盖子串</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">动态规划</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#medium"><span class="toc-text">medium</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E7%A0%81%E6%96%B9%E6%B3%95"><span class="toc-text">解码方法</span></a></li></ol></li></ol></li></ol></li>
+    </ul>
+  </div>
+
+<!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+</main>
+  <footer id="footer" class="mdui-m-t-5 mdui-p-y-3 mdui-color-theme">
+  <div class="mdui-p-y-0 mdui-text-center">
+    
+    
+    
+    
+    
+    
+    
+      <a href="https://github.com/ioaol" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe7ab;</i></a>
+    
+    
+    
+    
+    
+      <a href="1449821178" target="_blank"><i class="mdui-p-a-1 mdui-icon iconfont mdui-text-color-theme-a100">&#xe651;</i></a>
+    
+    
+
+  </div>
+  <div class="mdui-p-y-1 mdui-text-center">
+    Copyright &copy; 2021 IOAOl<br>
+    Powered by <a href="https://hexo.io/" target="_blank" class="mdui-text-color-theme-accent">Hexo</a>
+    <br>
+      <span id="busuanzi_container_site_pv" style="display: none;"><i class="iconfont">&#xe7fd;</i> <span id="busuanzi_value_site_pv"></span></span> &nbsp;&nbsp;
+      <span id="busuanzi_container_site_uv" style="display: none;"><i class="iconfont">&#xe601;</i> <span id="busuanzi_value_site_uv"></span></span>
+    
+  </div>
+
+
+</footer>
+  
+  <script src='https://unpkg.com/mermaid@7.1.2/dist/mermaid.min.js'>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize({theme: 'forest'});
+    }
+  </script>
+
+
+  <button id="gotop" class="mdui-fab mdui-fab-fixed mdui-fab-hide mdui-ripple mdui-color-theme-accent"><i class="mdui-icon material-icons">arrow_upward</i></button>
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+  
+<script src="/js/mdui.js"></script>
+<script src="/js/script.js"></script>
+
+  
+<script src="/custom.js"></script>
+
+</body>
+</html>
