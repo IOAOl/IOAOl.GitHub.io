@@ -12,12 +12,12 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
-  <meta name="description" content="### hexo+github博客域名配置  搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。 首先需要一个域名。 买域名买就完事了，上阿里云买个域名 解析域名也就是在阿里云网站上填写主机记录和记录类型与记录值  具体步骤：记录值的填写这里用到了A记录和CNAME记录 a记录的主机记录是       @ CNAME的主机记录是   www A记录值: 在cmd中 1ping githubnam">
+  <meta name="description" content="hexo+github博客域名配置搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。 首先需要一个域名。 买域名买就完事了，上阿里云买个域名 解析域名也就是在阿里云网站上填写主机记录和记录类型与记录值  具体步骤：记录值的填写这里用到了A记录和CNAME记录 a记录的主机记录是       @ CNAME的主机记录是   www A记录值: 在cmd中 1ping githubname.gith">
 <meta property="og:type" content="article">
 <meta property="og:title" content="hexo+github博客域名配置">
 <meta property="og:url" content="http://ioaol.top/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="### hexo+github博客域名配置  搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。 首先需要一个域名。 买域名买就完事了，上阿里云买个域名 解析域名也就是在阿里云网站上填写主机记录和记录类型与记录值  具体步骤：记录值的填写这里用到了A记录和CNAME记录 a记录的主机记录是       @ CNAME的主机记录是   www A记录值: 在cmd中 1ping githubnam">
+<meta property="og:description" content="hexo+github博客域名配置搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。 首先需要一个域名。 买域名买就完事了，上阿里云买个域名 解析域名也就是在阿里云网站上填写主机记录和记录类型与记录值  具体步骤：记录值的填写这里用到了A记录和CNAME记录 a记录的主机记录是       @ CNAME的主机记录是   www A记录值: 在cmd中 1ping githubname.gith">
 <meta property="og:locale">
 <meta property="og:image" content="https://i.loli.net/2020/12/12/a6gcoHEbkG4Fj5C.png">
 <meta property="og:image" content="https://i.loli.net/2020/12/12/IcM1uxQSUaovC5p.png">
@@ -188,7 +188,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-6.png" style="max-height: 240px;">
+      <img src="/images/random/material-15.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">hexo+github博客域名配置</div>
@@ -238,10 +238,8 @@
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-### hexo+github博客域名配置
-
-<p>搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。</p>
+      <p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h3 id="hexo-github博客域名配置"><a href="#hexo-github博客域名配置" class="headerlink" title="hexo+github博客域名配置"></a>hexo+github博客域名配置</h3><p>搞了半天，几乎全部坑都给我踩了一遍。记录一下步骤。</p>
 <p>首先需要一个域名。</p>
 <h4 id="买域名"><a href="#买域名" class="headerlink" title="买域名"></a>买域名</h4><p>买就完事了，上阿里云买个域名</p>
 <h4 id="解析域名"><a href="#解析域名" class="headerlink" title="解析域名"></a>解析域名</h4><p><strong>也就是在阿里云网站上填写主机记录和记录类型与记录值</strong></p>
@@ -252,13 +250,11 @@
 <p><strong>A记录值:</strong></p>
 <p>在cmd中</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ping githubname.github.io</span><br></pre></td></tr></table></figure>
-
 <p>这里的githubname是你的github名字。</p>
 <p><img src="https://i.loli.net/2020/12/12/IcM1uxQSUaovC5p.png" alt="2.png"></p>
 <p>把这个ip地址记录到a记录中</p>
 <p><strong>CNAME记录值：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">githubname.github.io</span><br></pre></td></tr></table></figure>
-
 <p>githubname是你的github名字。</p>
 <h4 id="github上的设置"><a href="#github上的设置" class="headerlink" title="github上的设置"></a>github上的设置</h4><p>打开github上的hexo项目的setting，下拉可以看到GitHub Pages。接着</p>
 <p><img src="https://i.loli.net/2020/12/12/ANT947R2yS5iGU1.png" alt="3.png"></p>
@@ -268,11 +264,10 @@
 <p><img src="https://i.loli.net/2020/12/12/sC2VK1hagybBtvH.png" alt="4.png"></p>
 <p>接着cmd里cd到hexo文件夹，重新生成文件并上传。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo clean&amp;&amp;hexo g&amp;&amp;hexo d</span><br></pre></td></tr></table></figure>
-
 <h4 id="任务完成"><a href="#任务完成" class="headerlink" title="任务完成"></a>任务完成</h4><p>浏览器地址栏输入域名即可访问博客。</p>
 <p>github pages可以看到这样的信息。</p>
 <p><img src="https://i.loli.net/2020/12/12/vfGZctIKhraxQCd.png" alt="5.png"></p>
-<h3 id="科普知识"><a href="#科普知识" class="headerlink" title="科普知识"></a>科普知识</h3><h5 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h5><p>主机记录就是域名前缀，常见用法有:www:解析后的域名为<a href="http://www.aliyun.com。">www.aliyun.com。</a></p>
+<h3 id="科普知识"><a href="#科普知识" class="headerlink" title="科普知识"></a>科普知识</h3><h5 id="主机记录"><a href="#主机记录" class="headerlink" title="主机记录"></a>主机记录</h5><p>主机记录就是域名前缀，常见用法有:www:解析后的域名为www.aliyun.com。</p>
 <p>@:直接解析主域名aliyun.com。<br><em>*:泛解析，匹配其他所有域名</em>.aliyun.com。<br>mail:将域名解析为mail.aliyun.com，通常用于解析邮箱服务器。</p>
 <p>二级域名:如: abc.aliyun.com，填写abc。<br>手机网站:如: m.aliyun.com，填写m。<br>显性URL:不支持泛解析（泛解析:将所有子域名解析到同—地址)</p>
 <p>解析线路：选择 默认 （默认为必选项，如未设置会导致部分用户无法访问 )。</p>
@@ -282,15 +277,15 @@
 <p>A记录，CNAME记录，MX记录，AAAA记录，TXT记录，URL显性/隐性转发，NS记录，SRV记录，CAA记录，PTR记录</p>
 <h6 id="A记录"><a href="#A记录" class="headerlink" title="A记录"></a>A记录</h6><p>使用场景<br>添加 A 记录可实现将域名指向 IP 地址。</p>
 <h6 id="CNAME-记录"><a href="#CNAME-记录" class="headerlink" title="CNAME 记录"></a>CNAME 记录</h6><p>使用场景<br>当需要将域名指向另一个域名，再由另一个域名提供 IP 地址，就需要添加 CNAME 记录，最常用到 CNAME 的场景包括做 CDN、企业邮箱、全局流量管理等。</p>
-<h6 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h6><p>使用场景<br>设置邮箱时，让邮箱能收到邮件，就需要添加 MX 记录。MX全称为mail exchanger，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。例如，当有人发邮件给“<a href="mailto:vincen@example.com">vincen@example.com</a>”时，系统将对“example.com”进行DNS中的MX记录解析。如果MX记录存在，系统就根据MX记录的优先级，将邮件转发到与该MX相应的邮件服务器上。</p>
-<p>主机记录：一般是指子域名的前缀，（要做<a href="mailto:xxx@dns-example.com">xxx@dns-example.com</a>的邮箱，所以主机记录输入“ @ ”；要做<a href="mailto:xxx@mail.dns-example.com">xxx@mail.dns-example.com</a>，如果主机记录填 mail）。</p>
+<h6 id="MX记录"><a href="#MX记录" class="headerlink" title="MX记录"></a>MX记录</h6><p>使用场景<br>设置邮箱时，让邮箱能收到邮件，就需要添加 MX 记录。MX全称为mail exchanger，用于电子邮件系统发邮件时根据收信人的地址后缀来定位邮件服务器。例如，当有人发邮件给“vincen@example.com”时，系统将对“example.com”进行DNS中的MX记录解析。如果MX记录存在，系统就根据MX记录的优先级，将邮件转发到与该MX相应的邮件服务器上。</p>
+<p>主机记录：一般是指子域名的前缀，（要做xxx@dns-example.com的邮箱，所以主机记录输入“ @ ”；要做xxx@mail.dns-example.com，如果主机记录填 mail）。</p>
 <p>记录值：输入内容通过联系邮箱注册商提供。例如阿里云邮提供的需要配置的解析记录值是 mx1.qiye.aliyun.com；</p>
 <p>MX优先级：输入内容通过联系邮箱注册商提供，MX 优先级的数值越低，优先级别就越高（如下图，邮件会先尝试发送到 MX 优先级为 5 的mx1.qiye.aliyun.com，如果尝试失败，才会发送到 MX 优先级为10 的mx2.qiye.aliyun.com）。</p>
 <p>MX1<br>MX2</p>
 <p>注意：以上仅是对MX记录的设置为例，完整的创建邮箱，还需要同时设置CNAME、TXT记录，具体需要配置的解析记录请联系您的邮箱厂商获取，如果您的邮箱提供是阿里云邮箱，您可以参阅 添加邮箱解析 的操作文档</p>
 <h6 id="AAAA-记录"><a href="#AAAA-记录" class="headerlink" title="AAAA 记录"></a>AAAA 记录</h6><p>使用场景<br>当预期是实现访问者通过 IPv6 地址访问网站，可以使用 AAAA 记录实现。</p>
 <h6 id="TXT-记录"><a href="#TXT-记录" class="headerlink" title="TXT 记录"></a>TXT 记录</h6><p>使用场景<br>如果希望对域名进行标识和说明，可以使用 TXT 记录， TXT 记录多用来做 SPF 记录（反垃圾邮件）。</p>
-<p>主机记录：一般是指子域名的前缀（如需为子域名为 <a href="http://www.dns-example.com">www.dns-example.com</a> 添加 TXT 记录， 主机记录输入 www；如需为dns-example.com添加TXT记录，主机记录输入 @）</p>
+<p>主机记录：一般是指子域名的前缀（如需为子域名为 www.dns-example.com 添加 TXT 记录， 主机记录输入 www；如需为dns-example.com添加TXT记录，主机记录输入 @）</p>
 <p>TXT记录</p>
 <h6 id="URL显性-隐性转发"><a href="#URL显性-隐性转发" class="headerlink" title="URL显性/隐性转发"></a>URL显性/隐性转发</h6><p>使用场景<br>将一个域名指向另外一个已经存在的站点时，需要添加 URL 记录。</p>
 <p>使用前提<br>添加 URL 转发记录时，转发前的域名需完成备案。</p>
@@ -308,8 +303,8 @@
 <p>使用规则<br>添加 URL 转发记录时，转发前的域名都需完成备案且备案接入商为阿里云。</p>
 <p>URL转发时记录值不能为IP地址<br>URL转发不支持泛解析设置。<br>URL转发的目标域名不支持中文域名。<br>URL转发前域名支持HTTP，不支持HTTPS，转发后的目标地址支持HTTP、HTTPS。<br>URL转发属于特殊商品，云解析不提供攻击防护服务，如遇攻击黑洞时无法使用URL转发，请将需要转发的主机记录配置为A或CNAME记录。</p>
 <h6 id="NS-记录"><a href="#NS-记录" class="headerlink" title="NS 记录"></a>NS 记录</h6><p>使用场景<br>如果需要把子域名交给其他 DNS 服务商解析，就需要添加 NS 记录。</p>
-<p>设置方法<br>示例：域名 dns-example.com 使用阿里云解析，将子域名<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析管理权从阿里云解析授权给腾讯云解析做管理。</p>
-<p>主机记录：一般是指子域名的前缀（如需将子域名为<a href="http://www.dns-example.com">www.dns-example.com</a> 的解析授权给腾讯云解析的DNS服务器进行解析管理，只需要在主机记录处填写 www 即可）。</p>
+<p>设置方法<br>示例：域名 dns-example.com 使用阿里云解析，将子域名www.dns-example.com 的解析管理权从阿里云解析授权给腾讯云解析做管理。</p>
+<p>主机记录：一般是指子域名的前缀（如需将子域名为www.dns-example.com 的解析授权给腾讯云解析的DNS服务器进行解析管理，只需要在主机记录处填写 www 即可）。</p>
 <p>记录值：记录值为要授权的 DNS 服务器域名，例如腾讯云解析的DNS服务器域名f1g1ns1.dnspod.net。</p>
 <h6 id="SRV记录"><a href="#SRV记录" class="headerlink" title="SRV记录"></a>SRV记录</h6><p>使用场景<br>SRV 记录用来标识某台服务器使用了某个服务，常见于微软系统的目录管理。</p>
 <p>主机记录： 格式为 服务的名字.协议的类型。</p>
@@ -321,7 +316,7 @@
 <p>CAA记录的记录格式<br>CAA记录的格式为：[flag] [tag] [value]，是由一个标志字节的[flag]和一个被称为属性的[tag]-[value]（标签-值）对组成。您可以将多个CAA字段添加到域名的DNS记录中。</p>
 <p>放大查看<br>字段    说明<br>flag    无符号整数（目前仅支持0和128），用于标志认证机构。通常情况下填0，表示如果颁发证书机构无法识别本条信息，就忽略。<br>tag    支持 issue、issuewild 和 iodef。<br>issue：CA授权单个证书颁发机构发布的 任何类型 域名证书。<br>issuewild：CA授权单个证书颁发机构发布主机名的 通配符 证书。<br>iodef：CA可以将违规的颁发记录URL发送给某个电子邮箱。<br>value    CA的域名或用于违规通知的电子邮箱。</p>
 <p>设置方法<br>添加如下两条解析记录。</p>
-<p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:<a href="mailto:admin@dns-example.com">admin@dns-example.com</a>”<br>CAA 1<br>CAA2</p>
+<p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:admin@dns-example.com”<br>CAA 1<br>CAA2</p>
 <h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
 
       <blockquote class="mdui-m-t-5">
@@ -365,7 +360,7 @@
   <div style="position: fixed !important; right: 16px; top: 30%;">
     <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
     <ul class="mdui-menu" id="toc">
-      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%B0%E5%9F%9F%E5%90%8D"><span class="toc-text">买域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D"><span class="toc-text">解析域名</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%EF%BC%9A%E8%AE%B0%E5%BD%95%E5%80%BC%E7%9A%84%E5%A1%AB%E5%86%99"><span class="toc-text">具体步骤：记录值的填写</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#github%E4%B8%8A%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-text">github上的设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">hexo的配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90"><span class="toc-text">任务完成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86"><span class="toc-text">科普知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E8%AE%B0%E5%BD%95"><span class="toc-text">主机记录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">记录类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#A%E8%AE%B0%E5%BD%95"><span class="toc-text">A记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CNAME-%E8%AE%B0%E5%BD%95"><span class="toc-text">CNAME 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#MX%E8%AE%B0%E5%BD%95"><span class="toc-text">MX记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#AAAA-%E8%AE%B0%E5%BD%95"><span class="toc-text">AAAA 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#TXT-%E8%AE%B0%E5%BD%95"><span class="toc-text">TXT 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#URL%E6%98%BE%E6%80%A7-%E9%9A%90%E6%80%A7%E8%BD%AC%E5%8F%91"><span class="toc-text">URL显性&#x2F;隐性转发</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NS-%E8%AE%B0%E5%BD%95"><span class="toc-text">NS 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SRV%E8%AE%B0%E5%BD%95"><span class="toc-text">SRV记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CAA%E8%AE%B0%E5%BD%95"><span class="toc-text">CAA记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#PTR%E8%AE%B0%E5%BD%95"><span class="toc-text">PTR记录</span></a></li></ol></li></ol></li></ol></li>
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE"><span class="toc-text">hexo+github博客域名配置</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B9%B0%E5%9F%9F%E5%90%8D"><span class="toc-text">买域名</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%A7%A3%E6%9E%90%E5%9F%9F%E5%90%8D"><span class="toc-text">解析域名</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E6%AD%A5%E9%AA%A4%EF%BC%9A%E8%AE%B0%E5%BD%95%E5%80%BC%E7%9A%84%E5%A1%AB%E5%86%99"><span class="toc-text">具体步骤：记录值的填写</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#github%E4%B8%8A%E7%9A%84%E8%AE%BE%E7%BD%AE"><span class="toc-text">github上的设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#hexo%E7%9A%84%E9%85%8D%E7%BD%AE"><span class="toc-text">hexo的配置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%BB%E5%8A%A1%E5%AE%8C%E6%88%90"><span class="toc-text">任务完成</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%91%E6%99%AE%E7%9F%A5%E8%AF%86"><span class="toc-text">科普知识</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BB%E6%9C%BA%E8%AE%B0%E5%BD%95"><span class="toc-text">主机记录</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AE%B0%E5%BD%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">记录类型</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#A%E8%AE%B0%E5%BD%95"><span class="toc-text">A记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CNAME-%E8%AE%B0%E5%BD%95"><span class="toc-text">CNAME 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#MX%E8%AE%B0%E5%BD%95"><span class="toc-text">MX记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#AAAA-%E8%AE%B0%E5%BD%95"><span class="toc-text">AAAA 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#TXT-%E8%AE%B0%E5%BD%95"><span class="toc-text">TXT 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#URL%E6%98%BE%E6%80%A7-%E9%9A%90%E6%80%A7%E8%BD%AC%E5%8F%91"><span class="toc-text">URL显性&#x2F;隐性转发</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#NS-%E8%AE%B0%E5%BD%95"><span class="toc-text">NS 记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#SRV%E8%AE%B0%E5%BD%95"><span class="toc-text">SRV记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#CAA%E8%AE%B0%E5%BD%95"><span class="toc-text">CAA记录</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#PTR%E8%AE%B0%E5%BD%95"><span class="toc-text">PTR记录</span></a></li></ol></li></ol></li></ol></li></ol></li>
     </ul>
   </div>
 
@@ -436,6 +431,23 @@
 
   
 <script src="/custom.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

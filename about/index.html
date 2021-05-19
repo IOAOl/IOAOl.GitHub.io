@@ -182,7 +182,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-14.png" style="max-height: 240px;">
+      <img src="/images/random/material-5.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">about</div>
@@ -236,7 +236,7 @@
 
 <h5 id="个人信息"><a href="#个人信息" class="headerlink" title="个人信息"></a><strong>个人信息</strong></h5><p>在读学生一枚</p>
 <h5 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a><strong>联系方式</strong></h5><p>🐧QQ：1449821178</p>
-<p>📪邮箱：<a href="mailto:1449821178@qq.com">1449821178@qq.com</a></p>
+<p>📪邮箱：1449821178@qq.com</p>
 <p>Github:<a href="https://github.com/IOAOl">ioaol</a></p>
 <h5 id="关于本站"><a href="#关于本站" class="headerlink" title="关于本站"></a><strong>关于本站</strong></h5><p>本站基于<a href="https://hexo.io/">Hexo</a>和<a href="https://www.mdui.org/">MDUI</a>搭建，主题托管在<a href="https://github.com/niemingzhao/niemingzhao.github.io/tree/theme">GitHub</a>上。本站尊重原创，转载或引用本站内容请注明出处。本站部分内容可能并非完全原创，如果有侵犯您版权的文章，绝非恶意，请联系删除。</p>
 
@@ -310,6 +310,23 @@
 
   
 <script src="/custom.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

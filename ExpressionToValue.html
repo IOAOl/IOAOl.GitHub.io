@@ -191,7 +191,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-13.png" style="max-height: 240px;">
+      <img src="/images/random/material-11.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">ExpressionToValue</div>
@@ -293,7 +293,6 @@
 <p>判断条件满足后停止</p>
 <p>end方法终止</p>
 <figure class="highlight c#"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">animation</span>(<span class="params"><span class="built_in">object</span> sender, RoutedEventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>        &#123;</span><br><span class="line">            Label label = sender <span class="keyword">as</span> Label;</span><br><span class="line">            <span class="built_in">int</span> count = <span class="number">0</span>;</span><br><span class="line">            <span class="keyword">foreach</span>(Label l1 <span class="keyword">in</span> listBox1.Items)</span><br><span class="line">            &#123;</span><br><span class="line">                count++;</span><br><span class="line">                <span class="keyword">if</span> (l1 == label)</span><br><span class="line">                    <span class="keyword">break</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            ProcessToanimation = <span class="number">0</span>;</span><br><span class="line">            CountToAnimation = count;</span><br><span class="line">            System.Windows.Threading.DispatcherTimer tmr = <span class="keyword">new</span> System.Windows.Threading.DispatcherTimer();</span><br><span class="line">            tmr.Interval = TimeSpan.FromSeconds(<span class="number">0.01</span>);</span><br><span class="line">            tmr.Tick += <span class="keyword">new</span> EventHandler(threads);</span><br><span class="line">            tmr.Start();</span><br><span class="line">        &#125;</span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">threads</span>(<span class="params"><span class="built_in">object</span> c,EventArgs e</span>)</span></span><br><span class="line"><span class="function"></span>    &#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">int</span> count = CountToAnimation;</span><br><span class="line">            slidersList[count<span class="number">-1</span>].Value = ProcessToanimation;</span><br><span class="line">            <span class="built_in">double</span> td = (slidersList[count - <span class="number">1</span>].Value - <span class="number">5</span>) * Convert.ToDouble(rangesList[count - <span class="number">1</span>].Text);</span><br><span class="line">            td = td / <span class="number">5</span>;</span><br><span class="line">            valuesList[count - <span class="number">1</span>].Content = td;</span><br><span class="line">            variableCollection.vlist[count - <span class="number">1</span>].<span class="keyword">value</span> = td;</span><br><span class="line">            exp.setVariables(variableCollection);</span><br><span class="line">            result.Content = exp.getValue();</span><br><span class="line">            ProcessToanimation += <span class="number">0.025</span>;</span><br><span class="line">            <span class="keyword">if</span> (ProcessToanimation &gt;= <span class="number">10</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                slidersList[count<span class="number">-1</span>].Value = <span class="number">6</span>;</span><br><span class="line">                <span class="built_in">double</span> ts = (slidersList[count - <span class="number">1</span>].Value - <span class="number">5</span>) * Convert.ToDouble(rangesList[count - <span class="number">1</span>].Text)/<span class="number">5</span>;</span><br><span class="line">                valuesList[count - <span class="number">1</span>].Content = ts;</span><br><span class="line">                variableCollection.vlist[count - <span class="number">1</span>].<span class="keyword">value</span> = ts;</span><br><span class="line">                exp.setVariables(variableCollection);</span><br><span class="line">                result.Content = exp.getValue();</span><br><span class="line">                (c <span class="keyword">as</span> System.Windows.Threading.DispatcherTimer).Stop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        catch (Exception e1)</span><br><span class="line">        &#123;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
 
       <blockquote class="mdui-m-t-5">
         
@@ -411,6 +410,23 @@
 
   
 <script src="/custom.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

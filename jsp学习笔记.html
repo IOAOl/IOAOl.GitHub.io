@@ -12,12 +12,12 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
-  <meta name="description" content="#### Jsp学习笔记  JavaBean定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get&#x2F;set方法。 javaBean可以分为两种： （1）封装数据的类。相当于数据库的表 （2）封装逻辑的类。用于操作封装数据的类 用于简化代码。提高代码复用率。 MVC设计模式M:model        模型 V:view            视">
+  <meta name="description" content="Jsp学习笔记JavaBean定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get&#x2F;set方法。 javaBean可以分为两种： （1）封装数据的类。相当于数据库的表 （2）封装逻辑的类。用于操作封装数据的类 用于简化代码。提高代码复用率。 MVC设计模式M:model        模型 V:view            视图 C:con">
 <meta property="og:type" content="article">
 <meta property="og:title" content="jsp学习笔记">
 <meta property="og:url" content="http://ioaol.top/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="#### Jsp学习笔记  JavaBean定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get&#x2F;set方法。 javaBean可以分为两种： （1）封装数据的类。相当于数据库的表 （2）封装逻辑的类。用于操作封装数据的类 用于简化代码。提高代码复用率。 MVC设计模式M:model        模型 V:view            视">
+<meta property="og:description" content="Jsp学习笔记JavaBean定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get&#x2F;set方法。 javaBean可以分为两种： （1）封装数据的类。相当于数据库的表 （2）封装逻辑的类。用于操作封装数据的类 用于简化代码。提高代码复用率。 MVC设计模式M:model        模型 V:view            视图 C:con">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-12-13T08:46:58.000Z">
 <meta property="article:modified_time" content="2020-12-15T14:28:09.959Z">
@@ -182,7 +182,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-12.png" style="max-height: 240px;">
+      <img src="/images/random/material-16.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">jsp学习笔记</div>
@@ -232,10 +232,8 @@
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-#### Jsp学习笔记
-
-<h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
+      <p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
 <p>javaBean可以分为两种：</p>
 <p>（1）封装数据的类。相当于数据库的表</p>
 <p>（2）封装逻辑的类。用于操作封装数据的类</p>
@@ -243,6 +241,7 @@
 <h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
 <p>V:view            视图</p>
 <p>C:controller 控制器</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -251,7 +250,8 @@
 <th>C(controller)</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>模型</td>
 <td>视图</td>
 <td>控制器</td>
@@ -261,7 +261,9 @@
 <td>视图是用户看到并与之交互的界面</td>
 <td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
 <p>jsp+javabean+serlvet就是典型的MVC模型。</p>
 <h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
@@ -285,7 +287,6 @@ end</pre>
     HttpServlet-->servlet类</pre>
 
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
-
 <p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
 
       <blockquote class="mdui-m-t-5">
@@ -329,7 +330,7 @@ end</pre>
   <div style="position: fixed !important; right: 16px; top: 30%;">
     <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
     <ul class="mdui-menu" id="toc">
-      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-5"><a class="toc-link" href="#JavaBean"><span class="toc-text">JavaBean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">MVC设计模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#servlvet%E7%B1%BB"><span class="toc-text">servlvet类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#serlet%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-text">serlet的执行流程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#servlet%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="toc-text">servlet的继承关系</span></a></li></ol></li></ol></li>
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#Jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0"><span class="toc-text">Jsp学习笔记</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#JavaBean"><span class="toc-text">JavaBean</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#MVC%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">MVC设计模式</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#servlvet%E7%B1%BB"><span class="toc-text">servlvet类</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#serlet%E7%9A%84%E6%89%A7%E8%A1%8C%E6%B5%81%E7%A8%8B"><span class="toc-text">serlet的执行流程</span></a></li><li class="toc-item toc-level-6"><a class="toc-link" href="#servlet%E7%9A%84%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB"><span class="toc-text">servlet的继承关系</span></a></li></ol></li></ol></li></ol></li>
     </ul>
   </div>
 
@@ -400,6 +401,23 @@ end</pre>
 
   
 <script src="/custom.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>

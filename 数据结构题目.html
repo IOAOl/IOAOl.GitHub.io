@@ -12,12 +12,12 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
-  <meta name="description" content="# [面试题59 - I. 滑动窗口的最大值](https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;hua-dong-chuang-kou-de-zui-da-zhi-lcof&#x2F;)（LeetCode）（单调队列）  给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &amp;">
+  <meta name="description" content="面试题59 - I. 滑动窗口的最大值（LeetCode）（单调队列）给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3输出: [3,3,5,5,6,7] 在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小 12345678910111213141516171">
 <meta property="og:type" content="article">
 <meta property="og:title" content="数据结构题目">
 <meta property="og:url" content="http://ioaol.top/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E9%A2%98%E7%9B%AE.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="# [面试题59 - I. 滑动窗口的最大值](https:&#x2F;&#x2F;leetcode-cn.com&#x2F;problems&#x2F;hua-dong-chuang-kou-de-zui-da-zhi-lcof&#x2F;)（LeetCode）（单调队列）  给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &amp;">
+<meta property="og:description" content="面试题59 - I. 滑动窗口的最大值（LeetCode）（单调队列）给定一个数组 nums 和滑动窗口的大小 k，请找出所有滑动窗口里的最大值。 123输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3输出: [3,3,5,5,6,7] 在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小 12345678910111213141516171">
 <meta property="og:locale">
 <meta property="article:published_time" content="2020-06-15T12:28:23.000Z">
 <meta property="article:modified_time" content="2020-06-15T17:45:35.436Z">
@@ -183,7 +183,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-8.png" style="max-height: 240px;">
+      <img src="/images/random/material-3.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">数据结构题目</div>
@@ -233,21 +233,16 @@
       </div>
     </header>
     <div class="mdui-card-content mdui-typo">
-      <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-# [面试题59 - I. 滑动窗口的最大值](https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/)（LeetCode）（单调队列）
-
-<p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
+      <p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h1 id="面试题59-I-滑动窗口的最大值（LeetCode）（单调队列）"><a href="#面试题59-I-滑动窗口的最大值（LeetCode）（单调队列）" class="headerlink" title="面试题59 - I. 滑动窗口的最大值（LeetCode）（单调队列）"></a><a href="https://leetcode-cn.com/problems/hua-dong-chuang-kou-de-zui-da-zhi-lcof/">面试题59 - I. 滑动窗口的最大值</a>（LeetCode）（单调队列）</h1><p>给定一个数组 <code>nums</code> 和滑动窗口的大小 <code>k</code>，请找出所有滑动窗口里的最大值。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">输入: nums &#x3D; [1,3,-1,-3,5,3,6,7], 和 k &#x3D; 3</span><br><span class="line">输出: [3,3,5,5,6,7] </span><br><span class="line">在输入数组不为空的情况下，1 ≤ k ≤ 输入数组的大小</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">maxSlidingWindow</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums, <span class="keyword">int</span> k)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; r;</span><br><span class="line">        <span class="keyword">if</span>(!nums.empty())&#123;</span><br><span class="line">            <span class="keyword">int</span> max=nums[<span class="number">0</span>];</span><br><span class="line">            <span class="keyword">int</span> maxindex=<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i+k&lt;=nums.size();i++)&#123;</span><br><span class="line">                <span class="keyword">if</span>(maxindex==i<span class="number">-1</span>||i==<span class="number">0</span>)&#123;	<span class="comment">//第一个窗口或者是前一个窗口最大值已不在当前窗口</span></span><br><span class="line">                    max=nums[i];</span><br><span class="line">                    maxindex=i;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>;j&lt;k;j++)&#123;</span><br><span class="line">                        <span class="keyword">if</span>(max&lt;nums[i+j])&#123;</span><br><span class="line">                            max=nums[i+j];</span><br><span class="line">                            maxindex=i+j;</span><br><span class="line">                        &#125;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;<span class="keyword">else</span>&#123;						<span class="comment">//前一个窗口最大值还在当前窗口</span></span><br><span class="line">                    <span class="keyword">if</span>(max&lt;nums[i+k<span class="number">-1</span>])&#123;</span><br><span class="line">                        max=nums[i+k<span class="number">-1</span>];</span><br><span class="line">                        maxindex=i+k<span class="number">-1</span>;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">                r.push_back(max);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> r;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <p>思路：滑动窗口就是在前面加一个元素，后面减去一个元素，这里考虑了减去的元素是不是等于最大的元素，如果是，就找当前的窗口的最大元素，不是的话，说明前一窗口的最大元素仍在窗口，就将前一个窗口最大元素跟新加的元素比较，以确定当前窗口最大元素。</p>
 <p>执行用时 :28 ms, 在所有 C++ 提交中击败了89.08%的用户</p>
 <p>内存消耗 :15.7 MB, 在所有 C++ 提交中击败了100.00%的用户</p>
 <p>缺点：在最大值在现有窗口被去除后找最大值的时间复杂度为O(k）</p>
 <p>改进版本</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; ans;</span><br><span class="line">       <span class="built_in">deque</span>&lt;<span class="keyword">int</span>&gt; deq;</span><br><span class="line">       <span class="keyword">int</span> n = nums.size();</span><br><span class="line">       <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; n; i++)&#123;</span><br><span class="line">           <span class="keyword">while</span>(!deq.empty() &amp;&amp; nums[i] &gt; nums[deq.back()])&#123;</span><br><span class="line">               deq.pop_back();</span><br><span class="line">           &#125;</span><br><span class="line">           <span class="keyword">if</span> (!deq.empty() &amp;&amp; deq.front() &lt; i - k + <span class="number">1</span>) deq.pop_front();</span><br><span class="line">           deq.push_back(i);</span><br><span class="line">           <span class="keyword">if</span> (i &gt;= k <span class="number">-1</span>) ans.push_back(nums[deq.front()]);</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">return</span> ans;</span><br></pre></td></tr></table></figure>
-
 <p>思路：维护一个单调队列，满足头为最大值，队列里的元素都为窗口元素。每次移动，检查添加元素是否大于尾元素，大于则去除，直到队列里只有比添加元素大的元素。之后检查头元素是不是不在当前窗口，不在则去除。最后头元素就是当前窗口最大的元素。</p>
 <p>在窗口数大的时候优化明显,总体的时间复杂度是O(n)。</p>
 <p>执行用时 :36 ms, 在所有 C++ 提交中击败了80.64%的用户</p>
@@ -292,6 +287,13 @@
 
 
 
+
+  <div style="position: fixed !important; right: 16px; top: 30%;">
+    <button class="mdui-fab mdui-fab-mini mdui-ripple" mdui-menu="{target: '#toc'}"><i class="mdui-icon material-icons">format_list_numbered</i></button>
+    <ul class="mdui-menu" id="toc">
+      <li class="mdui-menu-item" disabled><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9D%A2%E8%AF%95%E9%A2%9859-I-%E6%BB%91%E5%8A%A8%E7%AA%97%E5%8F%A3%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC%EF%BC%88LeetCode%EF%BC%89%EF%BC%88%E5%8D%95%E8%B0%83%E9%98%9F%E5%88%97%EF%BC%89"><span class="toc-text">面试题59 - I. 滑动窗口的最大值（LeetCode）（单调队列）</span></a></li></ol></li>
+    </ul>
+  </div>
 
 <!-- 来必力City版安装代码 -->
 <div id="lv-container" data-id="city" data-uid="MTAyMC80NjQxNC8yMjkyNQ==">
@@ -360,6 +362,23 @@
 
   
 <script src="/custom.js"></script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ["$","$"], ["\\(","\\)"] ],
+            skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code'],
+            processEscapes: true
+        }
+    });
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax();
+        for (var i = 0; i < all.length; ++i)
+            all[i].SourceElement().parentNode.className += ' has-jax';
+    });
+</script>
+<!-- <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 
 </body>
 </html>
