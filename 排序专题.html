@@ -20,7 +20,7 @@
 <meta property="og:description" content="选择排序1234567891011void selectSort(vector&lt;int&gt;&amp; nums)&amp;#123; &#x2F;&#x2F;选择排序 &#x2F;&#x2F;超时        for(int i&#x3D;0;i&lt;nums.size()-1;i++)&amp;#123;            int min&#x3D;i;            for(int j&#x3D;i+1;j&lt;nums.size();j++)">
 <meta property="og:locale">
 <meta property="article:published_time" content="2021-05-11T10:44:26.000Z">
-<meta property="article:modified_time" content="2021-05-17T16:49:43.818Z">
+<meta property="article:modified_time" content="2021-05-17T17:07:47.569Z">
 <meta property="article:author" content="IOAOl">
 <meta name="twitter:card" content="summary">
 
@@ -182,7 +182,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-      <img src="/images/random/material-2.png" style="max-height: 240px;">
+      <img src="/images/random/material-5.png" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
         <div class="mdui-card-primary">
           <div class="mdui-card-primary-title">排序专题</div>
@@ -253,7 +253,7 @@
 
 <h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><p>思路：建立一个(max-min)+1大小的数组。对数组的每一个元素都可以找到对应的x-min的位置</p>
 <p>该数组记录每一个数到底有多少个。然后通过寻找这个数组，就可以确定元素在排序后的位置。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">给出一个例子:[5,1,1,2,0,0]</span><br><span class="line">该计数数组的变化为：</span><br><span class="line">		 2 2 1 0 0 1 &#x2F;&#x2F;记录了数组中对应的个数</span><br><span class="line">		 2 4 5 5 5 6 &#x2F;&#x2F;前一个元素加到后面的元素 countArray[i+1]+&#x3D;countArray[i];</span><br><span class="line">nums:5 ::2 4 5 5 5 5 &#x2F;&#x2F;找元素5找到6，6-1就是5在排序好的数组的位置，更新数组为6-1</span><br><span class="line">nums:1 ::2 3 5 5 5 5 &#x2F;&#x2F;找元素1找到5，5-1就是1在排序好的数组的位置，更新数组为5-1</span><br><span class="line">nums:1 ::2 2 5 5 5 5 &#x2F;&#x2F;找元素1找到5，5-1就是1在排序好的数组的位置，更新数组为5-1</span><br><span class="line">nums:2 ::2 2 4 5 5 5 &#x2F;&#x2F;找元素2找到4，4-1就是2在排序好的数组的位置，更新数组为4-1</span><br><span class="line">nums:0 ::1 2 4 5 5 5 &#x2F;&#x2F;找元素0找到2，2-1就是0在排序好的数组的位置，更新数组为2-1 </span><br><span class="line">nums:0 ::0 2 4 5 5 5 &#x2F;&#x2F;找元素0找到1，1-1就是0在排序好的数组的位置，更新数组为1-1</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">给出一个例子:[5,1,1,2,0,0]</span><br><span class="line">该计数数组的变化为：</span><br><span class="line">         2 2 1 0 0 1 &#x2F;&#x2F;记录了数组中对应的个数</span><br><span class="line">         2 4 5 5 5 6 &#x2F;&#x2F;前一个元素加到后面的元素 countArray[i+1]+&#x3D;countArray[i];</span><br><span class="line">nums:5 ::2 4 5 5 5 5 &#x2F;&#x2F;找元素5找到6，6-1就是5在排序好的数组的位置，更新数组为6-1</span><br><span class="line">nums:1 ::2 3 5 5 5 5 &#x2F;&#x2F;找元素1找到5，5-1就是1在排序好的数组的位置，更新数组为5-1</span><br><span class="line">nums:1 ::2 2 5 5 5 5 &#x2F;&#x2F;找元素1找到5，5-1就是1在排序好的数组的位置，更新数组为5-1</span><br><span class="line">nums:2 ::2 2 4 5 5 5 &#x2F;&#x2F;找元素2找到4，4-1就是2在排序好的数组的位置，更新数组为4-1</span><br><span class="line">nums:0 ::1 2 4 5 5 5 &#x2F;&#x2F;找元素0找到2，2-1就是0在排序好的数组的位置，更新数组为2-1 </span><br><span class="line">nums:0 ::0 2 4 5 5 5 &#x2F;&#x2F;找元素0找到1，1-1就是0在排序好的数组的位置，更新数组为1-1</span><br></pre></td></tr></table></figure>
 
 
 
