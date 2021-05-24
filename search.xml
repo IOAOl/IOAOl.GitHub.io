@@ -177,67 +177,6 @@
 ]]></content>
   </entry>
   <entry>
-    <title>jsp学习笔记</title>
-    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
-    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
-<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
-<p>javaBean可以分为两种：</p>
-<p>（1）封装数据的类。相当于数据库的表</p>
-<p>（2）封装逻辑的类。用于操作封装数据的类</p>
-<p>用于简化代码。提高代码复用率。</p>
-<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
-<p>V:view            视图</p>
-<p>C:controller 控制器</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>M(model)</th>
-<th>V(view)</th>
-<th>C(controller)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>模型</td>
-<td>视图</td>
-<td>控制器</td>
-</tr>
-<tr>
-<td>模型表示企业数据和业务规则</td>
-<td>视图是用户看到并与之交互的界面</td>
-<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
-<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
-<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
-<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
-    加载 --> 初始化
-    初始化--> 服务
-    服务 --> 销毁
-    销毁 --> 卸载
-subgraph   
-    服务-.-服务是最关键的,包含了doGet和doPost方法.
-end</pre>
-
-<p>通过a href=”servlet的类名”访问.</p>
-<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
-<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
-<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
-<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
-    interface/servlet-->GenericServlet
-    GenericServlet-->HttpServlet
-    interface/ServletConfig-->GenericServlet
-    HttpServlet-->servlet类</pre>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
-<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
-]]></content>
-  </entry>
-  <entry>
     <title>hexo+github博客域名配置</title>
     <url>/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
     <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
@@ -323,6 +262,67 @@ end</pre>
 ]]></content>
   </entry>
   <entry>
+    <title>jsp学习笔记</title>
+    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
+    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
+<p>javaBean可以分为两种：</p>
+<p>（1）封装数据的类。相当于数据库的表</p>
+<p>（2）封装逻辑的类。用于操作封装数据的类</p>
+<p>用于简化代码。提高代码复用率。</p>
+<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
+<p>V:view            视图</p>
+<p>C:controller 控制器</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>M(model)</th>
+<th>V(view)</th>
+<th>C(controller)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型</td>
+<td>视图</td>
+<td>控制器</td>
+</tr>
+<tr>
+<td>模型表示企业数据和业务规则</td>
+<td>视图是用户看到并与之交互的界面</td>
+<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
+<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
+<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
+<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
+    加载 --> 初始化
+    初始化--> 服务
+    服务 --> 销毁
+    销毁 --> 卸载
+subgraph   
+    服务-.-服务是最关键的,包含了doGet和doPost方法.
+end</pre>
+
+<p>通过a href=”servlet的类名”访问.</p>
+<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
+<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
+<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
+<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
+    interface/servlet-->GenericServlet
+    GenericServlet-->HttpServlet
+    interface/ServletConfig-->GenericServlet
+    HttpServlet-->servlet类</pre>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
+<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
+]]></content>
+  </entry>
+  <entry>
     <title>rj感想</title>
     <url>/rj%E6%84%9F%E6%83%B3.html</url>
     <content><![CDATA[<div id="hexo-blog-encrypt" data-wpm="Oh, this is an invalid password. Check and try again, please." data-whm="OOPS, these decrypted content may changed, but you can still have a look.">
@@ -336,6 +336,18 @@ end</pre>
 <script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">]]></content>
   </entry>
   <entry>
+    <title>天国旅立</title>
+    <url>/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
+<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
+]]></content>
+      <tags>
+        <tag>Gallery</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>test_pic</title>
     <url>/test-pic.html</url>
     <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
@@ -347,18 +359,6 @@ end</pre>
 ]]></content>
       <tags>
         <tag>test</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>天国旅立</title>
-    <url>/%E5%A4%A9%E5%9B%BD%E6%97%85%E7%AB%8B.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p><img src="https://i.loli.net/2019/09/09/IcUw5WsjhbGYmlT.png" alt="Saved_Memory2.png"></p>
-<p><img src="https://i.loli.net/2019/09/09/XDAKdzLsoYnP3HF.png" alt="Saved_Memory8.png"><br><img src="https://i.loli.net/2019/09/09/KtRvuZnfELqWC9k.png" alt="Saved_Memory9.png"><br><img src="https://i.loli.net/2019/09/09/QCnb92H8UfmLEkO.png" alt="Saved_Memory10.png"><br><img src="https://i.loli.net/2019/09/09/WYmx4RS1ebr6DIF.png" alt="Saved_Memory3.png"><br><img src="https://i.loli.net/2019/09/09/BV2Fr1oiyPvDxqd.png" alt="Saved_Memory4.png"><br><img src="https://i.loli.net/2019/09/09/ihdkgzsEnYFUTN7.png" alt="Saved_Memory6.png"><br><img src="https://i.loli.net/2019/09/09/YJrthXoDLxFyTGq.png" alt="Saved_Memory1.png"><br><img src="https://i.loli.net/2019/09/09/PlLtiIhN3yRA4ns.png" alt="Saved_Memory5.png"><br><img src="https://i.loli.net/2019/09/09/nz9eSMLa5yUxvfK.png" alt="Saved_Memory7.png"><br><img src="https://i.loli.net/2019/09/09/xagRIqXjJKv2ny7.png" alt="Saved_Memory11.png"><br><img src="https://i.loli.net/2019/09/09/tT4IaXVMRHxGJsS.png" alt="Saved_Memory14.png"><br><img src="https://i.loli.net/2019/09/09/pDMBcbTXQK1Asg5.png" alt="Saved_Memory12.png"><br><img src="https://i.loli.net/2019/09/09/b3wZcoDHPxG21dm.png" alt="Saved_Memory13.png"><br><img src="https://p.pstatp.com/origin/fe8f000115e907fd41cd" alt="Saved_Memory15.png"></p>
-]]></content>
-      <tags>
-        <tag>Gallery</tag>
       </tags>
   </entry>
   <entry>
@@ -726,8 +726,8 @@ end</pre>
   <entry>
     <title>leetcode笔记</title>
     <url>/leetcode%E7%AC%94%E8%AE%B0.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
+    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<meta name="referrer" content="no-referrer">
 
 <p><strong>以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。</strong></p>
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h3><h4 id="删除最外层的括号"><a href="#删除最外层的括号" class="headerlink" title="删除最外层的括号"></a><a href="https://leetcode-cn.com/problems/remove-outermost-parentheses">删除最外层的括号</a></h4><p>有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。</p>
