@@ -177,6 +177,67 @@
 ]]></content>
   </entry>
   <entry>
+    <title>jsp学习笔记</title>
+    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
+    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
+<p>javaBean可以分为两种：</p>
+<p>（1）封装数据的类。相当于数据库的表</p>
+<p>（2）封装逻辑的类。用于操作封装数据的类</p>
+<p>用于简化代码。提高代码复用率。</p>
+<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
+<p>V:view            视图</p>
+<p>C:controller 控制器</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>M(model)</th>
+<th>V(view)</th>
+<th>C(controller)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型</td>
+<td>视图</td>
+<td>控制器</td>
+</tr>
+<tr>
+<td>模型表示企业数据和业务规则</td>
+<td>视图是用户看到并与之交互的界面</td>
+<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
+<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
+<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
+<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
+    加载 --> 初始化
+    初始化--> 服务
+    服务 --> 销毁
+    销毁 --> 卸载
+subgraph   
+    服务-.-服务是最关键的,包含了doGet和doPost方法.
+end</pre>
+
+<p>通过a href=”servlet的类名”访问.</p>
+<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
+<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
+<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
+<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
+    interface/servlet-->GenericServlet
+    GenericServlet-->HttpServlet
+    interface/ServletConfig-->GenericServlet
+    HttpServlet-->servlet类</pre>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
+<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
+]]></content>
+  </entry>
+  <entry>
     <title>hexo+github博客域名配置</title>
     <url>/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
     <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
@@ -259,67 +320,6 @@
 <p>设置方法<br>添加如下两条解析记录。</p>
 <p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:admin@dns-example.com”<br>CAA 1<br>CAA2</p>
 <h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
-]]></content>
-  </entry>
-  <entry>
-    <title>jsp学习笔记</title>
-    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
-    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
-<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
-<p>javaBean可以分为两种：</p>
-<p>（1）封装数据的类。相当于数据库的表</p>
-<p>（2）封装逻辑的类。用于操作封装数据的类</p>
-<p>用于简化代码。提高代码复用率。</p>
-<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
-<p>V:view            视图</p>
-<p>C:controller 控制器</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>M(model)</th>
-<th>V(view)</th>
-<th>C(controller)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>模型</td>
-<td>视图</td>
-<td>控制器</td>
-</tr>
-<tr>
-<td>模型表示企业数据和业务规则</td>
-<td>视图是用户看到并与之交互的界面</td>
-<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
-<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
-<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
-<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
-    加载 --> 初始化
-    初始化--> 服务
-    服务 --> 销毁
-    销毁 --> 卸载
-subgraph   
-    服务-.-服务是最关键的,包含了doGet和doPost方法.
-end</pre>
-
-<p>通过a href=”servlet的类名”访问.</p>
-<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
-<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
-<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
-<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
-    interface/servlet-->GenericServlet
-    GenericServlet-->HttpServlet
-    interface/ServletConfig-->GenericServlet
-    HttpServlet-->servlet类</pre>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
-<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
 ]]></content>
   </entry>
   <entry>
@@ -1055,6 +1055,13 @@ end</pre>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [10,2]</span><br><span class="line">输出: &quot;102&quot;</span><br></pre></td></tr></table></figure>
 <p>思路：自定义排序，将两个数拼接在一起，判断哪个数在前面更小。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">string</span> <span class="title">minNumber</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; nums)</span> </span>&#123;</span><br><span class="line">        <span class="built_in">vector</span>&lt;<span class="built_in">string</span>&gt; strs;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="keyword">int</span>&amp; num:nums)</span><br><span class="line">            strs.emplace_back(to_string(num));</span><br><span class="line">        sort(strs.begin(),strs.end(),[](<span class="built_in">string</span>&amp; a,<span class="built_in">string</span>&amp; b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a+b&lt;b+a;</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="built_in">string</span> ans=<span class="string">&quot;&quot;</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">const</span> <span class="built_in">string</span>&amp; str:strs)</span><br><span class="line">            ans+=str;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="构建乘积数组"><a href="#构建乘积数组" class="headerlink" title="构建乘积数组"></a><a href="https://leetcode-cn.com/problems/gou-jian-cheng-ji-shu-zu-lcof/">构建乘积数组</a></h4><p>给定一个数组 <code>A[0,1,…,n-1]</code>，请构建一个数组 <code>B[0,1,…,n-1]</code>，其中 <code>B[i]</code> 的值是数组 <code>A</code> 中除了下标 <code>i</code> 以外的元素的积, 即 <code>B[i]=A[0]×A[1]×…×A[i-1]×A[i+1]×…×A[n-1]</code>。<strong>不能使用除法。</strong></p>
+<p><strong>示例:</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [1,2,3,4,5]</span><br><span class="line">输出: [120,60,40,30,24]</span><br></pre></td></tr></table></figure>
+<p>思路：注意不能使用除法，而且就算使用除法也需要判断<code>A[i]</code>是不是等于0，</p>
+<p>可以分两次遍历完成，第一遍从前往后遍历把<code>A[0]×A[1]×…×A[i-1]</code>存入<code>B[i]</code></p>
+<p>第二遍从后往前遍历把<code>A[n-1]×A[n-2]×…×A[i+1]</code>乘上<code>B[i]</code>放入<code>B[i]</code></p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">constructArr</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp; a)</span> </span>&#123;</span><br><span class="line">        <span class="function"><span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt; <span class="title">ans</span><span class="params">(a.size())</span></span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>,base=<span class="number">1</span>;i&lt;a.size();++i)&#123;</span><br><span class="line">            ans[i]=base;</span><br><span class="line">            base*=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i=a.size()<span class="number">-1</span>,base=<span class="number">1</span>;i&gt;=<span class="number">0</span>;--i)&#123;</span><br><span class="line">            ans[i]=ans[i]*base;</span><br><span class="line">            base*=a[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> ans;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>算法</category>
