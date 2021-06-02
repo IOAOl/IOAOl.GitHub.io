@@ -161,83 +161,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hello World</title>
-    <url>/hello-world.html</url>
-    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
-
-<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/QQ截图20190815084633.png" alt="QQ截图20190815084633"></a></p>
-]]></content>
-  </entry>
-  <entry>
-    <title>jsp学习笔记</title>
-    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
-    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
-<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
-<p>javaBean可以分为两种：</p>
-<p>（1）封装数据的类。相当于数据库的表</p>
-<p>（2）封装逻辑的类。用于操作封装数据的类</p>
-<p>用于简化代码。提高代码复用率。</p>
-<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
-<p>V:view            视图</p>
-<p>C:controller 控制器</p>
-<div class="table-container">
-<table>
-<thead>
-<tr>
-<th>M(model)</th>
-<th>V(view)</th>
-<th>C(controller)</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>模型</td>
-<td>视图</td>
-<td>控制器</td>
-</tr>
-<tr>
-<td>模型表示企业数据和业务规则</td>
-<td>视图是用户看到并与之交互的界面</td>
-<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
-</tr>
-</tbody>
-</table>
-</div>
-<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
-<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
-<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
-<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
-    加载 --> 初始化
-    初始化--> 服务
-    服务 --> 销毁
-    销毁 --> 卸载
-subgraph   
-    服务-.-服务是最关键的,包含了doGet和doPost方法.
-end</pre>
-
-<p>通过a href=”servlet的类名”访问.</p>
-<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
-<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
-<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
-<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
-    interface/servlet-->GenericServlet
-    GenericServlet-->HttpServlet
-    interface/ServletConfig-->GenericServlet
-    HttpServlet-->servlet类</pre>
-
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
-<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
-]]></content>
-  </entry>
-  <entry>
     <title>hexo+github博客域名配置</title>
     <url>/hexo-github%E5%8D%9A%E5%AE%A2%E5%9F%9F%E5%90%8D%E9%85%8D%E7%BD%AE.html</url>
     <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
@@ -320,6 +243,83 @@ end</pre>
 <p>设置方法<br>添加如下两条解析记录。</p>
 <p>放大查看<br>主机记录    记录值<br>@    0 issue “symantec.com”<br>@    0 iodef “mailto:admin@dns-example.com”<br>CAA 1<br>CAA2</p>
 <h6 id="PTR记录"><a href="#PTR记录" class="headerlink" title="PTR记录"></a>PTR记录</h6><p>反向解析则是指将IP地址映射到域名上，需要您与IDC机房或主机服务商联系实现。</p>
+]]></content>
+  </entry>
+  <entry>
+    <title>Hello World</title>
+    <url>/hello-world.html</url>
+    <content><![CDATA[<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+
+<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html">Deployment<img src="/QQ截图20190815084633.png" alt="QQ截图20190815084633"></a></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>jsp学习笔记</title>
+    <url>/jsp%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0.html</url>
+    <content><![CDATA[<p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
+<h4 id="Jsp学习笔记"><a href="#Jsp学习笔记" class="headerlink" title="Jsp学习笔记"></a>Jsp学习笔记</h4><h5 id="JavaBean"><a href="#JavaBean" class="headerlink" title="JavaBean"></a>JavaBean</h5><p>定义：一个public修饰的java类，提供无参构造方法，并且类的属性都为private，属性都提供get/set方法。</p>
+<p>javaBean可以分为两种：</p>
+<p>（1）封装数据的类。相当于数据库的表</p>
+<p>（2）封装逻辑的类。用于操作封装数据的类</p>
+<p>用于简化代码。提高代码复用率。</p>
+<h5 id="MVC设计模式"><a href="#MVC设计模式" class="headerlink" title="MVC设计模式"></a>MVC设计模式</h5><p>M:model        模型</p>
+<p>V:view            视图</p>
+<p>C:controller 控制器</p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>M(model)</th>
+<th>V(view)</th>
+<th>C(controller)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>模型</td>
+<td>视图</td>
+<td>控制器</td>
+</tr>
+<tr>
+<td>模型表示企业数据和业务规则</td>
+<td>视图是用户看到并与之交互的界面</td>
+<td>控制器接受用户的输入并调用模型和视图去完成用户的需求</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>控制器调控模型和视图之间。不同的视图请求会由控制器选择不同的模型完成。</p>
+<p>jsp+javabean+serlvet就是典型的MVC模型。</p>
+<h5 id="servlvet类"><a href="#servlvet类" class="headerlink" title="servlvet类"></a>servlvet类</h5><p>继承javax.servlet.http.HttpServlet的类，注意重写doGet和doPost方法</p>
+<h6 id="serlet的执行流程"><a href="#serlet的执行流程" class="headerlink" title="serlet的执行流程"></a>serlet的执行流程</h6><pre class="mermaid">graph LR
+    加载 --> 初始化
+    初始化--> 服务
+    服务 --> 销毁
+    销毁 --> 卸载
+subgraph   
+    服务-.-服务是最关键的,包含了doGet和doPost方法.
+end</pre>
+
+<p>通过a href=”servlet的类名”访问.</p>
+<p>在serlert2.5中通过serlvet-mapping通过serlvet映射到servlet的地址</p>
+<p>3.0以上的版本通过@WebServlet(“/地址”)来指定servlet类</p>
+<p>通过localhost:8080/项目名/地址可以访问到该servlet</p>
+<h6 id="servlet的继承关系"><a href="#servlet的继承关系" class="headerlink" title="servlet的继承关系"></a>servlet的继承关系</h6><pre class="mermaid">graph TB
+    interface/servlet-->GenericServlet
+    GenericServlet-->HttpServlet
+    interface/ServletConfig-->GenericServlet
+    HttpServlet-->servlet类</pre>
+
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(ServletRequest req, ServletResponse res)</span></span></span><br></pre></td></tr></table></figure>
+<p>service方法在service中，在GenericServlet抽象继承，HttpServlet中参数类型强转为</p>
 ]]></content>
   </entry>
   <entry>
@@ -1181,6 +1181,14 @@ end</pre>
 <p>按结束时间排序，然后遍历修课程</p>
 <p>那么当修了前面时间早的课程，时间超过了当前想要修的课程的时候，必须要丢一个课程，那么可以从前面修的课程里面挑一个用时最长的课程跟现在的课程比较，修二者时间短的课程，方便后面修其他课程。</p>
 <figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">scheduleCourse</span><span class="params">(<span class="built_in">vector</span>&lt;<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&gt;&amp; courses)</span> </span>&#123;</span><br><span class="line">        sort(courses.begin(),courses.end(),[&amp;](<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;a,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;&amp;b)&#123;</span><br><span class="line">            <span class="keyword">return</span> a[<span class="number">1</span>]&lt;b[<span class="number">1</span>];</span><br><span class="line">        &#125;);			<span class="comment">//按结束时间排序</span></span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;<span class="keyword">int</span> ,<span class="built_in">vector</span>&lt;<span class="keyword">int</span>&gt;,less&lt;<span class="keyword">int</span>&gt;&gt; pque;<span class="comment">//大顶堆存放修的课程的用时</span></span><br><span class="line">        <span class="keyword">int</span> time=<span class="number">0</span>;				<span class="comment">//当前时间</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; x:courses)&#123;</span><br><span class="line">            time+=x[<span class="number">0</span>];			<span class="comment">//选择修现在的课程</span></span><br><span class="line">            pque.push(x[<span class="number">0</span>]);	<span class="comment">//将现在的课程时间放入堆</span></span><br><span class="line">            <span class="keyword">if</span>(time&gt;x[<span class="number">1</span>])&#123;		<span class="comment">//如果现在的课程修不了</span></span><br><span class="line">                time-=pque.top();	<span class="comment">//删除修的课程最大的</span></span><br><span class="line">                pque.pop();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> pque.size(); 	<span class="comment">//堆的元素数量就是答案</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="链表"><a href="#链表" class="headerlink" title="链表"></a>链表</h2><h3 id="hard-7"><a href="#hard-7" class="headerlink" title="hard"></a>hard</h3><h4 id="合并K个升序链表"><a href="#合并K个升序链表" class="headerlink" title="合并K个升序链表"></a><a href="https://leetcode-cn.com/problems/merge-k-sorted-lists/">合并K个升序链表</a></h4><p>给你一个链表数组，每个链表都已经按升序排列。</p>
+<p>请你将所有链表合并到一个升序链表中，返回合并后的链表。</p>
+<p><strong>示例 1：</strong></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入：lists &#x3D; [[1,4,5],[1,3,4],[2,6]]</span><br><span class="line">输出：[1,1,2,3,4,4,5,6]</span><br></pre></td></tr></table></figure>
+<p>思路1：将所有的链头放入小顶堆，每次选堆里最小的链头，连接到答案链表的尾部，选的链头如果还有后序节点，继续放入后序节点的链头。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">auto</span> cmp=[](ListNode* &amp; l1,ListNode* &amp; l2)&#123;<span class="keyword">return</span> l1-&gt;val&gt;l2-&gt;val;&#125;;</span><br><span class="line">        <span class="comment">//自定义比较函数的小顶堆</span></span><br><span class="line">        <span class="built_in">priority_queue</span>&lt;ListNode*, <span class="built_in">vector</span>&lt;ListNode*&gt;,<span class="keyword">decltype</span>(cmp)&gt; pque(cmp);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">auto</span>&amp; <span class="built_in">list</span>:lists)&#123;<span class="comment">//加入所有链表头</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">list</span>)&#123;</span><br><span class="line">                pque.push(<span class="built_in">list</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        ListNode* head=<span class="keyword">new</span> ListNode();<span class="comment">//哨兵链表头</span></span><br><span class="line">        ListNode* cur=head;</span><br><span class="line">        <span class="keyword">while</span>(!pque.empty())&#123;</span><br><span class="line">            cur-&gt;next=pque.top();<span class="comment">//往队尾加</span></span><br><span class="line">            pque.pop();</span><br><span class="line">            cur=cur-&gt;next;	</span><br><span class="line">            <span class="keyword">if</span>(cur-&gt;next)&#123;		<span class="comment">//还有后续节点</span></span><br><span class="line">                pque.push(cur-&gt;next);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head-&gt;next;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>思路2：分治链表，将所有链表两两合并，合并的链表再次两两合并，如此类推。</p>
+<figure class="highlight c++"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeKLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> mergeLists(lists,<span class="number">0</span>,lists.size()<span class="number">-1</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeLists</span><span class="params">(<span class="built_in">vector</span>&lt;ListNode*&gt;&amp; lists,<span class="keyword">int</span> left,<span class="keyword">int</span> right)</span></span>&#123;<span class="comment">//分治k个链表</span></span><br><span class="line">        <span class="keyword">if</span>(left==right)</span><br><span class="line">            <span class="keyword">return</span> lists[left];</span><br><span class="line">        <span class="keyword">if</span>(left&gt;right) 				<span class="comment">//注意这里返回空</span></span><br><span class="line">            <span class="keyword">return</span> <span class="literal">nullptr</span>;</span><br><span class="line">        <span class="keyword">int</span> mid=left+(right-left)/<span class="number">2</span>;</span><br><span class="line">        <span class="keyword">return</span> mergeTwoLists(mergeLists(lists,left,mid),mergeLists(lists,mid+<span class="number">1</span>,right));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function">ListNode* <span class="title">mergeTwoLists</span><span class="params">(ListNode* l1,ListNode* l2)</span></span>&#123;			<span class="comment">//递归合并两个链表</span></span><br><span class="line">        <span class="keyword">if</span>(l1&amp;&amp;l2)&#123;</span><br><span class="line">            <span class="keyword">if</span>(l1-&gt;val&gt;l2-&gt;val)&#123;</span><br><span class="line">                l2-&gt;next=mergeTwoLists(l1,l2-&gt;next);</span><br><span class="line">                <span class="keyword">return</span> l2;</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">                l1-&gt;next=mergeTwoLists(l1-&gt;next,l2);</span><br><span class="line">                <span class="keyword">return</span> l1;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">            <span class="keyword">return</span> (l1==<span class="literal">nullptr</span>)?l2:l1;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><h3 id="medium-11"><a href="#medium-11" class="headerlink" title="medium"></a>medium</h3><h4 id="把数组排成最小的数"><a href="#把数组排成最小的数" class="headerlink" title="把数组排成最小的数"></a><a href="https://leetcode-cn.com/problems/ba-shu-zu-pai-cheng-zui-xiao-de-shu-lcof/">把数组排成最小的数</a></h4><p>输入一个非负整数数组，把数组里所有数字拼接起来排成一个数，打印能拼接出的所有数字中最小的一个。</p>
 <p><strong>示例 1:</strong></p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">输入: [10,2]</span><br><span class="line">输出: &quot;102&quot;</span><br></pre></td></tr></table></figure>
