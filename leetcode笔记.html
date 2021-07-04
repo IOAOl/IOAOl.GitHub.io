@@ -12,12 +12,12 @@
 
   <link rel="shortcut icon" href="/images/favicon.png">
   <link rel="alternate" href="/atom.xml" title="IOAOl的记lu" type="application/atom+xml">
-  <meta name="description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。 栈Easy删除最外层的括号有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。 如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其为原">
+  <meta name="description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权联删。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="leetcode笔记">
 <meta property="og:url" content="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">
 <meta property="og:site_name" content="IOAOl的记lu">
-<meta property="og:description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。 栈Easy删除最外层的括号有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。 如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其为原">
+<meta property="og:description" content="以下题目均为leetcode的题目，仅作为个人笔记，侵权联删。">
 <meta property="og:locale">
 <meta property="og:image" content="https://s3-lc-upload.s3.amazonaws.com/uploads/2018/07/16/tree.png">
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/binarysearchtree_improved.png">
@@ -28,7 +28,7 @@
 <meta property="og:image" content="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/12/14/160_statement.png">
 <meta property="og:image" content="https://i.loli.net/2021/06/12/TSm8l7rUWPzQBXn.png">
 <meta property="article:published_time" content="2021-04-21T09:01:13.000Z">
-<meta property="article:modified_time" content="2021-06-24T11:08:30.110Z">
+<meta property="article:modified_time" content="2021-07-04T06:33:36.409Z">
 <meta property="article:author" content="IOAOl">
 <meta property="article:tag" content="动态规划">
 <meta property="article:tag" content="栈">
@@ -76,7 +76,7 @@
     <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-drawer="{target: '#sidebar', swipe: true}"><i class="mdui-icon material-icons">menu</i></a>
     <a href="/" class="mdui-typo-headline">IOAOl的记lu</a>
     <div class="mdui-toolbar-spacer"></div>
-    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: 'Search'}"><i class="mdui-icon material-icons">search</i></a>
+    <a href="javascript:;" class="mdui-btn mdui-btn-icon" mdui-dialog="{target: '#search'}" mdui-tooltip="{content: '搜索'}"><i class="mdui-icon material-icons">search</i></a>
     <a href="/atom.xml" class="mdui-btn mdui-btn-icon" mdui-tooltip="{content: 'RSS'}"><i class="mdui-icon material-icons">rss_feed</i></a>
   </div>
 </header>
@@ -108,12 +108,12 @@
   <div class="mdui-list" mdui-collapse="{accordion: true}">
     <a href="/" class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-blue">home</i>
-      <div class="mdui-list-item-content">Home</div>
+      <div class="mdui-list-item-content">主页</div>
     </a>
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">inbox</i>
-        <div class="mdui-list-item-content">Archive</div>
+        <div class="mdui-list-item-content">归档</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -125,7 +125,7 @@
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-green">chrome_reader_mode</i>
-        <div class="mdui-list-item-content">Category</div>
+        <div class="mdui-list-item-content">分类</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -137,7 +137,7 @@
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
         <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-brown">bookmark</i>
-        <div class="mdui-list-item-content">Tag</div>
+        <div class="mdui-list-item-content">标签</div>
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -148,7 +148,7 @@
     </div>
     <a href="/about" class="mdui-list-item mdui-ripple">
       <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-purple">person</i>
-      <div class="mdui-list-item-content">About</div>
+      <div class="mdui-list-item-content">关于</div>
     </a>
   </div>
 
@@ -162,7 +162,7 @@
     
     <div class="mdui-collapse-item">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <div class="mdui-list-item-content">Links</div>
+        <div class="mdui-list-item-content">友情链接</div>
         <i class="mdui-list-item-icon mdui-icon material-icons">link</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list mdui-list-dense">
@@ -195,7 +195,7 @@
   <style>#main article .mdui-card-content .center-block{display:block!important;margin-right:auto!important;margin-left:auto!important}</style>
   <article class="mdui-card mdui-m-b-5">
     <header class="mdui-card-media">
-       <!- <img src="/images/random/material-14.png" style="max-height: 240px;">
+       <!- <img src="/images/random/material-12.png" style="max-height: 240px;">
       <!- <img src=" http://api.dujin.org/bing/1366.php" style="max-height: 240px;">
       <img src="https://picsum.photos/900/240?random" style="max-height: 240px;">
       <div class="mdui-card-media-covered">
@@ -222,25 +222,25 @@
           <button class="mdui-btn mdui-btn-icon mdui-text-color-white" mdui-menu="{target: '#share_menu', align: 'right'}"><i class="mdui-icon material-icons">share</i></button>
           <ul class="mdui-menu" id="share_menu">
             <li class="mdui-menu-item">
-              <a href="http://service.weibo.com/share/share.php?appkey=&title=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&pic=http://ioaol.top/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">Share to Weibo</a>
+              <a href="http://service.weibo.com/share/share.php?appkey=&title=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&pic=http://ioaol.top/images/favicon.png&searchPic=false&style=simple" target="_blank" class="mdui-ripple">分享到 Weibo</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://twitter.com/intent/tweet?text=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&via=IOAOl" target="_blank" class="mdui-ripple">Share to Twitter</a>
+              <a href="https://twitter.com/intent/tweet?text=leetcode笔记&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&via=IOAOl" target="_blank" class="mdui-ripple">分享到 Twitter</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to Facebook</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">分享到 Facebook</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://plus.google.com/share?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to Google+</a>
+              <a href="https://plus.google.com/share?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">分享到 Google+</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&title=leetcode笔记" target="_blank" class="mdui-ripple">Share to LinkedIn</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&title=leetcode笔记" target="_blank" class="mdui-ripple">分享到 LinkedIn</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=leetcode笔记&pics=http://ioaol.top/images/favicon.png&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">Share to QQ</a>
+              <a href="http://connect.qq.com/widget/shareqq/index.html?site=IOAOl的记lu&title=leetcode笔记&pics=http://ioaol.top/images/favicon.png&url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html" target="_blank" class="mdui-ripple">分享到 QQ</a>
             </li>
             <li class="mdui-menu-item">
-              <a href="https://telegram.me/share/url?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&text=leetcode笔记" target="_blank" class="mdui-ripple">Share to Telegram</a>
+              <a href="https://telegram.me/share/url?url=http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html&text=leetcode笔记" target="_blank" class="mdui-ripple">分享到 Telegram</a>
             </li>
           </ul>
         
@@ -248,7 +248,12 @@
     </header>
     <div class="mdui-card-content mdui-typo">
       <p><meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"></p>
-<p><meta name="referrer" content="no-referrer"><br><strong>以下题目均为leetcode的题目，仅作为个人笔记，侵权必删。</strong></p>
+<meta name="referrer" content="no-referrer">
+
+
+
+<p><strong>以下题目均为leetcode的题目，仅作为个人笔记，侵权联删。</strong></p>
+<a id="more"></a>
 <h2 id="栈"><a href="#栈" class="headerlink" title="栈"></a>栈</h2><h3 id="Easy"><a href="#Easy" class="headerlink" title="Easy"></a>Easy</h3><h4 id="删除最外层的括号"><a href="#删除最外层的括号" class="headerlink" title="删除最外层的括号"></a><a href="https://leetcode-cn.com/problems/remove-outermost-parentheses">删除最外层的括号</a></h4><p>有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。</p>
 <p>如果有效字符串 S 非空，且不存在将其拆分为 S = A+B 的方法，我们称其为原语（primitive），其中 A 和 B 都是非空有效括号字符串。</p>
 <p>给出一个非空有效字符串 S，考虑将其进行原语化分解，使得：S = P_1 + P_2 + … + P_k，其中 P_i 是有效括号字符串原语。</p>
@@ -1102,7 +1107,7 @@
 
       <blockquote class="mdui-m-t-5">
         
-        <strong>PermaLink: </strong><br><a href="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html</a>
+        <strong>本文链接：</strong><br><a href="http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html">http://ioaol.top/leetcode%E7%AC%94%E8%AE%B0.html</a>
       </blockquote>
       
     </div>
@@ -1127,13 +1132,13 @@
     
       <a rel="prev" class="extend prev" href="/%E6%8E%92%E5%BA%8F%E4%B8%93%E9%A2%98.html">
         <button aria-label="prev" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_back</i></button>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Prev
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;上一篇
       </a>
     
     <div class="spacer"></div>
     
       <a rel="next" class="extend next" href="/%E6%A8%B1%E4%B9%8B%E8%AF%97%E6%84%9F%E6%83%B3.html">
-        Next&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        下一篇&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <button aria-label="next" class="mdui-btn mdui-btn-raised mdui-btn-dense mdui-btn-icon mdui-color-theme-accent mdui-ripple"><i class="mdui-icon material-icons">arrow_forward</i></button>
       </a>
     
